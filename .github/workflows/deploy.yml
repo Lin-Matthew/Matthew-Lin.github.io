@@ -3,7 +3,7 @@ name: Deploy Hugo site to Pages
 on:
   push:
     branches:
-      - master# 监测 master分支的推进行动
+      - master  # 监测 master分支的推进行动
 
 permissions:
   contents: read
