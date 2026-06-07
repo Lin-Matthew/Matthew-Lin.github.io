@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://localhost:1313//img/home-bg-elsa.png">
-    <meta property="twitter:image" content="http://localhost:1313//img/home-bg-elsa.png" />
+    <meta property="og:image" content="http://localhost:1313//img/home-bg-elsa2.png">
+    <meta property="twitter:image" content="http://localhost:1313//img/home-bg-elsa2.png" />
     
 
     
@@ -164,8 +164,8 @@
                         
                         var theme = localStorage.getItem('cleanwhite-theme');
 						if (!theme) {
-							theme = 'dark';
-							localStorage.setItem('cleanwhite-theme', 'dark');
+							theme = 'light';
+							localStorage.setItem('cleanwhite-theme', 'light');
 						}
 						
                         var toggleBtn = document.getElementById('theme-toggle');
@@ -247,7 +247,7 @@
 </script>
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-elsa.png'); 
+<header class="intro-header" style="background-image: url('/img/home-bg-elsa2.png'); 
 	height: 200px !important; 
 	display: flex !important; 
 	align-items: center !important; 
@@ -258,7 +258,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading" style="padding: 0 !important; margin: 0 !important; text-align: center !important;">
-                    <h1>林修的博客 </h1>
+                    
                     
 		    <span class="subheading"></span>
                 </div>
@@ -395,13 +395,29 @@
             
             
                
+                    <a href="/tags/go" title="go">
+                        go
+                    </a>
+               
             
+               
+                    <a href="/tags/istio" title="istio">
+                        istio
+                    </a>
                
             
                
             
                
+                    <a href="/tags/service-mesh" title="service mesh">
+                        service mesh
+                    </a>
+               
             
+               
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2" title="博客">
+                        博客
+                    </a>
                
             
         </div>
@@ -429,6 +445,8 @@
         <ul>
         
             <li><a href="/post/my-first-post/">My First Post</a></li>
+        
+            <li><a href="/post/my-first-post2/">My Second Post</a></li>
         
             <li><a href="/2018/01/02/nginmesh-install/">Nginx开源Service Mesh组件Nginmesh安装指南</a></li>
         

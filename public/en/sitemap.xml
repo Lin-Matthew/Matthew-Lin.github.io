@@ -3,10 +3,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/2018/01/02/nginmesh-install/</loc>
-    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/en/categories/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -18,7 +16,11 @@
                 href="http://localhost:1313/en/categories/"
                 />
   </url><url>
+    <loc>http://localhost:1313/2018/01/02/nginmesh-install/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/en/tags/istio/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -31,6 +33,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -43,6 +46,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/nginmesh/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -55,6 +59,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/post/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -67,6 +72,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/service-mesh/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -79,6 +85,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -91,6 +98,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/en/categories/tech/</loc>
+    <lastmod>2018-01-02T12:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"

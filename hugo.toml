@@ -70,7 +70,7 @@ home = ["HTML", "RSS", "algolia"]
       href = "about/"
 	
 [params]
-  header_image = "img/home-bg-elsa.png"
+  header_image = "img/home-bg-elsa2.png"
   SEOTitle = "Matthew Lin的博客 | Lin Matthew Blog"
   description = "nothing special about Matthew Lin."
   keyword = ""
