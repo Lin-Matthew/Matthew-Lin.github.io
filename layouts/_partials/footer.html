@@ -489,11 +489,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 30px; opacity: 0.6;">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="searchModalLabel" style="text-align: center; font-weight: bold; color: #333;">搜索文章</h4>
+                <h4 class="modal-title" id="searchModalLabel" style="text-align: center; font-weight: bold; color: #333;">{{ i18n "search_title" }}</h4>
             </div>
             <div class="modal-body" style="padding: 20px;">
                 <div class="form-group" style="margin-bottom: 20px;">
-                    <input type="text" class="form-control" id="local-search-input" placeholder="输入关键词，秒速搜索文章..." style="height: 45px; font-size: 16px; border-radius: 4px;">
+                    <input type="text" class="form-control" id="local-search-input" placeholder="{{ i18n "search_placeholder" }}" style="height: 45px; font-size: 16px; border-radius: 4px;">
                 </div>
                 <div id="local-search-result" style="max-height: 350px; overflow-y: auto;"></div>
             </div>
@@ -507,6 +507,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var resultArea = document.getElementById('local-search-result');
 
     if (!searchInput || !resultArea) return;
+
+    // 🌟 新增：检测当前是否为英文环境，并定义动态提示词
+    var isEnglish = window.location.pathname.startsWith('/en/');
+    var labels = {
+        noResults: isEnglish ? 'No matches found ╮(╯▽╰)╭' : '没有找到符合条件的文章 ╮(╯▽╰)╭',
+        failLoad: isEnglish ? 'Search index failed to load. Ensure search.json is accessible.' : '搜索内核加载失败，请确保本地 search.json 可访问'
+    };
 
     // 监听输入框的键盘输入事件
     searchInput.addEventListener('input', function () {
@@ -536,7 +543,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // 渲染结果到界面上
                 if (hits.length === 0) {
-                    resultArea.innerHTML = '<p style="text-align:center; color:#999; padding: 20px;">没有找到符合条件的文章 ╮(╯▽╰)╭</p>';
+                    // 🌟 修改：使用自适应的无结果提示词
+                    resultArea.innerHTML = '<p style="text-align:center; color:#999; padding: 20px;">' + labels.noResults + '</p>';
                 } else {
                     var html = '<ul style="list-style: none; padding: 0; margin: 0;">';
                     hits.forEach(function (hit) {
@@ -554,23 +562,19 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(function (err) {
                 console.error("搜索索引加载失败:", err);
-                resultArea.innerHTML = '<p style="text-align:center; color:red; padding: 20px;">搜索内核加载失败，请确保本地 search.json 可访问</p>';
+                // 🌟 修改：使用自适应的加载失败提示词
+                resultArea.innerHTML = '<p style="text-align:center; color:red; padding: 20px;">' + labels.failLoad + '</p>';
             });
     });
 	
 	// ==========================================
-    // 🌟 强行拦截顶栏搜索按钮，改为弹出你写的这个模态窗 🌟
+    // 强行拦截顶栏搜索按钮，改为弹出你写的这个模态窗
     // ==========================================
-    // CleanWhite 主题顶栏的搜索按钮通常带有 class "search-icon" 或 id "search_btn"
-    // 我们用一个最稳妥的选择器：直接抓取 href 包含 '/search' 的那个点击按钮
     var searchTrigger = document.querySelector('nav a[href*="/search"]') || document.querySelector('.search-icon');
     
     if (searchTrigger) {
         searchTrigger.addEventListener('click', function (e) {
-            e.preventDefault(); // 1. 核心：死死按住链接，绝对不让它跳转到 /search 路由！
-            
-            // 2. 触发 Bootstrap 模态窗（利用你上面写的 id="searchModal"）
-            // 因为 CleanWhite 主题自带了 jQuery 和 Bootstrap.js，直接用下面这行就能优雅弹窗：
+            e.preventDefault(); 
             $('#searchModal').modal('show'); 
         });
     }
