@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true  # 核心：如果上一次还没跑完，你又推了新的，直接掐断旧的，只跑最新的！
 
 defaults:
   run:
