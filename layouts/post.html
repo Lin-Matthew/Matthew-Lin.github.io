@@ -1,0 +1,218 @@
+{{ define "header" }}
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header {
+        background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}');
+        
+        /* 1. 把固定高度放宽到 240px，给两行长标题留出呼吸空间 */
+        height: 240px !important;       
+        min-height: auto !important;    
+        
+        /* 2. 🌟 核心修正：不再使用绝对的居中，而是靠 Flex 顶端对齐加内边距，完美避开导航栏 */
+        display: flex !important;
+        align-items: flex-start !important; /* 从顶部开始排列 */
+        justify-content: center !important;
+        
+        /* 3. 🌟 核心修正：65px 是给顶部导航栏预留的绝对安全底线，内容会从导航栏下方开始显示 */
+        padding-top: 65px !important;   
+        padding-bottom: 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 4. 降伏内部文字容器 */
+    header.intro-header .post-heading {
+        padding: 0 !important;          
+        margin: 0 !important;           
+        width: 100% !important;         
+        text-align: center !important;  
+    }
+
+    /* 5. 🌟 核心修正：缩减标签区域的下边距，防止它把标题往下推 */
+    header.intro-header .post-heading .tags {
+        margin-bottom: 5px !important;
+    }
+    header.intro-header .post-heading .tags .tag {
+        font-size: 12px !important;    /* 标签字号稍微精致一点 */
+        padding: 3px 10px !important;
+    }
+
+    /* 6. 🌟 核心修正：针对两行长标题，将字号从默认的极大号缩减到 24px，并压缩行高 */
+    header.intro-header .post-heading h1 {
+        font-size: 24px !important;     /* 适度减小字号，长标题两行也能完美塞下 */
+        line-height: 1.3 !important;    /* 紧凑行高，防止字重叠或间距过大 */
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 7. 副标题微调 */
+    header.intro-header .post-heading .subheading {
+        font-size: 16px !important;     
+        margin-bottom: 5px !important;
+    }
+
+    /* 8. 🌟 核心修正：把底部的作者和日期信息稍微往上提提，防止漏出边界 */
+    header.intro-header .post-heading .meta {
+        font-size: 13px !important;     
+        display: block !important;
+        margin-top: 2px !important;
+    }
+</style>
+{{ if eq .Params.headerstyle "text" }}
+<header class="intro-header style-text" >
+{{ else }}
+<header class="intro-header" >
+{{ end }}
+    <div class="container" style="width: 100% !important;">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        {{ range .Params.tags }}
+                        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+                            {{ . }}
+                        </a>
+                        {{ end }}
+                    </div>
+                    <h1>{{ .Title }}</h1>
+                    <h2 class="subheading">{{ .Params.subtitle }}</h2>
+                    <span class="meta">
+                        {{ if .Params.metadata }}
+                            {{ range $index, $element := .Params.metadata }}
+                                {{ if .link }}
+                                    <a href="{{ .link }}">{{ .text }}</a>
+                                {{ else }}
+                                    {{ .text }}
+                                {{ end }}
+                            {{ end }}
+                        {{ else }}
+                            Posted by 
+                            {{ if .Params.author }}
+                                {{ .Params.author }}
+                            {{ else }}
+                                    {{ .Site.Title }}
+                            {{ end }} 
+                            on 
+                            {{ .Date.Format "Monday, January 2, 2006" }}
+                            {{ if .Site.Params.page_view_counter }}
+                                {{ partial "page_view_counter.html" . }}
+                            {{ end }}
+                            <!-- Don't show "Last Modified on" if update happened on the same day. -->
+                            {{ if (and (not .Lastmod.IsZero) (not (eq (dateFormat "2006-01-02" .Lastmod) (dateFormat "2006-01-02" .Date)))) }}
+                            <br>Last Modified on {{ dateFormat "Monday, January 2, 2006" .Params.LastMod }}
+                            {{ end }}
+                        {{ end }}    
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!--
+                {{ if not (eq (.Param "showtoc") false) }}
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                {{.TableOfContents}}
+                {{ end }}
+                -->
+                {{ .Content }}
+
+                {{ if .Site.Params.reward }}
+                {{ partial "reward.html" . }}
+                {{ end }}
+
+                {{ if or (.PrevInSection) (.NextInSection) }}
+                <hr>
+                <ul class="pager">
+                    {{ if .PrevInSection }}
+                    <li class="previous">
+                        <a href="{{ .PrevInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title}}">&larr;
+                            Previous Post</a>
+                    </li>
+                    {{ end }}
+                    {{ if .NextInSection }}
+                    <li class="next">
+                        <a href="{{ .NextInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title}}">Next
+                            Post &rarr;</a>
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+
+                {{ partial "comments.html" . }}
+            </div>
+
+            <!-- Side Catalog Container -->
+            {{ if not (eq (.Param "showtoc") false) }}
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            {{ end }}
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                {{ if .Site.Params.featured_tags }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        {{ $featured_condition_size := .Site.Params.featured_condition_size }}
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" title="{{ $name }}">
+                            {{ $name }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+
+                <!-- Friends Blog -->
+                {{ if .Site.Params.friends }}
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        {{ range .Site.Params.friend_link }}
+                        <li><a target="_blank" href="{{.href}}">{{.title}}</a></li>
+                        {{ end }}
+                    </ul>
+                </section>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</article>
+
+{{ end }}

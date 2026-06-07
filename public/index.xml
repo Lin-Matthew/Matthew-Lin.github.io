@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Matthew Blog</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content on Matthew Blog</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 06 Jun 2026 20:51:44 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>My First Post</title>
+				<link>http://localhost:1313/post/my-first-post/</link>
+				<pubDate>Sat, 06 Jun 2026 20:51:44 +0800</pubDate>
+				<guid>http://localhost:1313/post/my-first-post/</guid>
+				<description>&lt;p&gt;这里开始写你的正文&amp;hellip;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Nginx开源Service Mesh组件Nginmesh安装指南</title>
+				<link>http://localhost:1313/2018/01/02/nginmesh-install/</link>
+				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2018/01/02/nginmesh-install/</guid>
+				<description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/about/</guid>
+				<description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Huabing Zhao&lt;/em&gt;&lt;/strong&gt; is a software architect, an Istio Member and an ONAP PTL. He has a solid experience in the information and telecommunication technology industry for more than 17 years.&lt;/p&gt;&#xA;&lt;p&gt;Throughout his career, he has built a number of large-scale, cross-country software systems, most of them are still running in production.&lt;/p&gt;&#xA;&lt;p&gt;He loves open source and has been contributing to various open source projects, he is a member of Istio,  previous PTL of ONAP, the author of the Hugo clean-white theme and the open source project Aeraki Mesh.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/notes/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/notes/</guid>
+				<description>&lt;h2 id=&#34;go-语言学习笔记&#34;&gt;&lt;a href=&#34;https://zhaohuabing.com/learning-golang&#34;&gt;Go 语言学习笔记&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;envoy-学习笔记&#34;&gt;&lt;a href=&#34;https://zhaohuabing.com/learning-envoy&#34;&gt;Envoy 学习笔记&lt;/a&gt;&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/search/placeholder/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/search/placeholder/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Posts Archive</title>
+				<link>http://localhost:1313/archive/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/archive/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>
