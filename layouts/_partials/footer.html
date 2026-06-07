@@ -516,7 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (keywords.length <= 0) return;
 
         // 使用原生 Fetch API 强行抓取本地的 search.json 索引
-        fetch('{{ "algoliSearch.json" | absURL }}')
+        fetch('{{ "algolisearch.json.json" | absURL }}')
             .then(function (response) {
                 return response.json();
             })
