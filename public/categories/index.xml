@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Categories on Matthew Blog</title>
+		<title>Categories on 林修的博客</title>
 		<link>http://localhost:1313/categories/</link>
-		<description>Recent content in Categories on Matthew Blog</description>
+		<description>Recent content in Categories on 林修的博客</description>
 		<generator>Hugo</generator>
-		<language>en</language>
+		<language>zh-cn</language>
 		
 		
 		
@@ -14,10 +14,10 @@
 		
 			<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Tech</title>
-				<link>http://localhost:1313/categories/tech/</link>
+				<title>技术</title>
+				<link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</link>
 				<pubDate>Sat, 06 Jun 2026 20:51:44 +0800</pubDate>
-				<guid>http://localhost:1313/categories/tech/</guid>
+				<guid>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</guid>
 				<description></description>
 			</item>
 	</channel>

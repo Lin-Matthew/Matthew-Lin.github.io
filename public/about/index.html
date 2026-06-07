@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
     </script>
 
     
-    <meta property="og:site_name" content="Matthew Blog">
+    <meta property="og:site_name" content="林修的博客">
     <meta property="og:type" content="article">
 
     
@@ -110,7 +110,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Matthew Blog</a>
+            <a class="navbar-brand" href="/">林修的博客</a>
         </div>
 
         
@@ -119,22 +119,24 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">All Posts</a>
+                        
+						<a href="/">所有文章</a>
                     </li>
                     
                         
                         <li>
-                            <a href="/categories/tech/">tech</a>
+                            
+							<a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
                         </li>
                         
                     
 
 		    
-                        <li><a href="/archive//">ARCHIVE</a></li>
+                        <li><a href="/archive//">归档</a></li>
                     
-                        <li><a href="/notes//">NOTES</a></li>
+                        <li><a href="/notes//">笔记</a></li>
                     
-                        <li><a href="/about//">ABOUT</a></li>
+                        <li><a href="/about//">关于</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -147,12 +149,22 @@
                             <i class="fa fa-moon"></i>
                             <i class="fa fa-sun" style="display: none;"></i>
                         </a>
-		           </li>
+					</li>
+				   
+					<li>
+						<a href="#" id="lang-toggle-nav" title="切换语言 / Switch Language" style="opacity: 0; margin-left: 5px;">
+							<i class="fa fa-globe"></i>
+						</a>
+					</li>
                     <script>
                     (function() {
                         
-                        var theme = localStorage.getItem('cleanwhite-theme') ||
-                                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                        var theme = localStorage.getItem('cleanwhite-theme');
+						if (!theme) {
+							theme = 'dark';
+							localStorage.setItem('cleanwhite-theme', 'dark'); 
+						}
+						
                         var toggleBtn = document.getElementById('theme-toggle');
                         if (toggleBtn) {
                             var moonIcon = toggleBtn.querySelector('.fa-moon');
@@ -174,6 +186,45 @@
                                 toggleBtn.style.opacity = '1';
                             });
                         }
+						
+						
+						
+						
+						var langBtn = document.getElementById('lang-toggle-nav');
+						if (langBtn) {
+							
+							var currentPath = window.location.pathname;
+							
+							
+							var isEn = currentPath.startsWith('/en/') || currentPath === '/en';
+
+							
+							langBtn.setAttribute('title', isEn ? '切换为中文' : 'Switch to English');
+
+							langBtn.addEventListener('click', function (e) {
+								e.preventDefault();
+								
+								var targetUrl = window.location.origin;
+								
+								if (isEn) {
+									
+									var newPath = currentPath.replace(/^\/en/, '');
+									
+									if (newPath === '') newPath = '/';
+									window.location.href = targetUrl + newPath + window.location.search;
+								} else {
+									
+									var newPath = '/en' + currentPath;
+									window.location.href = targetUrl + newPath + window.location.search;
+								}
+							});
+
+							
+							requestAnimationFrame(function() {
+								langBtn.style.transition = 'opacity 0.2s ease';
+								langBtn.style.opacity = '1';
+							});
+						}
                     })();
                     </script>
                     
@@ -244,7 +295,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading" style="padding: 0 !important; margin: 0 !important; text-align: center !important;">
-                    <h1>Matthew Blog </h1>
+                    <h1>林修的博客 </h1>
                     
 		    <span class="subheading"></span>
                 </div>
@@ -396,9 +447,9 @@
 			<tr>
 					<td>2017</td>
 					<td>圣克拉拉</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Beijing+Release+Developer+Forum%2C+Dec.+11-13%2C+2017%2C+Santa+Clara%2C+CA+US">NAP Developer Forum</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Beijing&#43;Release&#43;Developer&#43;Forum%2C&#43;Dec.&#43;11-13%2C&#43;2017%2C&#43;Santa&#43;Clara%2C&#43;CA&#43;US">NAP Developer Forum</a></td>
 					<td><a href="https://onapbeijing2017.sched.com/event/D5q2">MSB to Support Carrier Grade ONAP Microservice Architecture with Service Mesh</a></td>
-					<td><a href="https://wiki.onap.org/display/DW/MSB+Service+Mesh+Planning?preview=%2F20873876%2F20873874%2FMSB+to+Support+Carrier+Grade+ONAP+Microservice+Architecture+with+Service+Mesh.pdf">下载</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/MSB&#43;Service&#43;Mesh&#43;Planning?preview=%2F20873876%2F20873874%2FMSB&#43;to&#43;Support&#43;Carrier&#43;Grade&#43;ONAP&#43;Microservice&#43;Architecture&#43;with&#43;Service&#43;Mesh.pdf">下载</a></td>
 					<td></td>
 			</tr>
 			<tr>
@@ -406,13 +457,13 @@
 					<td>圣克拉拉</td>
 					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017">ONS</a></td>
 					<td>Microservice Powered Orchestration</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017?preview=%2F3245268%2F3245309%2FMicroservice+Powered+Orchestration+Architecture.pdf">下载</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017?preview=%2F3245268%2F3245309%2FMicroservice&#43;Powered&#43;Orchestration&#43;Architecture.pdf">下载</a></td>
 					<td></td>
 			</tr>
 			<tr>
 					<td>2017</td>
 					<td>新泽西</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Project+Developer+Event%3A+May+2+-+5%2C+2017%2C+Middletown%2C+NJ%2C+USA">ONAP Developer Event</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Project&#43;Developer&#43;Event%3A&#43;May&#43;2&#43;-&#43;5%2C&#43;2017%2C&#43;Middletown%2C&#43;NJ%2C&#43;USA">ONAP Developer Event</a></td>
 					<td>MSB Technical Deep Dive and ONAP Use Cases</td>
 					<td><a href="https://www.slideshare.net/HuabingZhao/msb-depp-dive/">下载</a></td>
 					<td></td>
@@ -420,8 +471,8 @@
 			<tr>
 					<td>2017</td>
 					<td>巴黎</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Developer+Event+September+25-28%2C+2017%2C+Paris-Saclay%2C+France">ONAP Developer Event</a></td>
-					<td><a href="https://wiki.onap.org/display/DW/September+26-28+Topics#September2628Topics-M2">Microservice Bus Tutorial</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Developer&#43;Event&#43;September&#43;25-28%2C&#43;2017%2C&#43;Paris-Saclay%2C&#43;France">ONAP Developer Event</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/September&#43;26-28&#43;Topics#September2628Topics-M2">Microservice Bus Tutorial</a></td>
 					<td><a href="https://www.slideshare.net/HuabingZhao/microservice-bus-tutorial">下载</a></td>
 					<td></td>
 			</tr>
@@ -601,9 +652,9 @@
 			<tr>
 					<td>2017</td>
 					<td>Santa Clara</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Beijing+Release+Developer+Forum%2C+Dec.+11-13%2C+2017%2C+Santa+Clara%2C+CA+US">NAP Developer Forum</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Beijing&#43;Release&#43;Developer&#43;Forum%2C&#43;Dec.&#43;11-13%2C&#43;2017%2C&#43;Santa&#43;Clara%2C&#43;CA&#43;US">NAP Developer Forum</a></td>
 					<td><a href="https://onapbeijing2017.sched.com/event/D5q2">MSB to Support Carrier Grade ONAP Microservice Architecture with Service Mesh</a></td>
-					<td><a href="https://wiki.onap.org/display/DW/MSB+Service+Mesh+Planning?preview=%2F20873876%2F20873874%2FMSB+to+Support+Carrier+Grade+ONAP+Microservice+Architecture+with+Service+Mesh.pdf">Slides</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/MSB&#43;Service&#43;Mesh&#43;Planning?preview=%2F20873876%2F20873874%2FMSB&#43;to&#43;Support&#43;Carrier&#43;Grade&#43;ONAP&#43;Microservice&#43;Architecture&#43;with&#43;Service&#43;Mesh.pdf">Slides</a></td>
 					<td></td>
 			</tr>
 			<tr>
@@ -611,13 +662,13 @@
 					<td>Santa Clara</td>
 					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017">ONS</a></td>
 					<td>Microservice Powered Orchestration</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017?preview=%2F3245268%2F3245309%2FMicroservice+Powered+Orchestration+Architecture.pdf">Slides</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP@ONS2017?preview=%2F3245268%2F3245309%2FMicroservice&#43;Powered&#43;Orchestration&#43;Architecture.pdf">Slides</a></td>
 					<td></td>
 			</tr>
 			<tr>
 					<td>2017</td>
 					<td>New Jersey</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Project+Developer+Event%3A+May+2+-+5%2C+2017%2C+Middletown%2C+NJ%2C+USA">ONAP Developer Event</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Project&#43;Developer&#43;Event%3A&#43;May&#43;2&#43;-&#43;5%2C&#43;2017%2C&#43;Middletown%2C&#43;NJ%2C&#43;USA">ONAP Developer Event</a></td>
 					<td>MSB Technical Deep Dive and ONAP Use Cases</td>
 					<td><a href="https://www.slideshare.net/HuabingZhao/msb-depp-dive/">Slides</a></td>
 					<td></td>
@@ -625,8 +676,8 @@
 			<tr>
 					<td>2017</td>
 					<td>Paris</td>
-					<td><a href="https://wiki.onap.org/display/DW/ONAP+Developer+Event+September+25-28%2C+2017%2C+Paris-Saclay%2C+France">ONAP Developer Event</a></td>
-					<td><a href="https://wiki.onap.org/display/DW/September+26-28+Topics#September2628Topics-M2">Microservice Bus Tutorial</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/ONAP&#43;Developer&#43;Event&#43;September&#43;25-28%2C&#43;2017%2C&#43;Paris-Saclay%2C&#43;France">ONAP Developer Event</a></td>
+					<td><a href="https://wiki.onap.org/display/DW/September&#43;26-28&#43;Topics#September2628Topics-M2">Microservice Bus Tutorial</a></td>
 					<td><a href="https://www.slideshare.net/HuabingZhao/microservice-bus-tutorial">Slides</a></td>
 					<td></td>
 			</tr>
@@ -887,7 +938,7 @@
             
            
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="Matthew Blog" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="林修的博客" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
@@ -897,7 +948,7 @@
             
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Matthew Blog 2026
+                    Copyright &copy; 林修的博客 2026
                     
                     <br>
                     <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
@@ -1143,7 +1194,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (keywords.length <= 0) return;
 
         
-        fetch('/algoliSearch.json')
+        fetch('http:\/\/localhost:1313\/algolisearch.json')
             .then(function (response) {
                 return response.json();
             })
@@ -1184,6 +1235,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultArea.innerHTML = '<p style="text-align:center; color:red; padding: 20px;">搜索内核加载失败，请确保本地 search.json 可访问</p>';
             });
     });
+	
+	
+    
+    
+    
+    
+    var searchTrigger = document.querySelector('nav a[href*="/search"]') || document.querySelector('.search-icon');
+    
+    if (searchTrigger) {
+        searchTrigger.addEventListener('click', function (e) {
+            e.preventDefault(); 
+            
+            
+            
+            $('#searchModal').modal('show'); 
+        });
+    }
 });
 </script>
 

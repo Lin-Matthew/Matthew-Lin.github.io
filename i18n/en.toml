@@ -1,0 +1,27 @@
+[home]
+other = "Home"
+[archive]
+other = "Archive"
+[tags]
+other = "Tags"
+
+[nav_all_posts]
+other = "ALL POSTS"
+
+[tech]
+other = "TECH"
+
+[search_title]
+other = "Search Articles"
+
+[search_placeholder]
+other = "Type keywords to search posts..."
+
+[sidebar_featured_tags]
+other = "FEATURED TAGS"
+
+[sidebar_friends]
+other = "FRIENDS"
+
+[sidebar_last_posts]
+other = "LAST POSTS"

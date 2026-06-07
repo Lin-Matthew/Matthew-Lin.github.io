@@ -1,0 +1,27 @@
+[home]
+other = "首页"
+[archive]
+other = "归档"
+[tags]
+other = "标签"
+
+[nav_all_posts]
+other = "所有文章"
+
+[tech]
+other = "技术"
+
+[search_title]
+other = "搜索文章"
+
+[search_placeholder]
+other = "输入关键词，秒速搜索文章..."
+
+[sidebar_featured_tags]
+other = "推荐标签"
+
+[sidebar_friends]
+other = "友情链接"
+
+[sidebar_last_posts]
+other = "最新文章"

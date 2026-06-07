@@ -6,6 +6,6 @@ tags:
   - Go
   - 博客 
 categories:    
-  - tech
+  - 技术
 ---
 这里开始写你的正文...

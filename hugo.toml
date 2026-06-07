@@ -3,6 +3,7 @@ title = "Matthew Blog"
 theme = "cleanwhite"
 #Language.Locale = "en-us"
 Language.Locale = "zh-cn"
+defaultContentLanguage = "zh-cn"
 preserveTaxonomyNames = true
 hasCJKLanguage = true
 
@@ -19,6 +20,45 @@ hasCJKLanguage = true
 [outputs]
 home = ["HTML", "RSS", "algolia"]
 
+[languages]
+  [languages.zh-cn]
+    languageCode = "zh-cn"
+    languageName = "中文"
+    weight = 1
+    title = "林修的博客" 	# 你的中文博客标题
+	
+	[languages.zh-cn.params]
+	  last_posts_title = "最新文章"
+	  sidebar_about_description = "软件开发者，开源爱好者，生活冒险家"
+    [[languages.zh-cn.params.additional_menus]]
+      title = "归档"
+      href = "archive/"
+    [[languages.zh-cn.params.additional_menus]]
+      title = "笔记"
+      href = "notes/"
+    [[languages.zh-cn.params.additional_menus]]
+      title = "关于"
+      href = "about/"
+	
+  [languages.en]
+    languageCode = "en"
+    languageName = "English"
+    weight = 2
+    title = "Matthew Blog" # 你的英文博客标题
+	
+	[languages.en.params]
+	  last_posts_title = "LAST POSTS"
+	  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
+    [[languages.en.params.additional_menus]]
+      title = "ARCHIVE"
+      href = "archive/"
+    [[languages.en.params.additional_menus]]
+      title = "NOTES"
+      href = "notes/"
+    [[languages.en.params.additional_menus]]
+      title = "ABOUT"
+      href = "about/"
+	
 [params]
   header_image = "img/home-bg-elsa.png"
   SEOTitle = "Matthew Lin的博客 | Lin Matthew Blog"
@@ -43,8 +83,8 @@ home = ["HTML", "RSS", "algolia"]
   algolia_apiKey = ""
 
   # Sidebar settings
-  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
-  #sidebar_avatar = "img/avatar-me.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
+  # sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
+  # sidebar_avatar = "img/avatar-me.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
   featured_tags = true 
   featured_condition_size = 1 
@@ -121,16 +161,6 @@ home = ["HTML", "RSS", "algolia"]
   [[params.bookmark_link]]
   title = "unsplash"
   href = "https://unsplash.com"
-  
-  [[params.additional_menus]]
-  title =  "ARCHIVE"
-  href =  "/archive/"
-  [[params.additional_menus]]
-  title =  "NOTES"
-  href =  "/notes/"
-  [[params.additional_menus]]
-  title =  "ABOUT"
-  href =  "/about/"
 
 [outputFormats.Algolia]
 baseName = "algoliSearch"
