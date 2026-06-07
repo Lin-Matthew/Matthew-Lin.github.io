@@ -25,3 +25,6 @@ other = "FRIENDS"
 
 [sidebar_last_posts]
 other = "LAST POSTS"
+
+[cat_tech]
+other = "TECH"

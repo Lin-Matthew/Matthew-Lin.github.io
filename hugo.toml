@@ -27,6 +27,11 @@ home = ["HTML", "RSS", "algolia"]
     weight = 1
     title = "林修的博客" 	# 你的中文博客标题
 	
+	# 🌟 显式告诉 Hugo，中文下的分类和标签路由叫什么
+	[languages.zh-cn.taxonomies]
+      category = "categories"
+      tag = "tags"
+	
 	[languages.zh-cn.params]
 	  last_posts_title = "最新文章"
 	  sidebar_about_description = "软件开发者，开源爱好者，生活冒险家"
@@ -45,6 +50,11 @@ home = ["HTML", "RSS", "algolia"]
     languageName = "English"
     weight = 2
     title = "Matthew Blog" # 你的英文博客标题
+	
+	# 🌟 显式告诉 Hugo，英文下的分类和标签路由叫什么
+	[languages.en.taxonomies]
+	  category = "categories"
+      tag = "tags"
 	
 	[languages.en.params]
 	  last_posts_title = "LAST POSTS"

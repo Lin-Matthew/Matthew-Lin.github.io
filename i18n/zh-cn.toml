@@ -25,3 +25,6 @@ other = "友情链接"
 
 [sidebar_last_posts]
 other = "最新文章"
+
+[cat_tech]
+other = "技术"
