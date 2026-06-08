@@ -1,5 +1,4 @@
 baseurl = "http://lintthew.myvnc.com/"
-title = "Matthew Blog"
 theme = "cleanwhite"
 #Language.Locale = "en-us"
 Language.Locale = "zh-cn"
@@ -33,6 +32,8 @@ home = ["HTML", "RSS", "algolia"]
       tag = "tags"
 	
 	[languages.zh-cn.params]
+	  header_image = "img/home-bg-elsa2.png"
+	  #slogan = "路在脚下，心向远方"
 	  last_posts_title = "最新文章"
 	  sidebar_about_description = "软件开发者，开源爱好者，生活冒险家"
     [[languages.zh-cn.params.additional_menus]]
@@ -57,6 +58,8 @@ home = ["HTML", "RSS", "algolia"]
       tag = "tags"
 	
 	[languages.en.params]
+	  header_image = "img/home-bg-elsa.png"
+	  #slogan = "Be Happy"
 	  last_posts_title = "LAST POSTS"
 	  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
     [[languages.en.params.additional_menus]]
@@ -70,7 +73,7 @@ home = ["HTML", "RSS", "algolia"]
       href = "about/"
 	
 [params]
-  header_image = "img/home-bg-elsa2.png"
+  #header_image = "img/home-bg-elsa2.png"
   SEOTitle = "Matthew Lin的博客 | Lin Matthew Blog"
   description = "nothing special about Matthew Lin."
   keyword = ""

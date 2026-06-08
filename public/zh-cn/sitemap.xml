@@ -122,13 +122,31 @@
     <loc>http://localhost:1313/2018/01/02/nginmesh-install/</loc>
     <lastmod>2018-01-02T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-  </url><url>
     <loc>http://localhost:1313/notes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/notes/"
+                />
   </url><url>
     <loc>http://localhost:1313/search/placeholder/</loc>
   </url><url>
     <loc>http://localhost:1313/archive/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/archive/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/archive/"
+                />
   </url><url>
     <loc>http://localhost:1313/search/</loc>
   </url>
