@@ -1,4 +1,5 @@
 ---
+draft: true
 layout:     post 
 title:      "English Essay - Nginx开源Service Mesh组件Nginmesh安装指南"
 subtitle:   ""
