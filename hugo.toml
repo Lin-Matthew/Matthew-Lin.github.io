@@ -9,9 +9,9 @@ hasCJKLanguage = true
 [services]
   # Enable comments by entering your Disqus shortname
   [services.disqus]
-    shortname = ""
+    shortname = "matthew-blog-1"
   [services.googleAnalytics]
-    id = ""
+    id = "G-H7PS1PRVFE"
 
 [pagination]
   pagerSize = 5 # frontpage pagination
@@ -32,7 +32,7 @@ home = ["HTML", "RSS", "algolia"]
       tag = "tags"
 	
 	[languages.zh-cn.params]
-	  header_image = "img/home-bg-elsa2.png"
+	  #header_image = "img/home-bg-elsa2.png"
 	  #slogan = "路在脚下，心向远方"
 	  last_posts_title = "最新文章"
 	  sidebar_about_description = "软件开发者，开源爱好者，生活冒险家"
@@ -58,7 +58,7 @@ home = ["HTML", "RSS", "algolia"]
       tag = "tags"
 	
 	[languages.en.params]
-	  header_image = "img/home-bg-elsa.png"
+	  #header_image = "img/home-bg-elsa.png"
 	  #slogan = "Be Happy"
 	  last_posts_title = "LAST POSTS"
 	  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
@@ -121,7 +121,7 @@ home = ["HTML", "RSS", "algolia"]
   artalk_site = "xxx blog"
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
-  reward = true 
+  reward = false 
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
   friends = true

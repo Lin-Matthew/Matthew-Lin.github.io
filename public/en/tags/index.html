@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://localhost:1313//img/home-bg-elsa.png">
-    <meta property="twitter:image" content="http://localhost:1313//img/home-bg-elsa.png" />
+    <meta property="og:image" content="http://localhost:1313//">
+    <meta property="twitter:image" content="http://localhost:1313//" />
     
 
     
@@ -97,6 +97,22 @@
 
 
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7PS1PRVFE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-H7PS1PRVFE');
+        }
+      </script>
+
+
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -119,6 +135,12 @@
                     </li>
                     
                     
+						
+						<li>
+							<a href="/en/categories/tech/">
+								TECH
+							</a>
+						</li>
 						
 					
 
@@ -241,7 +263,12 @@
 </script>
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-elsa.png'); 
+
+<header class="intro-header" style="
+	
+        background-color: #395B71;
+    
+	
 	height: 200px !important; 
 	display: flex !important; 
 	align-items: center !important; 
@@ -275,6 +302,30 @@
 
          	
                 
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "matthew-blog-1" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
 
 
 
@@ -312,6 +363,12 @@
                     <div class="tags">
                         
                         
+                        
+                        
+                        
+                        
+                        
+                        
                     </div>
                 </section>
                 
@@ -340,7 +397,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
+                
+				<ul class="list-inline text-center" style="display:none;">
                     
                     <li>
                         <a href="mailto:dawndusk@outlook.com">

@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://localhost:1313//img/home-bg-elsa2.png">
-    <meta property="twitter:image" content="http://localhost:1313//img/home-bg-elsa2.png" />
+    <meta property="og:image" content="http://localhost:1313//">
+    <meta property="twitter:image" content="http://localhost:1313//" />
     
 
     
@@ -97,6 +97,22 @@
 
 
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7PS1PRVFE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-H7PS1PRVFE');
+        }
+      </script>
+
+
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -119,6 +135,12 @@
                     </li>
                     
                     
+						
+						<li>
+							<a href="/categories/tech/">
+								技术
+							</a>
+						</li>
 						
 					
 
@@ -241,7 +263,12 @@
 </script>
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-elsa2.png'); 
+
+<header class="intro-header" style="
+	
+        background-color: #395B71;
+    
+	
 	height: 200px !important; 
 	display: flex !important; 
 	align-items: center !important; 
@@ -275,6 +302,28 @@
             post-container
         ">
             <div class="archive-list">
+                
+                
+                    
+                    
+                        
+                            
+                            <h1 class="title is-4 has-text-weight-normal">2018</h1>
+                        
+                    
+
+                    <ul>
+                    
+                        <li>
+                            <span>01/02</span> — 
+                            <a href="/2018/01/02/nginmesh-install/">
+                                Nginx开源Service Mesh组件Nginmesh安装指南
+                            </a>
+                        </li>
+                    
+                    </ul>
+
+                
                 
             </div>
        	</div>
@@ -358,6 +407,12 @@
         <div class="tags">
             
             
+               
+            
+               
+            
+               
+            
         </div>
     </section>
     
@@ -382,6 +437,8 @@
         <h5>最新文章</h5>
         <ul>
         
+            <li><a href="/2018/01/02/nginmesh-install/">Nginx开源Service Mesh组件Nginmesh安装指南</a></li>
+        
         </ul>
     </section>
     
@@ -399,7 +456,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
+                
+				<ul class="list-inline text-center" style="display:none;">
                     
                     <li>
                         <a href="mailto:dawndusk@outlook.com">

@@ -2,8 +2,18 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header {
-        background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL}}{{ end }}');
-        
+		/* 1. 先设置一个全局默认的纯色背景 */
+        background-color: #395B71 !important;
+
+        /* 2. 动态判断：如果有配置图片，就叠加一层 background-image */
+        {{ if or .Params.image .Site.Params.header_image }}
+            background-image: url('{{ if .Params.image }}{{ .Params.image | relURL }}{{ else }}{{ .Site.Params.header_image | relURL }}{{ end }}') !important;
+            background-position: center !important;
+            background-size: cover !important;
+        {{ else }}
+            background-image: none !important;
+        {{ end }}
+		
         /* 1. 把固定高度放宽到 240px，给两行长标题留出呼吸空间 */
         height: 240px !important;       
         min-height: auto !important;    

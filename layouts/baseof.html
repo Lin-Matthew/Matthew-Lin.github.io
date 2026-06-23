@@ -4,7 +4,14 @@
 {{ partial "nav.html" . }}
 <!-- Page Header -->
 {{ block "header" .}}
-<header class="intro-header" style="background-image: url('{{ .Site.Params.header_image | relURL }}'); 
+{{ $headerImg := .Site.Params.header_image }}
+<header class="intro-header" style="
+	{{ if $headerImg }}
+        background-image: url('{{ $headerImg | relURL }}');
+    {{ else }}
+        background-color: #395B71;
+    {{ end }}
+	
 	height: 200px !important; 
 	display: flex !important; 
 	align-items: center !important; 
