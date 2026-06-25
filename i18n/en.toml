@@ -8,8 +8,8 @@ other = "Tags"
 [nav_all_posts]
 other = "ALL POSTS"
 
-[tech]
-other = "TECH"
+[nav_categories]
+other = "CATLOG"
 
 [search_title]
 other = "Search Articles"
@@ -28,3 +28,12 @@ other = "LAST POSTS"
 
 [cat_tech]
 other = "TECH"
+[cat_fin]
+other = "TRANS"
+
+[tag_fin]
+other = "Finance"
+[tag_price]
+other = "Price"
+[tag_transaction]
+other = "Transaction"

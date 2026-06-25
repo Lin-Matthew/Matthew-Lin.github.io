@@ -10,28 +10,49 @@
 		
 		
 		
-			<lastBuildDate>Tue, 02 Jan 2018 12:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Istio</title>
-				<link>http://localhost:1313/en/tags/istio/</link>
-				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/en/tags/istio/</guid>
+				<title>Hugo</title>
+				<link>http://localhost:1313/en/tags/hugo/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/hugo/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Nginmesh</title>
-				<link>http://localhost:1313/en/tags/nginmesh/</link>
-				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/en/tags/nginmesh/</guid>
+				<title>Supabase</title>
+				<link>http://localhost:1313/en/tags/supabase/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/supabase/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Service Mesh</title>
-				<link>http://localhost:1313/en/tags/service-mesh/</link>
-				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/en/tags/service-mesh/</guid>
+				<title>Waline</title>
+				<link>http://localhost:1313/en/tags/waline/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/waline/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Fin</title>
+				<link>http://localhost:1313/en/tags/fin/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/fin/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Price</title>
+				<link>http://localhost:1313/en/tags/price/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/price/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Transaction</title>
+				<link>http://localhost:1313/en/tags/transaction/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/tags/transaction/</guid>
 				<description></description>
 			</item>
 	</channel>

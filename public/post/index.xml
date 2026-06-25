@@ -10,15 +10,22 @@
 		
 		
 		
-			<lastBuildDate>Tue, 02 Jan 2018 12:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Nginx开源Service Mesh组件Nginmesh安装指南</title>
-				<link>http://localhost:1313/2018/01/02/nginmesh-install/</link>
-				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2018/01/02/nginmesh-install/</guid>
-				<description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。&lt;/p&gt;</description>
+				<title>Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</title>
+				<link>http://localhost:1313/2026/6/25/waline-comment/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2026/6/25/waline-comment/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;评论系统采用waline v3.15.2作为无服务后端，supabase(postgres)存储评论数据，不用搭建个人服务器，即可享受免费的评论系统。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>交易背景知识-价格的形成</title>
+				<link>http://localhost:1313/2026/6/23/fin-price/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

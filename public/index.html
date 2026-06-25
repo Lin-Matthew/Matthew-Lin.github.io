@@ -136,19 +136,32 @@
                     </li>
                     
                     
-						
-						<li>
-							<a href="/categories/tech/">
-								技术
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								分类 <span class="caret"></span>
 							</a>
+							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
+								
+								<li style="border-bottom: 1px solid #f5f5f5;">
+									<a href="/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>交易</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									</a>
+								</li>
+								
+								<li style="border-bottom: 1px solid #f5f5f5;">
+									<a href="/categories/tech/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>技术</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									</a>
+								</li>
+								
+							</ul>
 						</li>
-						
 					
-
+					
 		            
                         <li><a href="/archive//">归档</a></li>
-                    
-                        <li><a href="/notes//">笔记</a></li>
                     
                         <li><a href="/about//">关于</a></li>
                     
@@ -225,6 +238,98 @@
         </div>
         </div>
     </nav>
+<style>
+ 
+@media (min-width: 768px) {
+    .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+        display: block !important;
+        margin-top: 0px;
+    }
+    .navbar-nav li.dropdown > a.dropdown-toggle {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+ 
+.navbar-nav .dropdown-menu {
+    min-width: 120px !important;
+    width: auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    padding: 5px 0 !important;
+}
+.navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #f5f5f5 !important;
+}
+.navbar-nav .dropdown-menu > li:last-child {
+    border-bottom: none !important;
+}
+
+ 
+.navbar-nav .dropdown-menu > li > a {
+    padding: 10px 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-weight: normal !important;
+    text-transform: none !important;
+    transition: all 0.2s ease !important;
+}
+.navbar-nav .cat-count {
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 10px;
+}
+
+ 
+body:not(.dark) .navbar-nav .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+ 
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #333333 !important;
+}
+body:not(.dark) .navbar-nav .cat-count {
+    color: #999999 !important;
+    background: #f1f1f1 !important;
+}
+ 
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+
+ 
+body.dark .navbar-nav .dropdown-menu {
+    background-color: #252b36 !important;
+    border: 1px solid #374151 !important;
+}
+body.dark .navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #2d3543 !important;
+}
+ 
+body.dark .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #e5e7eb !important;
+}
+body.dark .navbar-nav .cat-count {
+    color: #9ca3af !important;
+    background: #374151 !important;
+}
+ 
+body.dark .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+</style>
 <script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
@@ -307,20 +412,44 @@
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
-    <a href="http://localhost:1313/2018/01/02/nginmesh-install/">
+    <a href="http://localhost:1313/2026/6/25/waline-comment/">
         <h2 class="post-title">
-            Nginx开源Service Mesh组件Nginmesh安装指南
+            Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统
         </h2>
 	
         <div class="post-content-preview">
 	
-            Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。本文介绍如何采用kubeadmin安装kubernetes集群并部署Nginmesh sidecar。
+            使用 Waline V3 作为无服务器评论后端，绑定 Supabase (PostgreSQL) 存储数据，并嵌入 Hugo 博客。本文通过详细的配置过程，实现游客免登录丝滑评论。
         
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by 赵化冰 on Tuesday, January 2, 2018
+        Posted by Matthew Lin on Thursday, June 25, 2026
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://localhost:1313/2026/6/23/fin-price/">
+        <h2 class="post-title">
+            交易背景知识-价格的形成
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            概述 价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。
+
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Matthew Lin on Tuesday, June 23, 2026
         
         
     
@@ -422,6 +551,12 @@
             
                
             
+               
+            
+               
+            
+               
+            
         </div>
     </section>
     
@@ -446,7 +581,9 @@
         <h5>最新文章</h5>
         <ul>
         
-            <li><a href="/2018/01/02/nginmesh-install/">Nginx开源Service Mesh组件Nginmesh安装指南</a></li>
+            <li><a href="/2026/6/25/waline-comment/">Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</a></li>
+        
+            <li><a href="/2026/6/23/fin-price/">交易背景知识-价格的形成</a></li>
         
         </ul>
     </section>

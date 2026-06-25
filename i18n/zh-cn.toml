@@ -8,8 +8,8 @@ other = "标签"
 [nav_all_posts]
 other = "所有文章"
 
-[tech]
-other = "技术"
+[nav_categories]
+other = "分类"
 
 [search_title]
 other = "搜索文章"
@@ -28,3 +28,12 @@ other = "最新文章"
 
 [cat_tech]
 other = "技术"
+[cat_fin]
+other = "交易"
+
+[tag_fin]
+other = "金融"
+[tag_price]
+other = "价格"
+[tag_transaction]
+other = "交易"

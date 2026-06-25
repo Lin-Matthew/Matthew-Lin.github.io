@@ -10,15 +10,22 @@
 		
 		
 		
-			<lastBuildDate>Tue, 02 Jan 2018 12:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>English Essay - Nginx开源Service Mesh组件Nginmesh安装指南</title>
-				<link>http://localhost:1313/2018/01/02/nginmesh-install/</link>
-				<pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2018/01/02/nginmesh-install/</guid>
-				<description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。&lt;/p&gt;</description>
+				<title>Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</title>
+				<link>http://localhost:1313/2026/6/25/waline-comment-en/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2026/6/25/waline-comment-en/</guid>
+				<description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This comment system utilizes Waline v3.15.2 as a serverless backend and Supabase (PostgreSQL) for data storage. You can enjoy a completely free comment system without the need to set up or maintain a personal server.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-supabase-database-configuration&#34;&gt;1. Supabase Database Configuration&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://supabase.com/&#34;&gt;Supabase Official Website&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;11-create-an-organization&#34;&gt;1.1 Create an Organization&lt;/h4&gt;&#xA;&lt;p&gt;For newly registered users, a &amp;ldquo;New organization&amp;rdquo; button will appear. Click it, enter your organization name, choose &amp;ldquo;Personal&amp;rdquo; for the type, select the free plan, and click create. &#xA;  &lt;img src=&#34;supabase--create-organization.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>How does price produce - backgroud of transaction</title>
+				<link>http://localhost:1313/2026/6/23/fin-price/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
+				<description>&lt;h2&gt;&lt;/h2&gt;</description>
 			</item>
 			<item>
 				<title></title>

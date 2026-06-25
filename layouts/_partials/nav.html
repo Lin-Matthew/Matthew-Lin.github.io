@@ -22,15 +22,23 @@
                     </li>
                     
                     {{ if not site.Params.omit_categories }}
-						{{ range $name, $taxonomy := site.Taxonomies.categories }}
-						<li>
-							<a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/">
-								{{ i18n (printf "cat_%s" (lower $name)) | default ($name | upper) }}
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								{{ i18n "nav_categories" | default "CATLOG" }} <span class="caret"></span>
 							</a>
+							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
+								{{ range $name, $taxonomy := site.Taxonomies.categories }}
+								<li style="border-bottom: 1px solid #f5f5f5;">
+									<a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>{{ i18n (printf "cat_%s" (lower $name)) | default ($name | upper) }}</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">{{ $taxonomy.Count }}</span>
+									</a>
+								</li>
+								{{ end }}
+							</ul>
 						</li>
-						{{ end }}
 					{{ end }}
-
+					
 		            {{ range site.Params.additional_menus }}
                         <li><a href="{{.href | relLangURL}}/">{{.title}}</a></li>
                     {{ end }}
@@ -109,6 +117,98 @@
         </div>
         </div>
     </nav>
+<style>
+/* 1. 桌面端鼠标悬浮自动展开 */
+@media (min-width: 768px) {
+    .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+        display: block !important;
+        margin-top: 0px;
+    }
+    .navbar-nav li.dropdown > a.dropdown-toggle {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+/* 2. 下拉菜单基础布局结构 */
+.navbar-nav .dropdown-menu {
+    min-width: 120px !important;
+    width: auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    padding: 5px 0 !important;
+}
+.navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #f5f5f5 !important;
+}
+.navbar-nav .dropdown-menu > li:last-child {
+    border-bottom: none !important;
+}
+
+/* 🌟 核心破局点：强制重写下拉框内 a 标签的文字排版与颜色 */
+.navbar-nav .dropdown-menu > li > a {
+    padding: 10px 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-weight: normal !important;
+    text-transform: none !important;
+    transition: all 0.2s ease !important;
+}
+.navbar-nav .cat-count {
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 10px;
+}
+
+/* ☀️ 3. 浅色（常规白昼）模式下的文字与背景强制配色 */
+body:not(.dark) .navbar-nav .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+/* 🔥 强力阻断：这里强制所有非悬浮状态下的文字必须是深灰色 #333333 */
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #333333 !important;
+}
+body:not(.dark) .navbar-nav .cat-count {
+    color: #999999 !important;
+    background: #f1f1f1 !important;
+}
+/* 浅色模式下悬浮 */
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+
+/* 🌙 4. 深色（夜间暗黑）模式下的文字与背景强制配色 */
+body.dark .navbar-nav .dropdown-menu {
+    background-color: #252b36 !important;
+    border: 1px solid #374151 !important;
+}
+body.dark .navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #2d3543 !important;
+}
+/* 🔥 强力阻断：深色模式下，未悬浮时的字改成亮灰色 #e5e7eb */
+body.dark .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #e5e7eb !important;
+}
+body.dark .navbar-nav .cat-count {
+    color: #9ca3af !important;
+    background: #374151 !important;
+}
+/* 深色模式下悬浮 */
+body.dark .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+</style>
 <script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');

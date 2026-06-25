@@ -3,13 +3,13 @@ theme = "cleanwhite"
 #Language.Locale = "en-us"
 Language.Locale = "zh-cn"
 defaultContentLanguage = "zh-cn"
-preserveTaxonomyNames = true
+preserveTaxonomyNames = false
 hasCJKLanguage = true
 
 [services]
   # Enable comments by entering your Disqus shortname
   [services.disqus]
-    shortname = "matthew-blog-1"
+    #shortname = "matthew-blog-1"
   [services.googleAnalytics]
     id = "G-H7PS1PRVFE"
 
@@ -39,9 +39,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.zh-cn.params.additional_menus]]
       title = "归档"
       href = "archive/"
-    [[languages.zh-cn.params.additional_menus]]
-      title = "笔记"
-      href = "notes/"
+    #[[languages.zh-cn.params.additional_menus]]
+      #title = "笔记"
+      #href = "notes/"
     [[languages.zh-cn.params.additional_menus]]
       title = "关于"
       href = "about/"
@@ -65,9 +65,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.en.params.additional_menus]]
       title = "ARCHIVE"
       href = "archive/"
-    [[languages.en.params.additional_menus]]
-      title = "NOTES"
-      href = "notes/"
+    #[[languages.en.params.additional_menus]]
+      #title = "NOTES"
+      #href = "notes/"
     [[languages.en.params.additional_menus]]
       title = "ABOUT"
       href = "about/"
@@ -105,20 +105,24 @@ home = ["HTML", "RSS", "algolia"]
   # Baidu Analytics
   ba_track_id = ""
   
+  # 🌟 填入你部署成功的 Vercel 网址
+  #waline_server = "https://waline-comment-pearl-six.vercel.app"
+  waline_server = "https://waline.myvnc.com"
+  
   # We need a proxy to access Disqus api in China
   # Follow https://github.com/zhaohuabing/disqus-php-api to set up your own disqus proxy
-  disqus_proxy = ""
-  disqus_site = ""
+  #disqus_proxy = ""
+  #disqus_site = ""
 
   # Twikoo comments
   # Follow https://twikoo.js.org/ to set up your own env_id
-  twikoo_env_id = ""
+  #twikoo_env_id = ""
 
   # Artalk comments
   # Follow https://artalk.js.org/ to set up your own server
-  artalk_enable = true
-  artalk_server = "https://xxx.xxx.com"
-  artalk_site = "xxx blog"
+  #artalk_enable = true
+  #artalk_server = "https://xxx.xxx.com"
+  #artalk_site = "xxx blog"
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
   reward = false 
@@ -174,6 +178,7 @@ home = ["HTML", "RSS", "algolia"]
   [[params.bookmark_link]]
   title = "unsplash"
   href = "https://unsplash.com"
+
 
 [outputFormats.Algolia]
 baseName = "algoliSearch"

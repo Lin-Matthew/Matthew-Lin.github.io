@@ -135,19 +135,32 @@
                     </li>
                     
                     
-						
-						<li>
-							<a href="/categories/tech/">
-								技术
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								分类 <span class="caret"></span>
 							</a>
+							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
+								
+								<li style="border-bottom: 1px solid #f5f5f5;">
+									<a href="/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>交易</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									</a>
+								</li>
+								
+								<li style="border-bottom: 1px solid #f5f5f5;">
+									<a href="/categories/tech/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>技术</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									</a>
+								</li>
+								
+							</ul>
 						</li>
-						
 					
-
+					
 		            
                         <li><a href="/archive//">归档</a></li>
-                    
-                        <li><a href="/notes//">笔记</a></li>
                     
                         <li><a href="/about//">关于</a></li>
                     
@@ -224,6 +237,98 @@
         </div>
         </div>
     </nav>
+<style>
+ 
+@media (min-width: 768px) {
+    .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+        display: block !important;
+        margin-top: 0px;
+    }
+    .navbar-nav li.dropdown > a.dropdown-toggle {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+ 
+.navbar-nav .dropdown-menu {
+    min-width: 120px !important;
+    width: auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    padding: 5px 0 !important;
+}
+.navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #f5f5f5 !important;
+}
+.navbar-nav .dropdown-menu > li:last-child {
+    border-bottom: none !important;
+}
+
+ 
+.navbar-nav .dropdown-menu > li > a {
+    padding: 10px 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-weight: normal !important;
+    text-transform: none !important;
+    transition: all 0.2s ease !important;
+}
+.navbar-nav .cat-count {
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 10px;
+}
+
+ 
+body:not(.dark) .navbar-nav .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+ 
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #333333 !important;
+}
+body:not(.dark) .navbar-nav .cat-count {
+    color: #999999 !important;
+    background: #f1f1f1 !important;
+}
+ 
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+
+ 
+body.dark .navbar-nav .dropdown-menu {
+    background-color: #252b36 !important;
+    border: 1px solid #374151 !important;
+}
+body.dark .navbar-nav .dropdown-menu > li {
+    border-bottom: 1px solid #2d3543 !important;
+}
+ 
+body.dark .navbar-nav .dropdown-menu > li > a:not(:hover) {
+    color: #e5e7eb !important;
+}
+body.dark .navbar-nav .cat-count {
+    color: #9ca3af !important;
+    background: #374151 !important;
+}
+ 
+body.dark .navbar-nav .dropdown-menu > li > a:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important;
+}
+body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+</style>
 <script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
@@ -308,16 +413,25 @@
                     
                         
                             
-                            <h1 class="title is-4 has-text-weight-normal">2018</h1>
+                            <h1 class="title is-4 has-text-weight-normal">2026</h1>
+                        
+                    
                         
                     
 
                     <ul>
                     
                         <li>
-                            <span>01/02</span> — 
-                            <a href="/2018/01/02/nginmesh-install/">
-                                Nginx开源Service Mesh组件Nginmesh安装指南
+                            <span>06/25</span> — 
+                            <a href="/2026/6/25/waline-comment/">
+                                Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <span>06/23</span> — 
+                            <a href="/2026/6/23/fin-price/">
+                                交易背景知识-价格的形成
                             </a>
                         </li>
                     
@@ -413,6 +527,12 @@
             
                
             
+               
+            
+               
+            
+               
+            
         </div>
     </section>
     
@@ -437,7 +557,9 @@
         <h5>最新文章</h5>
         <ul>
         
-            <li><a href="/2018/01/02/nginmesh-install/">Nginx开源Service Mesh组件Nginmesh安装指南</a></li>
+            <li><a href="/2026/6/25/waline-comment/">Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</a></li>
+        
+            <li><a href="/2026/6/23/fin-price/">交易背景知识-价格的形成</a></li>
         
         </ul>
     </section>
@@ -457,78 +579,19 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-				<ul class="list-inline text-center" style="display:none;">
-                    
-                    <li>
-                        <a href="mailto:dawndusk@outlook.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		           
-                    
-                    
-                    
-                    
-
-		            
-                    
-                    <li>
-                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/Lin-Matthew">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-            
-            
-            
-           
-                   <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="林修的博客" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-            
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; 林修的博客 2026
-                    
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
-                    
-                </p>
+				
+			<p class="copyright text-muted">
+				Copyright &copy; 林修的博客 2026
+				
+				<br>
+				<a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+				<iframe
+					style="margin-left: 2px; margin-bottom:-5px;"
+					frameborder="0" scrolling="0" width="100px" height="20px"
+					src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+				</iframe>
+				
+			</p>
             </div>
         </div>
     </div>
