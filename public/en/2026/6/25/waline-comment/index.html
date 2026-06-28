@@ -498,18 +498,18 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 <p><a href="https://supabase.com/">Supabase Official Website</a></p>
 <h4 id="11-create-an-organization">1.1 Create an Organization</h4>
 <p>For newly registered users, a &ldquo;New organization&rdquo; button will appear. Click it, enter your organization name, choose &ldquo;Personal&rdquo; for the type, select the free plan, and click create. 
-  <img src="supabase--create-organization.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/supabase--create-organization.png" alt="">
 </p>
 <h4 id="12-create-a-project">1.2 Create a Project</h4>
 <p>Navigate to the newly created organization and create a new project. Select your organization, enter a project name, set a database password (make sure to remember it), choose your region, and tick the two security options as shown in the screenshot. Click create project to finish. 
-  <img src="supabase--create-project.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/supabase--create-project.png" alt="">
 </p>
 <h4 id="13-create-database-tables">1.3 Create Database Tables</h4>
 <p>Enter your created project, select the &ldquo;SQL Editor&rdquo; from the sidebar, and open an &ldquo;Untitled query&rdquo; (click the <code>+</code> icon to create one if it doesn&rsquo;t exist). Paste the following SQL statement to create the database tables. Note: This SQL schema is tested and optimized for the current Waline v3.15.2 version. Adjust the table fields later if your tests fail. 		Click &ldquo;Run&rdquo;, and choose &ldquo;Run without RLS&rdquo;. Verify that the &ldquo;Results&rdquo; tab outputs a success message. Alternatively, click &ldquo;Table Editor&rdquo; on the left sidebar to confirm that 3 tables have been successfully created: <code>wl_comment</code>, <code>wl_users</code>, and <code>wl_counter</code>. 
-  <img src="supabase--SQL-query.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/supabase--SQL-query.png" alt="">
 </p>
 <pre tabindex="0"><code>-- Comment Table (wl_comment) - Strict lowercase fallback &amp; double proofing
 CREATE TABLE public.wl_comment (
@@ -642,20 +642,20 @@ module.exports = Waline({
 <h4 id="31-configure-environment-variables-in-vercel">3.1 Configure Environment Variables in Vercel</h4>
 <p>Go to the <a href="https://vercel.com/">Vercel Official Website</a> and log in with your GitHub account. From the dashboard, click to add a new project, which will bring up the interface shown below. Click &ldquo;Install&rdquo;. In the popup window, you can choose to grant access to all GitHub repositories or only a specific one. Here, select &ldquo;Only select repositories&rdquo;, pick the <code>waline-comment</code> repository from Step 2, click &ldquo;Install&rdquo;, and wait for it to finish.</p>
 <p>
-  <img src="Vercel--create-project.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/Vercel--create-project.png" alt="">
 </p>
 <p>​		Once the project is created, locate &ldquo;Environment Variables&rdquo; on the left sidebar and click &ldquo;Add Environment Variables&rdquo;. Add the 5 key-value pairs obtained from Step 1.4. Make sure there are no accidental spaces before or after the keys/values. The following screenshot shows what it looks like after adding them successfully.</p>
 <p>
-  <img src="Vercel--create-variables.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/Vercel--create-variables.png" alt="">
 </p>
 <p>​		During the addition process, a notice will appear stating: <em>&ldquo;Added Environment Variable successfully. A new deployment is needed for changes to take effect.&rdquo;</em> Click <strong>Redeploy</strong> and wait for the deployment to finish (you can track the status changes on the Overview page).</p>
 <p>​		As shown, when the Status turns to <strong>Ready</strong>, it means the deployment is complete and error-free. Clicking on the window preview link in the middle will load the live Waline comment testing page.</p>
 <p>Copy the URL from the <strong>Domains</strong> section on the right; you will need this domain for your Hugo blog setup in the next step.</p>
 <p>
-  <img src="Vercel--overview.png" alt="">
 
+  <img src="/2026/6/25/waline-comment/Vercel--overview.png" alt="">
 </p>
 <h2 id="4-injecting-comments-into-hugo-articles">4. Injecting Comments into Hugo Articles</h2>
 <p>Modify your <code>hugo.toml</code> file. Under the <code>[params]</code> section, add the domain you copied from the previous step: <code>waline_server = &quot;https://waline-comment-xxx.vercel.app&quot;</code>. You can now use this variable across your theme files to render the comment system.</p>
@@ -723,12 +723,14 @@ module.exports = Waline({
 	  if (isMessagePage) {
 		  if (isChinese) {
 			  customLocale = {
+				  comment: '留言',
 				  placeholder: '欢迎在此畅所欲言，留下你的足迹吧...', 
 				  sofa: '暂无留言，快来当第一个留信人吧~',           
 				  submit: '提交留言'
 			  };
 		  } else {
 			  customLocale = {
+				  comment: 'Messages',
 				  placeholder: 'Please leave a message here...', 
 				  sofa: 'No messages yet. Be the first one!',           
 				  submit: 'Submit'

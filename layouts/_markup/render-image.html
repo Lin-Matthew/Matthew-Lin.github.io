@@ -1,0 +1,20 @@
+<!-- 1. 尝试在当前文章的文件夹里寻找匹配的图片资源 -->
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+
+<!-- 2. 声明并安全地对图片路径进行安全赋值 -->
+{{- $src := "" -}}
+{{- if $img -}}
+  {{- $src = $img.RelPermalink -}}
+{{- else -}}
+  {{- $src = .Destination | safeURL -}}
+{{- end -}}
+
+<!-- 3. 完美保留你原有的图片和居中标题渲染逻辑 -->
+{{ if .Title }}
+  <figure>
+    <img src="{{ $src }}" alt="{{ .Text }}">
+    <center><figcaption>{{ .Title }}</figcaption></center>
+  </figure>
+{{ else }}
+  <img src="{{ $src }}" alt="{{ .Text }}">
+{{ end }}
