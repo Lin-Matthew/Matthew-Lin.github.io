@@ -160,11 +160,11 @@
 					
 					
 		            
-                        <li><a href="/archive//">归档</a></li>
+                        <li><a href="/archive/">归档</a></li>
                     
-                        <li><a href="/about//">关于</a></li>
+                        <li><a href="/about/">关于</a></li>
                     
-                        <li><a href="/message//">留言</a></li>
+                        <li><a href="/message/">留言</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -413,21 +413,21 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
-    <a href="http://localhost:1313/2026/6/23/fin-price/">
+    <a href="http://localhost:1313/2026/6/25/fin-principle/">
         <h2 class="post-title">
             交易背景知识-价格的形成
         </h2>
 	
         <div class="post-content-preview">
 	
-            概述 价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。
+            /2026/6/25/fin-principle/
 
        
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by Matthew Lin on Tuesday, June 23, 2026
+        Posted by Matthew Lin on Thursday, June 25, 2026
         
         
     
@@ -590,9 +590,9 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
         <h5>最新文章</h5>
         <ul>
         
-            <li><a href="/2026/6/25/waline-comment/">Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</a></li>
+            <li><a href="/2026/6/25/fin-principle/">交易背景知识-价格的形成</a></li>
         
-            <li><a href="/2026/6/23/fin-price/">交易背景知识-价格的形成</a></li>
+            <li><a href="/2026/6/25/waline-comment/">Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</a></li>
         
             <li><a href="/2026/6/23/fin-price/">交易背景知识-价格的形成</a></li>
         
@@ -608,7 +608,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
   }
   .wechat-qrcode {
       position: absolute;
-      bottom: 50px;
+      top: 45px;  
       left: 50%;
       transform: translateX(-50%) scale(0.9);
       background: #fff;
@@ -618,7 +618,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
-      z-index: 999;
+      z-index: 99999 !important;  
       text-align: center;
       width: max-content;
       min-width: 120px;
@@ -646,7 +646,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
   .list-inline li { position: relative; }
   .email-tooltip {
       position: absolute;
-      bottom: 45px;
+      top: 45px;  
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.85);
@@ -659,9 +659,8 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
       visibility: hidden;
       transition: opacity 0.1s ease, visibility 0.1s;
       text-align: center;
-      
-       
-      pointer-events: none; 
+      pointer-events: none;  
+      z-index: 99999 !important;  
   }
   .list-inline li:hover .email-tooltip {
       opacity: 1;

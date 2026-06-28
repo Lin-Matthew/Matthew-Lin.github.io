@@ -160,11 +160,11 @@
 					
 					
 		            
-                        <li><a href="/en/archive//">ARCHIVE</a></li>
+                        <li><a href="/en/archive/">ARCHIVE</a></li>
                     
-                        <li><a href="/en/about//">ABOUT</a></li>
+                        <li><a href="/en/about/">ABOUT</a></li>
                     
-                        <li><a href="/en/message//">MESSAGE</a></li>
+                        <li><a href="/en/message/">MESSAGE</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -431,6 +431,11 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 	  
 	  let customLocale = undefined;
 	  
+	  let walinePath = window.location.pathname;
+	  if (isMessagePage) {
+		  
+		  walinePath = "/message/"; 
+	  }
 	  if (isMessagePage) {
 		  if (isChinese) {
 			  customLocale = {
@@ -451,6 +456,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 		el: '#waline',
 		serverURL: 'https:\/\/waline.myvnc.com',
 		path: window.location.pathname,
+		
 		lang: isChinese ? 'zh-CN' : 'en', 
 		dark: 'auto',
 		requiredMeta: ['nick'],
@@ -591,11 +597,11 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
         <h5>LAST POSTS</h5>
         <ul>
         
-            <li><a href="/2026/6/25/waline-comment-en/">Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</a></li>
+            <li><a href="/en/2026/6/25/fin-principle/">How does price produce - backgroud of transaction</a></li>
         
-            <li><a href="/2026/6/23/fin-price/">How does price produce - backgroud of transaction</a></li>
+            <li><a href="/en/2026/6/25/waline-comment/">Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</a></li>
         
-            <li><a href="/2026/6/23/fin-price/">How does price produce - backgroud of transaction</a></li>
+            <li><a href="/en/2026/6/23/fin-price/">How does price produce - backgroud of transaction</a></li>
         
         </ul>
     </section>
@@ -609,7 +615,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
   }
   .wechat-qrcode {
       position: absolute;
-      bottom: 50px;
+      top: 45px;  
       left: 50%;
       transform: translateX(-50%) scale(0.9);
       background: #fff;
@@ -619,7 +625,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
-      z-index: 999;
+      z-index: 99999 !important;  
       text-align: center;
       width: max-content;
       min-width: 120px;
@@ -647,7 +653,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
   .list-inline li { position: relative; }
   .email-tooltip {
       position: absolute;
-      bottom: 45px;
+      top: 45px;  
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.85);
@@ -660,9 +666,8 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
       visibility: hidden;
       transition: opacity 0.1s ease, visibility 0.1s;
       text-align: center;
-      
-       
-      pointer-events: none; 
+      pointer-events: none;  
+      z-index: 99999 !important;  
   }
   .list-inline li:hover .email-tooltip {
       opacity: 1;

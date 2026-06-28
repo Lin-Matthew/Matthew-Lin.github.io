@@ -160,11 +160,11 @@
 					
 					
 		            
-                        <li><a href="/en/archive//">ARCHIVE</a></li>
+                        <li><a href="/en/archive/">ARCHIVE</a></li>
                     
-                        <li><a href="/en/about//">ABOUT</a></li>
+                        <li><a href="/en/about/">ABOUT</a></li>
                     
-                        <li><a href="/en/message//">MESSAGE</a></li>
+                        <li><a href="/en/message/">MESSAGE</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -535,6 +535,11 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 	  
 	  let customLocale = undefined;
 	  
+	  let walinePath = window.location.pathname;
+	  if (isMessagePage) {
+		  
+		  walinePath = "/message/"; 
+	  }
 	  if (isMessagePage) {
 		  if (isChinese) {
 			  customLocale = {
@@ -555,6 +560,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 		el: '#waline',
 		serverURL: 'https:\/\/waline.myvnc.com',
 		path: window.location.pathname,
+		
 		lang: isChinese ? 'zh-CN' : 'en', 
 		dark: 'auto',
 		requiredMeta: ['nick'],

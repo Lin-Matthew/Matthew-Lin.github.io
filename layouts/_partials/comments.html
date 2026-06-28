@@ -19,6 +19,11 @@
 	  // 根据当前语言和是否是留言板，动态生成提示语
 	  let customLocale = undefined;
 	  
+	  let walinePath = window.location.pathname;
+	  if (isMessagePage) {
+		  // 核心修改：如果是留言板页面，不管当前是 /message/ 还是 /en/message/，一律强制使用统一的 "/message/" 标识
+		  walinePath = "/message/"; 
+	  }
 	  if (isMessagePage) {
 		  if (isChinese) {
 			  customLocale = {
@@ -39,6 +44,7 @@
 		el: '#waline',
 		serverURL: '{{ .Site.Params.waline_server }}',
 		path: window.location.pathname,
+		//path: walinePath,
 		lang: isChinese ? 'zh-CN' : 'en', // 让 Waline 自带的UI（如日期、回复按钮）也自动切换中英文
 		dark: 'auto',
 		requiredMeta: ['nick'],
