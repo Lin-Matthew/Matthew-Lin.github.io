@@ -739,8 +739,8 @@ module.exports = Waline({
 	  init({
 		el: '#waline',
 		serverURL: 'https:\/\/waline.myvnc.com',
-		path: window.location.pathname,
 		
+		path: walinePath,
 		lang: isChinese ? 'zh-CN' : 'en', 
 		dark: 'auto',
 		requiredMeta: ['nick'],
