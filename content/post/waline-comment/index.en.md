@@ -225,3 +225,6 @@ Modify your `hugo.toml` file. Under the `[params]` section, add the domain you c
 </script>
 ```
 
+Since the default generated domain requires a VPN to access, you can go to **Domains -> Add Existing** in Vercel to add your custom domain. Then, replace `waline_server` with your new domain to enable access and load comments without a VPN.
+
+You can also add or modify other configurations within the `init` function, such as changing the display language.
