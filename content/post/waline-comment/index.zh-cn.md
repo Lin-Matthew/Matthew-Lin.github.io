@@ -239,3 +239,6 @@ module.exports = Waline({
 </script>
 ```
 
+​		由于默认生成的domain需要VPN才能访问，在vercel里找到Domains->Add Existing，添加自己的域名，将上面的waline_server替换成新域名，即可免VPN访问和加载评论。
+
+​		init里面可以添加、修改其他配置，比如语言等显示。
