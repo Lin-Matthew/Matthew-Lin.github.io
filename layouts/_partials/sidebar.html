@@ -1,5 +1,3 @@
-
-<!-- Sidebar Container -->
 <div class="
     col-lg-3 col-lg-offset-0
     col-md-3 col-md-offset-0
@@ -7,11 +5,9 @@
     col-xs-12
     sidebar-container
 ">
-    <!-- Short About -->
-	{{ if .Site.Params.about_me }}
+    {{ if .Site.Params.about_me }}
     <section class="visible-md visible-lg">
-	<!--<hr><h5><a href="{{ "/about" | relLangURL }}">ABOUT ME</a></h5>-->
-        <div class="short-about">
+	<div class="short-about">
             {{ with .Site.Params.sidebar_avatar }}
             <a href="{{ "/about" | relLangURL }}">
                <img src="{{ . | relURL }}" alt="avatar" style="cursor: pointer" />
@@ -20,15 +16,15 @@
             {{ with .Site.Params.sidebar_about_description }}
                 <p>{{ . | safeHTML }}</p>
             {{ end }}
-           <!-- SNS Link -->
            <ul class="list-inline">
                {{ if .Site.Params.social.email }}
                <li>
-                   <a href="mailto:{{ .Site.Params.social.email }}">
+                   <a href="javascript:void(0);" onclick="copyEmail('{{ .Site.Params.social.email }}', this)">
                       <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                       </span>
+                      <span class="email-tooltip">点击复制邮箱</span>
                    </a>
                </li>
                {{ end }}
@@ -73,12 +69,16 @@
                </li>
                {{ end }}
                {{ with .Site.Params.social.wechat }}
-               <li>
-                   <a target="_blank" href="{{ . | relURL}}">
+               <li class="wechat-wrapper">
+                   <a href="javascript:void(0);">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
                            <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
                        </span>
+                       <div class="wechat-qrcode">
+                           <img src="{{ . | relURL }}" alt="微信二维码">
+                           <!-- <p>扫码关注/加微信</p> -->
+                       </div>
                    </a>
                </li>
                {{ end }}
@@ -206,7 +206,6 @@
             </div>
     </section>
 	{{ end }}
-    <!-- Bookmarks -->
     {{ if .Site.Params.bookmarks }}
     <section>
         <hr>
@@ -218,12 +217,10 @@
         </ul>
     </section>
     {{ end }}
-    <!-- Featured Tags -->
     {{ if .Site.Params.featured_tags }}
     <section>
         <hr class="hidden-sm hidden-xs">
-        <!-- <h5>FEATURED TAGS</h5> -->
-		<h5>{{ i18n "sidebar_featured_tags" }}</h5>
+        <h5>{{ i18n "sidebar_featured_tags" }}</h5>
         <div class="tags">
             {{ $featured_condition_size := .Site.Params.featured_condition_size }}
             {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
@@ -237,12 +234,10 @@
     </section>
     {{ end }}
 
-    <!-- Friends Blog -->
     {{ if .Site.Params.friends }}
     <section>
         <hr class="hidden-sm hidden-xs">
-        <!-- <h5>FRIENDS</h5> -->
-		<h5>{{ i18n "sidebar_friends" }}</h5>
+        <h5>{{ i18n "sidebar_friends" }}</h5>
         <ul class="list-inline">
             {{ range .Site.Params.friend_link }}
             <li><a target="_blank" href="{{.href}}">{{.title}}</a></li>
@@ -275,3 +270,93 @@
     </section>
     {{ end }}
 </div>
+
+<style>
+  /* 微信悬浮二维码样式 - 向下弹出 */
+  .wechat-wrapper {
+      position: relative;
+  }
+  .wechat-qrcode {
+      position: absolute;
+      top: 45px; /* 从图标下方弹出，留出 45px 间距 */
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+      z-index: 99999 !important; /* 超高层级，防止被导航栏或评论区遮挡 */
+      text-align: center;
+      width: max-content;
+      min-width: 120px;
+      max-width: 200px; 
+  }
+  .wechat-qrcode img {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 auto;
+      display: block;
+  }
+  .wechat-qrcode p {
+      color: #333 !important;
+      font-size: 12px !important;
+      margin: 6px 0 0 0 !important;
+      white-space: nowrap;
+  }
+  .wechat-wrapper:hover .wechat-qrcode {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+  }
+  
+  /* 邮箱复制轻提示样式 - 统一改为向下弹出 */
+  .list-inline li { position: relative; }
+  .email-tooltip {
+      position: absolute;
+      top: 45px; /* 核心修改：从 bottom:45px 改为 top:45px，让其同样在下方弹出 */
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.1s ease, visibility 0.1s;
+      text-align: center;
+      pointer-events: none; /* 防止点击穿透误触发 */
+      z-index: 99999 !important; /* 统一超高层级 */
+  }
+  .list-inline li:hover .email-tooltip {
+      opacity: 1;
+      visibility: visible;
+  }
+</style>
+
+<script>
+  function copyEmail(email, element) {
+      navigator.clipboard.writeText(email).then(function() {
+          const tooltip = element.querySelector('.email-tooltip');
+          if (tooltip) {
+              // 瞬间切换文字
+              tooltip.innerText = "已复制！";
+              
+              // 清除之前的定时器残留
+              if (window.emailTimer) clearTimeout(window.emailTimer);
+              
+              window.emailTimer = setTimeout(() => {
+                  tooltip.innerText = "点击复制邮箱";
+                  // 完全清空 JS 强加的行内样式，回归 CSS 操控
+                  tooltip.style.cssText = ""; 
+              }, 1000);
+          }
+      }).catch(function(err) {
+          alert("复制失败，您的邮箱为: " + email);
+      });
+  }
+</script>

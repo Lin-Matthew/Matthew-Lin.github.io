@@ -159,6 +159,19 @@
                 href="http://localhost:1313/2026/6/23/fin-price/"
                 />
   </url><url>
+    <loc>http://localhost:1313/2026/6/23/fin-price/</loc>
+    <lastmod>2026-05-23T21:04:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/2026/6/23/fin-price/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/2026/6/23/fin-price/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/tags/price/</loc>
     <lastmod>2026-05-23T21:04:00+00:00</lastmod>
     <xhtml:link
@@ -207,6 +220,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/notes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/message/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/message/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/message/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/archive/</loc>

@@ -45,6 +45,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.zh-cn.params.additional_menus]]
       title = "关于"
       href = "about/"
+	[[languages.zh-cn.params.additional_menus]]
+	  title = "留言"
+	  href = "message/"
 	
   [languages.en]
     languageCode = "en"
@@ -71,6 +74,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.en.params.additional_menus]]
       title = "ABOUT"
       href = "about/"
+	[[languages.en.params.additional_menus]]
+	  title = "MESSAGE"
+	  href = "message/"
 	
 [params]
   #header_image = "img/home-bg-elsa2.png"
@@ -151,7 +157,8 @@ home = ["HTML", "RSS", "algolia"]
   #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
   #instagram     = "full profile url in instagram"
   github         = "https://github.com/Lin-Matthew"
-  wechat         = "your wechat qr code image"
+  #wechat         = "your wechat qr code image"
+  wechat         = "/img/wechat_qrcode.png"
   #medium        = "full profile url in medium"
   #slack         = "full workspace url in slack"
   #pinterest     = "full profile url in pinterest"

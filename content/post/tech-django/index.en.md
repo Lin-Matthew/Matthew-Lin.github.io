@@ -12,7 +12,7 @@ tags:
     - fin
     - price
     - transaction
-URL: "/2026/6/23/fin-price/"
+URL: "/en/2026/6/23/fin-price/"
 categories: [fin]
 comments: true
 ---

@@ -1,104 +1,134 @@
-{{ if .Site.Params.waline_server }}
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-<div id="waline"></div>
-<style>
-  /* 隐藏包含 RSS 和 Powered by 的整个页脚 */
-  .wl-meta-foot {
-    display: none !important;
-  }
-</style>
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-  init({
-    el: '#waline',
-    serverURL: '{{ .Site.Params.waline_server }}',
-    lang: 'zh-CN',
-    dark: 'auto',
-    requiredMeta: ['nick'],
-	copyright: false, // 是否显示页脚版权信息
-  });
-</script>
-{{ else if .Site.Params.giscus }}
-<!-- Giscus placeholder - will be replaced with actual script -->
-<div id="giscus-placeholder"></div>
 
-<script>
-// Dynamically load Giscus with current theme
-(function() {
-    function loadGiscus() {
-        var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        var placeholder = document.getElementById('giscus-placeholder');
-        if (!placeholder) return;
+{{ if ne .Params.comments false }}
+	{{ if .Site.Params.waline_server }}
+	<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+	<div id="waline"></div>
+	<style>
+	  /* 隐藏包含 RSS 和 Powered by 的整个页脚 */
+	  .wl-meta-foot {
+		display: none !important;
+	  }
+	</style>
+	<script type="module">
+	  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	  
+	  const isMessagePage = {{ if .Params.isMessageBoard }}true{{ else }}false{{ end }};
+	  // 获取当前页面的语言种类（会返回 "zh" 或 "en"）
+	  const hugoLang = "{{ .Lang | lower }}";
+	  const isChinese = hugoLang.includes('zh');
+	  // 根据当前语言和是否是留言板，动态生成提示语
+	  let customLocale = undefined;
+	  
+	  if (isMessagePage) {
+		  if (isChinese) {
+			  customLocale = {
+				  placeholder: '欢迎在此畅所欲言，留下你的足迹吧...', 
+				  sofa: '暂无留言，快来当第一个留信人吧~',           
+				  submit: '提交留言'
+			  };
+		  } else {
+			  customLocale = {
+				  placeholder: 'Please leave a message here...', 
+				  sofa: 'No messages yet. Be the first one!',           
+				  submit: 'Submit'
+			  };
+		  }
+	  }
 
-        var giscusScript = document.createElement('script');
-        giscusScript.src = 'https://giscus.app/client.js';
-        giscusScript.setAttribute('data-repo', '{{ .Site.Params.giscus.data_repo}}');
-        giscusScript.setAttribute('data-repo-id', '{{ .Site.Params.giscus.data_repo_id }}');
-        giscusScript.setAttribute('data-category', '{{ .Site.Params.giscus.data_category }}');
-        giscusScript.setAttribute('data-category-id', '{{ .Site.Params.giscus.data_category_id }}');
-        giscusScript.setAttribute('data-mapping', '{{ .Site.Params.giscus.data_mapping }}');
-        giscusScript.setAttribute('data-reactions-enabled', '{{ .Site.Params.giscus.data_reactions_enabled }}');
-        giscusScript.setAttribute('data-emit-metadata', '{{ .Site.Params.giscus.data_emit_metadata }}');
-        giscusScript.setAttribute('data-theme', currentTheme);
-        giscusScript.setAttribute('data-lang', '{{ .Site.Params.giscus.data_lang }}');
-        giscusScript.setAttribute('crossorigin', '{{ .Site.Params.giscus.crossorigin }}');
-        giscusScript.async = true;
+	  init({
+		el: '#waline',
+		serverURL: '{{ .Site.Params.waline_server }}',
+		path: window.location.pathname,
+		lang: isChinese ? 'zh-CN' : 'en', // 让 Waline 自带的UI（如日期、回复按钮）也自动切换中英文
+		dark: 'auto',
+		requiredMeta: ['nick'],
+		copyright: false, // 是否显示页脚版权信息
+		// 如果有自定义的留言板文案则覆盖，否则使用默认的评论UI
+		locale: isMessagePage ? customLocale : undefined 
+	  });
+	</script>
+	{{ else if .Site.Params.giscus }}
+	<!-- Giscus placeholder - will be replaced with actual script -->
+	<div id="giscus-placeholder"></div>
 
-        // Replace placeholder with the script (keeps original position)
-        placeholder.parentNode.replaceChild(giscusScript, placeholder);
-    }
+	<script>
+	// Dynamically load Giscus with current theme
+	(function() {
+		function loadGiscus() {
+			var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+			var placeholder = document.getElementById('giscus-placeholder');
+			if (!placeholder) return;
 
-    // Load Giscus immediately
-    loadGiscus();
-})();
-</script>
-{{ end }}
-{{ if .Site.Params.disqus_proxy }}
-<!-- disqus 评论框 end -->
-<div id="disqus-comment"></div>
-<script src="{{ "js/iDisqus.js" | relURL }}"></script>
-<script>
-var disq = new iDisqus('disqus-comment', {
-    forum: '{{ .Site.Config.Services.Disqus.Shortname }}',
-    api: '{{ .Site.Params.disqus_proxy }}',
-	site: '{{ .Site.Params.disqus_site }}',
-    mode: 1,
-    timeout: 5000,
-    init: true,
-    emojiPreview: true
-});
-</script>
-{{ else if .Site.Config.Services.Disqus.Shortname }}
-<!-- disqus 评论框 end -->
-<div id="disqus-comment"></div>
-{{ template "_internal/disqus.html" . }}
-{{ else if .Site.Params.twikoo_env_id }}
-<div id="twikoo-tcomment"></div>
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.14/dist/twikoo.all.min.js"></script>
-<script>
-    twikoo.init({
-        envId: '{{ .Site.Params.twikoo_env_id }}',
-        el: '#twikoo-tcomment',
-    })
-</script>
-{{ end }}
+			var giscusScript = document.createElement('script');
+			giscusScript.src = 'https://giscus.app/client.js';
+			giscusScript.setAttribute('data-repo', '{{ .Site.Params.giscus.data_repo}}');
+			giscusScript.setAttribute('data-repo-id', '{{ .Site.Params.giscus.data_repo_id }}');
+			giscusScript.setAttribute('data-category', '{{ .Site.Params.giscus.data_category }}');
+			giscusScript.setAttribute('data-category-id', '{{ .Site.Params.giscus.data_category_id }}');
+			giscusScript.setAttribute('data-mapping', '{{ .Site.Params.giscus.data_mapping }}');
+			giscusScript.setAttribute('data-reactions-enabled', '{{ .Site.Params.giscus.data_reactions_enabled }}');
+			giscusScript.setAttribute('data-emit-metadata', '{{ .Site.Params.giscus.data_emit_metadata }}');
+			giscusScript.setAttribute('data-theme', currentTheme);
+			giscusScript.setAttribute('data-lang', '{{ .Site.Params.giscus.data_lang }}');
+			giscusScript.setAttribute('crossorigin', '{{ .Site.Params.giscus.crossorigin }}');
+			giscusScript.async = true;
+
+			// Replace placeholder with the script (keeps original position)
+			placeholder.parentNode.replaceChild(giscusScript, placeholder);
+		}
+
+		// Load Giscus immediately
+		loadGiscus();
+	})();
+	</script>
+	{{ end }}
+	{{ if .Site.Params.disqus_proxy }}
+	<!-- disqus 评论框 end -->
+	<div id="disqus-comment"></div>
+	<script src="{{ "js/iDisqus.js" | relURL }}"></script>
+	<script>
+	var disq = new iDisqus('disqus-comment', {
+		forum: '{{ .Site.Config.Services.Disqus.Shortname }}',
+		api: '{{ .Site.Params.disqus_proxy }}',
+		site: '{{ .Site.Params.disqus_site }}',
+		mode: 1,
+		timeout: 5000,
+		init: true,
+		emojiPreview: true
+	});
+	</script>
+	{{ else if .Site.Config.Services.Disqus.Shortname }}
+	<!-- disqus 评论框 end -->
+	<div id="disqus-comment"></div>
+	{{ template "_internal/disqus.html" . }}
+	{{ else if .Site.Params.twikoo_env_id }}
+	<div id="twikoo-tcomment"></div>
+	<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.14/dist/twikoo.all.min.js"></script>
+	<script>
+		twikoo.init({
+			envId: '{{ .Site.Params.twikoo_env_id }}',
+			el: '#twikoo-tcomment',
+		})
+	</script>
+	{{ end }}
 
 
-{{ if .Site.Params.artalk_enable }}
-<link href="{{ $.Site.Params.artalk_server }}/dist/Artalk.css" rel="stylesheet" />
-<script src="{{ $.Site.Params.artalk_server }}/dist/Artalk.js"></script>
+	{{ if .Site.Params.artalk_enable }}
+	<link href="{{ $.Site.Params.artalk_server }}/dist/Artalk.css" rel="stylesheet" />
+	<script src="{{ $.Site.Params.artalk_server }}/dist/Artalk.js"></script>
 
-<!-- Artalk -->
-<div id="Comments"></div>
+	<!-- Artalk -->
+	<div id="Comments"></div>
 
-<script>
-    Artalk.init({
-        el: '#Comments',
-        pageKey: '{{ .Permalink }}',
-        pageTitle: '{{ .Title }}',
-        server: '{{ $.Site.Params.artalk_server }}',
-        site: '{{ $.Site.Params.artalk_site }}',
-    })
-</script>
+	<script>
+		Artalk.init({
+			el: '#Comments',
+			pageKey: '{{ .Permalink }}',
+			pageTitle: '{{ .Title }}',
+			server: '{{ $.Site.Params.artalk_server }}',
+			site: '{{ $.Site.Params.artalk_site }}',
+		})
+	</script>
 
+	{{ end }}
 {{ end }}

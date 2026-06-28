@@ -144,7 +144,7 @@
 								<li style="border-bottom: 1px solid #f5f5f5;">
 									<a href="/en/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
 										<span>TRANS</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
 									</a>
 								</li>
 								
@@ -163,6 +163,8 @@
                         <li><a href="/en/archive//">ARCHIVE</a></li>
                     
                         <li><a href="/en/about//">ABOUT</a></li>
+                    
+                        <li><a href="/en/message//">MESSAGE</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -677,38 +679,75 @@ module.exports = Waline({
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="How does price produce - backgroud of transaction">&larr;
-                            Previous Post</a>
+                        <a href="/en/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="How does price produce - backgroud of transaction">
+                            &larr; Previous Post
+						</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/en/2026/6/25/fin-principle/" data-toggle="tooltip" data-placement="top" title="How does price produce - backgroud of transaction">
+                            Next Post &rarr;
+						</a>
+                    </li>
                     
                 </ul>
                 
 
                 
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-<div id="waline"></div>
-<style>
-   
-  .wl-meta-foot {
-    display: none !important;
-  }
-</style>
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-  init({
-    el: '#waline',
-    serverURL: 'https:\/\/waline.myvnc.com',
-    lang: 'zh-CN',
-    dark: 'auto',
-    requiredMeta: ['nick'],
-	copyright: false, 
-  });
-</script>
+
+	
+	<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+	<div id="waline"></div>
+	<style>
+	   
+	  .wl-meta-foot {
+		display: none !important;
+	  }
+	</style>
+	<script type="module">
+	  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	  
+	  const isMessagePage = false;
+	  
+	  const hugoLang = "en";
+	  const isChinese = hugoLang.includes('zh');
+	  
+	  let customLocale = undefined;
+	  
+	  if (isMessagePage) {
+		  if (isChinese) {
+			  customLocale = {
+				  placeholder: '欢迎在此畅所欲言，留下你的足迹吧...', 
+				  sofa: '暂无留言，快来当第一个留信人吧~',           
+				  submit: '提交留言'
+			  };
+		  } else {
+			  customLocale = {
+				  placeholder: 'Please leave a message here...', 
+				  sofa: 'No messages yet. Be the first one!',           
+				  submit: 'Submit'
+			  };
+		  }
+	  }
+
+	  init({
+		el: '#waline',
+		serverURL: 'https:\/\/waline.myvnc.com',
+		path: window.location.pathname,
+		lang: isChinese ? 'zh-CN' : 'en', 
+		dark: 'auto',
+		requiredMeta: ['nick'],
+		copyright: false, 
+		
+		locale: isMessagePage ? customLocale : undefined 
+	  });
+	</script>
+	
+	
 
 
-
-
+	
 
             </div>
 
@@ -740,18 +779,29 @@ module.exports = Waline({
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/en/tags/">FEATURED TAGS</a></h5>
-                    
                     <div class="tags">
                         
                         
                         
+                        <a href="/en/tags/fin" title="fin">
+                            fin
+                        </a>
                         
                         
                         
                         
                         
+                        <a href="/en/tags/price" title="price">
+                            price
+                        </a>
                         
                         
+                        
+                        
+                        
+                        <a href="/en/tags/transaction" title="transaction">
+                            transaction
+                        </a>
                         
                         
                         

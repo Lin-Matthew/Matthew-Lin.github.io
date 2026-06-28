@@ -12,7 +12,7 @@ tags:
     - waline
     - supabase
     - hugo
-URL: "/2026/6/25/waline-comment-en/"
+URL: "/en/2026/6/25/waline-comment/"
 categories: [tech]
 comments: true
 ---

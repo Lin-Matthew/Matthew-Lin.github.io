@@ -151,14 +151,16 @@
                 <ul class="pager">
                     {{ if .PrevInSection }}
                     <li class="previous">
-                        <a href="{{ .PrevInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title}}">&larr;
-                            Previous Post</a>
+                        <a href="{{ .PrevInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title}}">
+                            &larr; {{ if eq .Lang "zh-cn" }}上一篇{{ else }}Previous Post{{ end }}
+						</a>
                     </li>
                     {{ end }}
                     {{ if .NextInSection }}
                     <li class="next">
-                        <a href="{{ .NextInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title}}">Next
-                            Post &rarr;</a>
+                        <a href="{{ .NextInSection.RelPermalink }}" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title}}">
+                            {{ if eq .Lang "zh-cn" }}下一篇{{ else }}Next Post{{ end }} &rarr;
+						</a>
                     </li>
                     {{ end }}
                 </ul>

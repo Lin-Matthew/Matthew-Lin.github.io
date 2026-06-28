@@ -144,7 +144,7 @@
 								<li style="border-bottom: 1px solid #f5f5f5;">
 									<a href="/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
 										<span>交易</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
 									</a>
 								</li>
 								
@@ -163,6 +163,8 @@
                         <li><a href="/archive//">归档</a></li>
                     
                         <li><a href="/about//">关于</a></li>
+                    
+                        <li><a href="/message//">留言</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -407,29 +409,59 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 
          	
                 
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-<div id="waline"></div>
-<style>
-   
-  .wl-meta-foot {
-    display: none !important;
-  }
-</style>
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-  init({
-    el: '#waline',
-    serverURL: 'https:\/\/waline.myvnc.com',
-    lang: 'zh-CN',
-    dark: 'auto',
-    requiredMeta: ['nick'],
-	copyright: false, 
-  });
-</script>
+
+	
+	<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+	<div id="waline"></div>
+	<style>
+	   
+	  .wl-meta-foot {
+		display: none !important;
+	  }
+	</style>
+	<script type="module">
+	  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+	  
+	  const isMessagePage = false;
+	  
+	  const hugoLang = "zh-cn";
+	  const isChinese = hugoLang.includes('zh');
+	  
+	  let customLocale = undefined;
+	  
+	  if (isMessagePage) {
+		  if (isChinese) {
+			  customLocale = {
+				  placeholder: '欢迎在此畅所欲言，留下你的足迹吧...', 
+				  sofa: '暂无留言，快来当第一个留信人吧~',           
+				  submit: '提交留言'
+			  };
+		  } else {
+			  customLocale = {
+				  placeholder: 'Please leave a message here...', 
+				  sofa: 'No messages yet. Be the first one!',           
+				  submit: 'Submit'
+			  };
+		  }
+	  }
+
+	  init({
+		el: '#waline',
+		serverURL: 'https:\/\/waline.myvnc.com',
+		path: window.location.pathname,
+		lang: isChinese ? 'zh-CN' : 'en', 
+		dark: 'auto',
+		requiredMeta: ['nick'],
+		copyright: false, 
+		
+		locale: isMessagePage ? customLocale : undefined 
+	  });
+	</script>
+	
+	
 
 
-
-
+	
 
 
             </div>
@@ -448,13 +480,25 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
                         
                         
                         
+                        <a href="/tags/fin" title="fin">
+                        fin
+                        </a>
                         
                         
                         
                         
                         
+                        <a href="/tags/price" title="price">
+                        price
+                        </a>
                         
                         
+                        
+                        
+                        
+                        <a href="/tags/transaction" title="transaction">
+                        transaction
+                        </a>
                         
                         
                         

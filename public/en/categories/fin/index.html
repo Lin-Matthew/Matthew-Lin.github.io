@@ -144,7 +144,7 @@
 								<li style="border-bottom: 1px solid #f5f5f5;">
 									<a href="/en/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
 										<span>TRANS</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
 									</a>
 								</li>
 								
@@ -163,6 +163,8 @@
                         <li><a href="/en/archive//">ARCHIVE</a></li>
                     
                         <li><a href="/en/about//">ABOUT</a></li>
+                    
+                        <li><a href="/en/message//">MESSAGE</a></li>
                     
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
@@ -411,7 +413,34 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
-    <a href="http://localhost:1313/2026/6/23/fin-price/">
+    <a href="http://localhost:1313/en/2026/6/25/fin-principle/">
+        <h2 class="post-title">
+            How does price produce - backgroud of transaction
+        </h2>
+	
+        <h3 class="post-subtitle">
+            subtitle tmp en
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            tmp description en
+        
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Matthew Lin on Thursday, June 25, 2026
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://localhost:1313/en/2026/6/23/fin-price/">
         <h2 class="post-title">
             How does price produce - backgroud of transaction
         </h2>
@@ -444,9 +473,7 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 
 
        	</div>
-        
-
-<div class="
+        <div class="
     col-lg-3 col-lg-offset-0
     col-md-3 col-md-offset-0
     col-sm-12
@@ -454,23 +481,21 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
     sidebar-container
 ">
     
-	
     <section class="visible-md visible-lg">
-	
-        <div class="short-about">
+	<div class="short-about">
             
             
                 <p>Software Developer, Open Source Enthusiast and Life Adventurer</p>
             
-           
            <ul class="list-inline">
                
                <li>
-                   <a href="mailto:dawndusk@outlook.com">
+                   <a href="javascript:void(0);" onclick="copyEmail('dawndusk@outlook.com', this)">
                       <span class="fa-stack fa-lg">
                           <i class="fa fa-circle fa-stack-2x"></i>
                           <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                       </span>
+                      <span class="email-tooltip">点击复制邮箱</span>
                    </a>
                </li>
                
@@ -479,12 +504,16 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
                
                
                
-               <li>
-                   <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+               <li class="wechat-wrapper">
+                   <a href="javascript:void(0);">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
                            <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
                        </span>
+                       <div class="wechat-qrcode">
+                           <img src="/img/wechat_qrcode.png" alt="微信二维码">
+                           
+                       </div>
                    </a>
                </li>
                
@@ -515,23 +544,32 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 	
     
     
-    
-    
     <section>
         <hr class="hidden-sm hidden-xs">
-        
-		<h5>FEATURED TAGS</h5>
+        <h5>FEATURED TAGS</h5>
         <div class="tags">
             
             
                
-            
+                    <a href="/en/tags/fin" title="fin">
+                        fin
+                    </a>
                
             
                
             
                
+                    <a href="/en/tags/price" title="price">
+                        price
+                    </a>
+               
             
+               
+            
+               
+                    <a href="/en/tags/transaction" title="transaction">
+                        transaction
+                    </a>
                
             
                
@@ -541,11 +579,9 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
     
 
     
-    
     <section>
         <hr class="hidden-sm hidden-xs">
-        
-		<h5>FRIENDS</h5>
+        <h5>FRIENDS</h5>
         <ul class="list-inline">
             
             <li><a target="_blank" href=""></a></li>
@@ -560,15 +596,106 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
         <h5>LAST POSTS</h5>
         <ul>
         
-            <li><a href="/2026/6/25/waline-comment-en/">Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</a></li>
+            <li><a href="/en/2026/6/25/fin-principle/">How does price produce - backgroud of transaction</a></li>
         
-            <li><a href="/2026/6/23/fin-price/">How does price produce - backgroud of transaction</a></li>
+            <li><a href="/en/2026/6/25/waline-comment/">Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</a></li>
+        
+            <li><a href="/en/2026/6/23/fin-price/">How does price produce - backgroud of transaction</a></li>
         
         </ul>
     </section>
     
 </div>
 
+<style>
+   
+  .wechat-wrapper {
+      position: relative;
+  }
+  .wechat-qrcode {
+      position: absolute;
+      top: 45px;  
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+      z-index: 99999 !important;  
+      text-align: center;
+      width: max-content;
+      min-width: 120px;
+      max-width: 200px; 
+  }
+  .wechat-qrcode img {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 auto;
+      display: block;
+  }
+  .wechat-qrcode p {
+      color: #333 !important;
+      font-size: 12px !important;
+      margin: 6px 0 0 0 !important;
+      white-space: nowrap;
+  }
+  .wechat-wrapper:hover .wechat-qrcode {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+  }
+  
+   
+  .list-inline li { position: relative; }
+  .email-tooltip {
+      position: absolute;
+      top: 45px;  
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.1s ease, visibility 0.1s;
+      text-align: center;
+      pointer-events: none;  
+      z-index: 99999 !important;  
+  }
+  .list-inline li:hover .email-tooltip {
+      opacity: 1;
+      visibility: visible;
+  }
+</style>
+
+<script>
+  function copyEmail(email, element) {
+      navigator.clipboard.writeText(email).then(function() {
+          const tooltip = element.querySelector('.email-tooltip');
+          if (tooltip) {
+              
+              tooltip.innerText = "已复制！";
+              
+              
+              if (window.emailTimer) clearTimeout(window.emailTimer);
+              
+              window.emailTimer = setTimeout(() => {
+                  tooltip.innerText = "点击复制邮箱";
+                  
+                  tooltip.style.cssText = ""; 
+              }, 1000);
+          }
+      }).catch(function(err) {
+          alert("复制失败，您的邮箱为: " + email);
+      });
+  }
+</script>
 	</div>
 </div>
 
