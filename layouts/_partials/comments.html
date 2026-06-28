@@ -43,8 +43,8 @@
 	  init({
 		el: '#waline',
 		serverURL: '{{ .Site.Params.waline_server }}',
-		path: window.location.pathname,
-		//path: walinePath,
+		//path: window.location.pathname,
+		path: walinePath,
 		lang: isChinese ? 'zh-CN' : 'en', // 让 Waline 自带的UI（如日期、回复按钮）也自动切换中英文
 		dark: 'auto',
 		requiredMeta: ['nick'],
