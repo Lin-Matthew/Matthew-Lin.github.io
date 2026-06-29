@@ -10,22 +10,22 @@
 		
 		
 		
-			<lastBuildDate>Thu, 25 Jun 2026 21:04:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 27 Jun 2026 22:04:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/en/tags/transaction/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>How does price produce - backgroud of transaction</title>
-				<link>http://localhost:1313/en/2026/6/25/fin-principle/</link>
-				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/en/2026/6/25/fin-principle/</guid>
-				<description>&lt;h2&gt;&lt;/h2&gt;&#xA;&lt;p&gt;/en/2026/6/25/fin-principle/&lt;/p&gt;</description>
+				<title>Tulips, Mississippi, South China Sea Bubble</title>
+				<link>http://localhost:1313/en/2026/6/29/fin-bubble/</link>
+				<pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/en/2026/6/29/fin-bubble/</guid>
+				<description>&lt;h2 id=&#34;none&#34;&gt;None&lt;/h2&gt;</description>
 			</item>
 			<item>
-				<title>How does price produce - backgroud of transaction</title>
+				<title>Backgroud of transaction</title>
 				<link>http://localhost:1313/en/2026/6/23/fin-price/</link>
 				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/en/2026/6/23/fin-price/</guid>
-				<description>&lt;h2&gt;&lt;/h2&gt;&#xA;&lt;p&gt;/en/2026/6/23/fin-principle/&lt;/p&gt;</description>
+				<description>&lt;h2&gt;&lt;/h2&gt;&#xA;&lt;p&gt;/en/2026/6/23/fin-price/&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

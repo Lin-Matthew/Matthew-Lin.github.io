@@ -55,7 +55,8 @@
 		requiredMeta: ['nick'],
 		copyright: false, // 是否显示页脚版权信息
 		// 如果有自定义的留言板文案则覆盖，否则使用默认的评论UI
-		locale: isMessagePage ? customLocale : undefined 
+		locale: isMessagePage ? customLocale : undefined,
+		pageview: true,	// 流量统计功能
 	  });
 	</script>
 	{{ else if .Site.Params.giscus }}

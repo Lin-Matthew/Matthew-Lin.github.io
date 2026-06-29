@@ -10,15 +10,15 @@
 		
 		
 		
-			<lastBuildDate>Thu, 25 Jun 2026 21:04:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 27 Jun 2026 22:04:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>交易背景知识-价格的形成</title>
-				<link>http://localhost:1313/2026/6/25/fin-principle/</link>
-				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/6/25/fin-principle/</guid>
-				<description>&lt;p&gt;/2026/6/25/fin-principle/&lt;/p&gt;</description>
+				<title>郁金香、密西西比、南海泡沫</title>
+				<link>http://localhost:1313/2026/6/29/fin-bubble/</link>
+				<pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/2026/6/29/fin-bubble/</guid>
+				<description></description>
 			</item>
 			<item>
 				<title>Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</title>
@@ -28,25 +28,11 @@
 				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;评论系统采用waline v3.15.2作为无服务后端，supabase(postgres)存储评论数据，不用搭建个人服务器，即可享受免费的评论系统。&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>交易背景知识-价格的形成</title>
+				<title>价格的形成</title>
 				<link>http://localhost:1313/2026/6/23/fin-price/</link>
 				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
 				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>http://localhost:1313/about/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/about/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title></title>
-				<link>http://localhost:1313/notes/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/notes/</guid>
-				<description></description>
 			</item>
 			<item>
 				<title></title>
@@ -56,7 +42,21 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Posts Archive</title>
+				<title>笔记</title>
+				<link>http://localhost:1313/notes/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/notes/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>关于我</title>
+				<link>http://localhost:1313/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/about/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>归档</title>
 				<link>http://localhost:1313/archive/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/archive/</guid>

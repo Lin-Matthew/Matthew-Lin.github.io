@@ -52,7 +52,10 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo | Matthew Lin的博客 | Lin Matthew Blog</title>
+	
+	
+	<title>
+		  Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo| Matthew Lin&#39;s Blog</title>
 
     <link rel="canonical" href="/en/2026/6/25/waline-comment/">
 
@@ -142,16 +145,16 @@
 							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
 								
 								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/en/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>TRANS</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
+									<a href="/en/categories/coding/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>CODING</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
 									</a>
 								</li>
 								
 								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/en/categories/tech/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>TECH</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									<a href="/en/categories/trans/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>TRANS</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
 									</a>
 								</li>
 								
@@ -670,8 +673,98 @@ module.exports = Waline({
     requiredMeta: [&#39;nick&#39;],
   });
 &lt;/script&gt;
-</code></pre>
+</code></pre><p>Since the default generated domain requires a VPN to access, you can go to <strong>Domains -&gt; Add Existing</strong> in Vercel to add your custom domain. Then, replace <code>waline_server</code> with your new domain to enable access and load comments without a VPN.</p>
+<p>You can also add or modify other configurations within the <code>init</code> function, such as changing the display language.</p>
 
+				
+				&nbsp;·&nbsp;
+				<i class="fa fa-eye" style="color: #ff6b6b !important;"></i> 
+				<span class="waline-pageview-count" data-path="/en/2026/6/25/waline-comment/" style="color: #ff6b6b !important; font-weight: bold;">0</span> 
+				<span style="color: #ff6b6b !important; font-weight: 500;"> views</span>
+							
+                
+                <div class="entry-shang text-center">
+    <p>「Appreciate my work, leave a fragrance」</p>
+    <button class="zs show-zs btn btn-bred">Buy me one Sprite</button>
+</div>
+
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+    <div class="zs-modal-head">
+        <button type="button" class="close">×</button>
+    </div>
+    
+    <div class="zs-modal-body">
+        <div class="zs-modal-pay" style="display: block; padding-top: 10px;">
+            <p>
+                Use 
+                <span id="custom-pay-type" style="font-weight: bold; color: #d9534f;">WeChat</span> 
+                to scan the QR code to complete payment
+            </p>
+            <img src="/img/reward/wechat.png" id="custom-pay-image" style="max-width: 220px; width: 100%; height: auto; margin-top: 10px;"/>
+        </div>
+    </div>
+    
+    <div class="zs-modal-footer">
+        <label>
+            <input type="radio" name="custom-zs-type" value="wechat" class="custom-zs-radio" checked="checked">
+            <span><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></span>
+        </label>
+        <label>
+            <input type="radio" name="custom-zs-type" value="alipay" class="custom-zs-radio">
+            <span><span class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></span>
+        </label>
+    </div>
+</div>
+
+<script type="text/javascript">
+(function() {
+    
+    const wechatQr = '\/img\/reward\/wechat.png';
+    const alipayQr = '\/img\/reward\/alipay.png';
+
+    
+    const textWechat = 'WeChat';
+    const textAlipay = 'Alipay';
+
+    const modalBg = document.querySelector('.zs-modal-bg');
+    const modalBox = document.querySelector('.zs-modal-box');
+    const showBtn = document.querySelector('.show-zs');
+    const closeBtn = document.querySelector('.zs-modal-head .close');
+    const payTypeTxt = document.getElementById('custom-pay-type');
+    const payImg = document.getElementById('custom-pay-image');
+    const radios = document.querySelectorAll('.custom-zs-radio');
+
+    
+    if (showBtn) {
+        showBtn.addEventListener('click', function() {
+            modalBg.style.display = 'block';
+            modalBox.style.display = 'block';
+        });
+    }
+    
+    function closeModal() {
+        modalBg.style.display = 'none';
+        modalBox.style.display = 'none';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modalBg) modalBg.addEventListener('click', closeModal);
+
+    
+    radios.forEach(function(radio) {
+        radio.addEventListener('change', function(e) {
+            if (e.target.value === 'alipay') {
+                payTypeTxt.innerText = textAlipay; 
+                payImg.src = alipayQr;
+            } else {
+                payTypeTxt.innerText = textWechat; 
+                payImg.src = wechatQr;
+            }
+        });
+    });
+})();
+</script>
                 
 
                 
@@ -679,14 +772,14 @@ module.exports = Waline({
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/en/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="How does price produce - backgroud of transaction">
+                        <a href="/en/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="Backgroud of transaction">
                             &larr; Previous Post
 						</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/en/2026/6/25/fin-principle/" data-toggle="tooltip" data-placement="top" title="How does price produce - backgroud of transaction">
+                        <a href="/en/2026/6/29/fin-bubble/" data-toggle="tooltip" data-placement="top" title="Tulips, Mississippi, South China Sea Bubble">
                             Next Post &rarr;
 						</a>
                     </li>
@@ -705,9 +798,7 @@ module.exports = Waline({
 		display: none !important;
 	  }
 	  #waline {
-		--waline-font-size: 16px;  
-	  }
-	</style>
+		--waline-font-size: 16px;   </style>
 	<script type="module">
 	  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	  
@@ -751,7 +842,8 @@ module.exports = Waline({
 		requiredMeta: ['nick'],
 		copyright: false, 
 		
-		locale: isMessagePage ? customLocale : undefined 
+		locale: isMessagePage ? customLocale : undefined,
+		pageview: true,	
 	  });
 	</script>
 	
@@ -794,17 +886,11 @@ module.exports = Waline({
                         
                         
                         
-                        <a href="/en/tags/fin" title="fin">
-                            fin
-                        </a>
                         
                         
                         
                         
                         
-                        <a href="/en/tags/price" title="price">
-                            price
-                        </a>
                         
                         
                         
@@ -813,6 +899,10 @@ module.exports = Waline({
                         <a href="/en/tags/transaction" title="transaction">
                             transaction
                         </a>
+                        
+                        
+                        
+                        
                         
                         
                         

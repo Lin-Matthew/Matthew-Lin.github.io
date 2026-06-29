@@ -1,19 +1,19 @@
 ---
 draft: 		false
 layout:     post 
-title:      "交易背景知识-价格的形成"
-subtitle:   ""
+title:      "价格的形成"
+subtitle:   "交易背景知识"
 description: ""
 date:        2026-06-23 21:04:00
 author: "Matthew Lin"
 image: ""
 publishDate: 2026-06-23 00:00:00
 tags:
-    - fin
+    - finance
     - price
     - transaction
 URL: "/2026/6/23/fin-price/"
-categories: [fin]
+categories: [trans]
 comments: true
 ---
 ## 概述

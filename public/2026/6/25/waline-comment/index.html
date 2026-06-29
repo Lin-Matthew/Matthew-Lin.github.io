@@ -52,7 +52,10 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统 | Matthew Lin的博客 | Lin Matthew Blog</title>
+	
+	
+	<title>
+		  Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统| 林修的博客</title>
 
     <link rel="canonical" href="/2026/6/25/waline-comment/">
 
@@ -142,16 +145,16 @@
 							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
 								
 								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/fin/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>交易</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
+									<a href="/categories/coding/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>编程</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
 									</a>
 								</li>
 								
 								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/tech/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>技术</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+									<a href="/categories/trans/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+										<span>交易</span>
+										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">2</span>
 									</a>
 								</li>
 								
@@ -688,8 +691,98 @@ module.exports = Waline({
     requiredMeta: [&#39;nick&#39;],
   });
 &lt;/script&gt;
-</code></pre>
+</code></pre><p>​		由于默认生成的domain需要VPN才能访问，在vercel里找到Domains-&gt;Add Existing，添加自己的域名，将上面的waline_server替换成新域名，即可免VPN访问和加载评论。</p>
+<p>​		init里面可以添加、修改其他配置，比如语言等显示。</p>
 
+				
+				&nbsp;·&nbsp;
+				<i class="fa fa-eye" style="color: #ff6b6b !important;"></i> 
+				<span class="waline-pageview-count" data-path="/2026/6/25/waline-comment/" style="color: #ff6b6b !important; font-weight: bold;">0</span> 
+				<span style="color: #ff6b6b !important; font-weight: 500;">次阅读</span>
+							
+                
+                <div class="entry-shang text-center">
+    <p>「真诚赞赏，手留余香」</p>
+    <button class="zs show-zs btn btn-bred">请我喝雪碧</button>
+</div>
+
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+    <div class="zs-modal-head">
+        <button type="button" class="close">×</button>
+    </div>
+    
+    <div class="zs-modal-body">
+        <div class="zs-modal-pay" style="display: block; padding-top: 10px;">
+            <p>
+                使用 
+                <span id="custom-pay-type" style="font-weight: bold; color: #d9534f;">微信</span> 
+                扫描二维码完成支付
+            </p>
+            <img src="/img/reward/wechat.png" id="custom-pay-image" style="max-width: 220px; width: 100%; height: auto; margin-top: 10px;"/>
+        </div>
+    </div>
+    
+    <div class="zs-modal-footer">
+        <label>
+            <input type="radio" name="custom-zs-type" value="wechat" class="custom-zs-radio" checked="checked">
+            <span><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></span>
+        </label>
+        <label>
+            <input type="radio" name="custom-zs-type" value="alipay" class="custom-zs-radio">
+            <span><span class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></span>
+        </label>
+    </div>
+</div>
+
+<script type="text/javascript">
+(function() {
+    
+    const wechatQr = '\/img\/reward\/wechat.png';
+    const alipayQr = '\/img\/reward\/alipay.png';
+
+    
+    const textWechat = '微信';
+    const textAlipay = '支付宝';
+
+    const modalBg = document.querySelector('.zs-modal-bg');
+    const modalBox = document.querySelector('.zs-modal-box');
+    const showBtn = document.querySelector('.show-zs');
+    const closeBtn = document.querySelector('.zs-modal-head .close');
+    const payTypeTxt = document.getElementById('custom-pay-type');
+    const payImg = document.getElementById('custom-pay-image');
+    const radios = document.querySelectorAll('.custom-zs-radio');
+
+    
+    if (showBtn) {
+        showBtn.addEventListener('click', function() {
+            modalBg.style.display = 'block';
+            modalBox.style.display = 'block';
+        });
+    }
+    
+    function closeModal() {
+        modalBg.style.display = 'none';
+        modalBox.style.display = 'none';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modalBg) modalBg.addEventListener('click', closeModal);
+
+    
+    radios.forEach(function(radio) {
+        radio.addEventListener('change', function(e) {
+            if (e.target.value === 'alipay') {
+                payTypeTxt.innerText = textAlipay; 
+                payImg.src = alipayQr;
+            } else {
+                payTypeTxt.innerText = textWechat; 
+                payImg.src = wechatQr;
+            }
+        });
+    });
+})();
+</script>
                 
 
                 
@@ -697,14 +790,14 @@ module.exports = Waline({
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="交易背景知识-价格的形成">
+                        <a href="/2026/6/23/fin-price/" data-toggle="tooltip" data-placement="top" title="价格的形成">
                             &larr; 上一篇
 						</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2026/6/25/fin-principle/" data-toggle="tooltip" data-placement="top" title="交易背景知识-价格的形成">
+                        <a href="/2026/6/29/fin-bubble/" data-toggle="tooltip" data-placement="top" title="郁金香、密西西比、南海泡沫">
                             下一篇 &rarr;
 						</a>
                     </li>
@@ -723,9 +816,7 @@ module.exports = Waline({
 		display: none !important;
 	  }
 	  #waline {
-		--waline-font-size: 16px;  
-	  }
-	</style>
+		--waline-font-size: 16px;   </style>
 	<script type="module">
 	  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 	  
@@ -769,7 +860,8 @@ module.exports = Waline({
 		requiredMeta: ['nick'],
 		copyright: false, 
 		
-		locale: isMessagePage ? customLocale : undefined 
+		locale: isMessagePage ? customLocale : undefined,
+		pageview: true,	
 	  });
 	</script>
 	
@@ -812,17 +904,11 @@ module.exports = Waline({
                         
                         
                         
-                        <a href="/tags/fin" title="fin">
-                            fin
-                        </a>
                         
                         
                         
                         
                         
-                        <a href="/tags/price" title="price">
-                            price
-                        </a>
                         
                         
                         
@@ -831,6 +917,10 @@ module.exports = Waline({
                         <a href="/tags/transaction" title="transaction">
                             transaction
                         </a>
+                        
+                        
+                        
+                        
                         
                         
                         

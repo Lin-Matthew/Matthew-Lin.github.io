@@ -26,9 +26,22 @@ other = "友情链接"
 [sidebar_last_posts]
 other = "最新文章"
 
-[cat_tech]
+[reward_btn]
+other = "请我喝雪碧"
+[reward_guide]
+other = "真诚赞赏，手留余香"
+[reward_scan_prefix]
+other = "使用"
+[reward_scan_suffix]
+other = "扫描二维码完成支付"
+[reward_wechat]
+other = "微信"
+[reward_alipay]
+other = "支付宝"
+
+[cat_coding]
 other = "编程"
-[cat_fin]
+[cat_trans]
 other = "交易"
 
 [tag_fin]

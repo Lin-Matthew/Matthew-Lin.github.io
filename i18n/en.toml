@@ -26,9 +26,22 @@ other = "FRIENDS"
 [sidebar_last_posts]
 other = "LAST POSTS"
 
-[cat_tech]
+[reward_btn]
+other = "Buy me one Sprite"
+[reward_guide]
+other = "Appreciate my work, leave a fragrance"
+[reward_scan_prefix]
+other = "Use"
+[reward_scan_suffix]
+other = "to scan the QR code to complete payment"
+[reward_wechat]
+other = "WeChat"
+[reward_alipay]
+other = "Alipay"
+
+[cat_coding]
 other = "CODING"
-[cat_fin]
+[cat_trans]
 other = "TRANS"
 
 [tag_fin]

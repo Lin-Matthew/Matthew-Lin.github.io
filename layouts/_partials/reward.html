@@ -1,0 +1,82 @@
+<div class="entry-shang text-center">
+    <p>「{{ i18n "reward_guide" }}」</p>
+    <button class="zs show-zs btn btn-bred">{{ i18n "reward_btn" }}</button>
+</div>
+
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+    <div class="zs-modal-head">
+        <button type="button" class="close">×</button>
+    </div>
+    
+    <div class="zs-modal-body">
+        <div class="zs-modal-pay" style="display: block; padding-top: 10px;">
+            <p>
+                {{ i18n "reward_scan_prefix" }} 
+                <span id="custom-pay-type" style="font-weight: bold; color: #d9534f;">{{ i18n "reward_wechat" }}</span> 
+                {{ i18n "reward_scan_suffix" }}
+            </p>
+            <img src="{{ "img/reward/wechat.png" | relURL }}" id="custom-pay-image" style="max-width: 220px; width: 100%; height: auto; margin-top: 10px;"/>
+        </div>
+    </div>
+    
+    <div class="zs-modal-footer">
+        <label>
+            <input type="radio" name="custom-zs-type" value="wechat" class="custom-zs-radio" checked="checked">
+            <span><span class="zs-wechat"><img src="{{ "img/reward/wechat-btn.png" | relURL }}"/></span></span>
+        </label>
+        <label>
+            <input type="radio" name="custom-zs-type" value="alipay" class="custom-zs-radio">
+            <span><span class="zs-alipay"><img src="{{ "img/reward/alipay-btn.png" | relURL }}"/></span></span>
+        </label>
+    </div>
+</div>
+
+<script type="text/javascript">
+(function() {
+    // 微信和支付宝的固定收款码路径（由 Hugo 动态生成绝对/相对路径）
+    const wechatQr = '{{ "img/reward/wechat.png" | relURL }}';
+    const alipayQr = '{{ "img/reward/alipay.png" | relURL }}';
+
+    // 🌟 将语言包内的中英文动态赋予给 JS 变量，让切换单选框时显示的文字也可以自适应
+    const textWechat = '{{ i18n "reward_wechat" }}';
+    const textAlipay = '{{ i18n "reward_alipay" }}';
+
+    const modalBg = document.querySelector('.zs-modal-bg');
+    const modalBox = document.querySelector('.zs-modal-box');
+    const showBtn = document.querySelector('.show-zs');
+    const closeBtn = document.querySelector('.zs-modal-head .close');
+    const payTypeTxt = document.getElementById('custom-pay-type');
+    const payImg = document.getElementById('custom-pay-image');
+    const radios = document.querySelectorAll('.custom-zs-radio');
+
+    // 弹窗控制
+    if (showBtn) {
+        showBtn.addEventListener('click', function() {
+            modalBg.style.display = 'block';
+            modalBox.style.display = 'block';
+        });
+    }
+    
+    function closeModal() {
+        modalBg.style.display = 'none';
+        modalBox.style.display = 'none';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modalBg) modalBg.addEventListener('click', closeModal);
+
+    // 🌟 单选框切换收款码逻辑
+    radios.forEach(function(radio) {
+        radio.addEventListener('change', function(e) {
+            if (e.target.value === 'alipay') {
+                payTypeTxt.innerText = textAlipay; // 🌟 动态注入自适应后的支付名称
+                payImg.src = alipayQr;
+            } else {
+                payTypeTxt.innerText = textWechat; // 🌟 动态注入自适应后的支付名称
+                payImg.src = wechatQr;
+            }
+        });
+    });
+})();
+</script>
