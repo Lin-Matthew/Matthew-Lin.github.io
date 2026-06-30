@@ -50,6 +50,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.zh-cn.params.additional_menus]]
       title = "归档"
       href = "/archive"
+	[[languages.zh-cn.params.additional_menus]]
+      title = "标签"
+      href = "/tags"
     #[[languages.zh-cn.params.additional_menus]]
       #title = "笔记"
       #href = "/notes"
@@ -90,6 +93,9 @@ home = ["HTML", "RSS", "algolia"]
     [[languages.en.params.additional_menus]]
       title = "ARCHIVE"
       href = "/archive"
+	[[languages.en.params.additional_menus]]
+      title = "TAGS"
+      href = "/tags"
     #[[languages.en.params.additional_menus]]
       #title = "NOTES"
       #href = "/notes"

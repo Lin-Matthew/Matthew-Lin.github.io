@@ -1,0 +1,62 @@
+{{ define "main" }}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+         	    {{ .Content }}
+
+                <div class="tag-cloud-main" style="padding: 20px 0; line-height: 2.5;">
+                    {{ range .Data.Terms.Alphabetical }}
+                    <a href="{{ .Page.RelPermalink }}" class="tag-item" style="margin-right: 20px; text-decoration: none; display: inline-block;">
+                        <span style="font-size: 1.3em; font-weight: bold; color: #333;"># {{ i18n (printf "tag_%s" (lower .Page.Title)) | default .Page.Title }}</span>
+                        <span style="color: #999; font-size: 0.9em;">({{ .Count }})</span>
+                    </a>
+                    {{ end }}
+                </div>
+
+                {{ partial "comments.html" . }}
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                {{ if .Site.Params.featured_tags }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="{{ printf "%s/tags/" .Site.LanguagePrefix | relURL }}">{{ i18n "sidebar_featured_tags" }}</a></h5>
+                    <div class="tags">
+                        {{ $featured_condition_size := .Site.Params.featured_condition_size }}
+                        {{ $langPrefix := .Site.LanguagePrefix }}
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
+                        <a href="{{ printf "%s/tags/%s" $langPrefix ($name | urlize) | relURL }}" title="{{ $name }}">
+                        {{ $name }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+
+                {{ if .Site.Params.friends }}
+                <section>
+                    <hr>
+                    <h5>{{ i18n "sidebar_friends" }}</h5>
+                    <ul class="list-inline">
+                        {{ range .Site.Params.friend_link }}
+                        <li><a target="_blank" href="{{.href}}">{{.title}}</a></li>
+                        {{ end }}
+                    </ul>
+                </section>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</article>
+{{ end }}

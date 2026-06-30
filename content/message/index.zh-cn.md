@@ -1,6 +1,7 @@
 ---
 title: "留言板"
 layout: page
+type: message
 multilingual: true
 comments: true
 isMessageBoard: true

@@ -1,0 +1,385 @@
+{{ define "main" }}
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <!-- 左侧：标签云内容区域 -->
+            <div class="
+                col-lg-8 col-lg-offset-0
+                col-md-8 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                post-container">
+
+         	    {{ .Content }}
+
+                <div class="tag-cloud-main" style="padding: 20px 0; line-height: 2.5;">
+                    {{ range .Data.Terms.Alphabetical }}
+                    <a href="{{ .Page.RelPermalink }}" class="tag-item" style="margin-right: 20px; text-decoration: none; display: inline-block;">
+                        <span style="font-size: 1.3em; font-weight: bold; color: #333;"># {{ i18n (printf "tag_%s" (lower .Page.Title)) | default .Page.Title }}</span>
+                        <span style="color: #999; font-size: 0.9em;">({{ .Count }})</span>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            
+            <!-- 右侧：完整的定制侧边栏（集成头像、社交、友情链接、最新文章） -->
+            <div class="
+                col-lg-3 col-lg-offset-1
+                col-md-4 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                {{ if .Site.Params.about_me }}
+                <section class="visible-md visible-lg">
+                    <div class="short-about">
+                        {{ with .Site.Params.sidebar_avatar }}
+                        <a href="{{ "/about" | relLangURL }}">
+                           <img src="{{ . | relURL }}" alt="avatar" style="cursor: pointer" />
+                        </a>
+                        {{ end }}
+                        {{ with .Site.Params.sidebar_about_description }}
+                            <p>{{ . | safeHTML }}</p>
+                        {{ end }}
+                       <ul class="list-inline">
+                           {{ if .Site.Params.social.email }}
+                           <li>
+                               <a href="javascript:void(0);" onclick="copyEmail('{{ .Site.Params.social.email }}', this)">
+                                  <span class="fa-stack fa-lg">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                  </span>
+                                  <span class="email-tooltip">点击复制邮箱</span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.twitter }}
+                           <li>
+                               <a href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.zhihu }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-stack-1x fa-inverse">知</i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.weibo }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.facebook }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.wechat }}
+                           <li class="wechat-wrapper">
+                               <a href="javascript:void(0);">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                                   </span>
+                                   <div class="wechat-qrcode">
+                                       <img src="{{ . | relURL }}" alt="微信二维码">
+                                   </div>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.github }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.gitlab }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.git }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-git fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.linkedin }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.medium }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                                        </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.stackoverflow }}
+                                <li>
+                                    <a target="_blank" href="{{ . }}">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                        {{ end }}
+                        {{ with .Site.Params.social.reddit }}
+                                <li>
+                                    <a target="_blank" href="{{ . }}">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-reddit fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                        {{ end }}
+                        {{ with .Site.Params.social.mastodon }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.keybase }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-keybase fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.xing }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-xing fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.instagram }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                           {{ with .Site.Params.social.flickr }}
+                           <li>
+                               <a target="_blank" href="{{ . }}">
+                                   <span class="fa-stack fa-lg">
+                                       <i class="fas fa-circle fa-stack-2x"></i>
+                                       <i class="fab fa-flickr fa-stack-1x fa-inverse"></i>
+                                   </span>
+                               </a>
+                           </li>
+                           {{ end }}
+                            </ul>
+                        </div>
+                </section>
+                {{ end }}
+                
+                {{ if .Site.Params.bookmarks }}
+                <section>
+                    <hr>
+                    <h5>QUICK LINKS</h5>
+                    <ul class="list-inline">
+                        {{ range .Site.Params.bookmark_link }}
+                        <li><a target="_blank" href="{{.href }}">{{.title}}</a></li>
+                        {{ end }}
+                    </ul>
+                </section>
+                {{ end }}
+                
+                {{ if .Site.Params.featured_tags }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>{{ i18n "sidebar_featured_tags" }}</h5>
+                    <div class="tags">
+                        {{ $featured_condition_size := .Site.Params.featured_condition_size }}
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                           {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
+                                <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" title="{{ $name }}">
+                                    {{ $name }}
+                                </a>
+                           {{ end }}
+                        {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+
+                {{ if .Site.Params.friends }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>{{ i18n "sidebar_friends" }}</h5>
+                    <ul class="list-inline">
+                        {{ range .Site.Params.friend_link }}
+                        <li><a target="_blank" href="{{.href}}">{{.title}}</a></li>
+                        {{ end }}
+                    </ul>
+                </section>
+                {{ end }}
+                
+                {{ if .Site.Params.publications }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>{{ .Site.Params.publications.Title }}</h5>
+                    <div class="short-about">
+                    {{ range .Site.Params.publications.items }}
+                    <a href="{{.href}}">
+                        <img src="{{.image}}" alt="avatar" style="cursor: pointer" />
+                    </a>
+                    {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+                
+                {{ if .Site.Params.last_posts }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>{{ .Site.Params.last_posts_title | default `LAST POSTS` }}</h5>
+                    <ul>
+                    {{ range ((where (where .Site.Pages "Type" "post") "IsPage" true).Limit (.Site.Params.last_posts_count | default 5 | int)) }}
+                        <li><a href="{{ .RelPermalink }}">{{.Title}}</a></li>
+                    {{ end }}
+                    </ul>
+                </section>
+                {{ end }}
+            </div>
+
+        </div>
+    </div>
+</article>
+
+<!-- 保持原汁原味的悬浮微信及邮箱提示样式 -->
+<style>
+  .wechat-wrapper {
+      position: relative;
+  }
+  .wechat-qrcode {
+      position: absolute;
+      top: 45px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+      z-index: 99999 !important;
+      text-align: center;
+      width: max-content;
+      min-width: 120px;
+      max-width: 200px; 
+  }
+  .wechat-qrcode img {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 auto;
+      display: block;
+  }
+  .wechat-wrapper:hover .wechat-qrcode {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+  }
+  
+  .list-inline li { position: relative; }
+  .email-tooltip {
+      position: absolute;
+      top: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.1s ease, visibility 0.1s;
+      text-align: center;
+      pointer-events: none;
+      z-index: 99999 !important;
+  }
+  .list-inline li:hover .email-tooltip {
+      opacity: 1;
+      visibility: visible;
+  }
+</style>
+
+<!-- 保持原汁原味的邮箱复制控制脚本 -->
+<script>
+  function copyEmail(email, element) {
+      navigator.clipboard.writeText(email).then(function() {
+          const tooltip = element.querySelector('.email-tooltip');
+          if (tooltip) {
+              tooltip.innerText = "已复制！";
+              if (window.emailTimer) clearTimeout(window.emailTimer);
+              window.emailTimer = setTimeout(() => {
+                  tooltip.innerText = "点击复制邮箱";
+                  tooltip.style.cssText = ""; 
+              }, 1000);
+          }
+      }).catch(function(err) {
+          alert("复制失败，您的邮箱为: " + email);
+      });
+  }
+</script>
+{{ end }}

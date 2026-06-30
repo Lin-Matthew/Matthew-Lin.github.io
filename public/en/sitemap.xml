@@ -3,21 +3,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/en/tags/bubble-burst/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/bubble-burst/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/bubble-burst/"
-                />
-  </url><url>
     <loc>http://localhost:1313/en/categories/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
+    <lastmod>2026-06-25T13:04:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -27,110 +14,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/categories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/post/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/post/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/categories/trans/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/categories/trans/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/categories/trans/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/transaction/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/transaction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/transaction/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/tulip-bubble/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/tulip-bubble/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/tulip-bubble/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/tulip-mania/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/tulip-mania/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/tulip-mania/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/2026/6/29/fin-bubble/</loc>
-    <lastmod>2026-06-27T22:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/2026/6/29/fin-bubble/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/2026/6/29/fin-bubble/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/categories/coding/</loc>
@@ -159,6 +42,32 @@
                 href="http://localhost:1313/en/tags/hugo/"
                 />
   </url><url>
+    <loc>http://localhost:1313/en/</loc>
+    <lastmod>2026-06-25T13:04:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/post/</loc>
+    <lastmod>2026-06-25T13:04:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/post/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/tags/supabase/</loc>
     <lastmod>2026-06-25T13:04:00+00:00</lastmod>
     <xhtml:link
@@ -170,6 +79,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/tags/supabase/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/tags/</loc>
+    <lastmod>2026-06-25T13:04:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/tags/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/tags/waline/</loc>
@@ -196,45 +118,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/2026/6/25/waline-comment/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/2026/6/23/fin-price/</loc>
-    <lastmod>2026-05-23T21:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/2026/6/23/fin-price/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/2026/6/23/fin-price/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/finance/</loc>
-    <lastmod>2026-05-23T21:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/finance/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/finance/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/tags/price/</loc>
-    <lastmod>2026-05-23T21:04:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/price/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/price/"
                 />
   </url><url>
     <loc>http://localhost:1313/en/about/</loc>

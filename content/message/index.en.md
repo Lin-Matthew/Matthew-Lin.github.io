@@ -1,6 +1,7 @@
 ---
 title: "Message"
 layout: page
+type: message
 multilingual: true
 comments: true
 isMessageBoard: true
