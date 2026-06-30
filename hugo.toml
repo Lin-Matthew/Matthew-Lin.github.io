@@ -1,10 +1,10 @@
 baseurl = "http://lintthew.myvnc.com/"
 theme = "cleanwhite"
-#Language.Locale = "en-us"
 Language.Locale = "zh-cn"
 defaultContentLanguage = "zh-cn"
 preserveTaxonomyNames = false
 hasCJKLanguage = true
+timeZone = "Asia/Shanghai"
 
 [services]
   # Enable comments by entering your Disqus shortname

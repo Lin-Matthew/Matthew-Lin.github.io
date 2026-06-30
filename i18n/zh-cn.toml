@@ -43,6 +43,8 @@ other = "支付宝"
 other = "编程"
 [cat_trans]
 other = "交易"
+[cat_diary]
+other = "日记"
 
 [tag_fin]
 other = "金融"

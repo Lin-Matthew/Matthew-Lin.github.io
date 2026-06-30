@@ -10,21 +10,28 @@
 		
 		
 		
-			<lastBuildDate>Sun, 28 Jun 2026 22:04:00 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 30 Jun 2026 22:54:00 +0800</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Trans</title>
-				<link>http://localhost:1313/categories/trans/</link>
-				<pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/categories/trans/</guid>
+				<title>Diary</title>
+				<link>http://localhost:1313/categories/diary/</link>
+				<pubDate>Tue, 30 Jun 2026 23:54:00 +0800</pubDate>
+				<guid>http://localhost:1313/categories/diary/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Coding</title>
 				<link>http://localhost:1313/categories/coding/</link>
-				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
 				<guid>http://localhost:1313/categories/coding/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Trans</title>
+				<link>http://localhost:1313/categories/trans/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/categories/trans/</guid>
 				<description></description>
 			</item>
 	</channel>

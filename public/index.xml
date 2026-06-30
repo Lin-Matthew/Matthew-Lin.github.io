@@ -10,34 +10,25 @@
 		
 		
 		
-			<lastBuildDate>Sun, 28 Jun 2026 22:04:00 +0000</lastBuildDate>
-		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>tmp title</title>
-				<link>http://localhost:1313/2026/6/29/fin-market1/</link>
-				<pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/6/29/fin-market1/</guid>
-				<description>&lt;p&gt;哈哈&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>郁金香、密西西比、南海泡沫</title>
-				<link>http://localhost:1313/2026/6/29/fin-bubble/</link>
-				<pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/6/29/fin-bubble/</guid>
-				<description></description>
+				<title>如何面对失败？</title>
+				<link>http://localhost:1313/2026/6/23/diary-lin1/</link>
+				<pubDate>Tue, 30 Jun 2026 23:54:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/6/23/diary-lin1/</guid>
+				<description>&lt;h2 id=&#34;1引子&#34;&gt;1.引子&lt;/h2&gt;&#xA;&lt;p&gt;我的第一次高考是失败的，考完第一场语文时我便已经意识到了。但我的情绪直到查分当晚才得以宣泄。&lt;/p&gt;&#xA;&lt;p&gt;那晚，我徘徊在县城的街道上，路灯很暗，巷子里更是没有灯。我突然接到堂哥的电话。我本能是抗拒和他交流的，因为父辈们的关系很糟，我们堂兄弟之间也甚少往来。又在这个我很失意的节骨眼上，他的电话显得好不合时宜。但我还是没有拒接，我不想让别人知道我的情绪低落。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</title>
 				<link>http://localhost:1313/2026/6/25/waline-comment/</link>
-				<pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
 				<guid>http://localhost:1313/2026/6/25/waline-comment/</guid>
 				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;评论系统采用waline v3.15.2作为无服务后端，supabase(postgres)存储评论数据，不用搭建个人服务器，即可享受免费的评论系统。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>价格的形成</title>
 				<link>http://localhost:1313/2026/6/23/fin-price/</link>
-				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
 				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
 				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。&lt;/p&gt;</description>
 			</item>

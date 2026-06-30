@@ -43,6 +43,8 @@ other = "Alipay"
 other = "CODING"
 [cat_trans]
 other = "TRANS"
+[cat_diary]
+other = "DIARY"
 
 [tag_fin]
 other = "Finance"
