@@ -1,4 +1,4 @@
-baseurl = "http://lintthew.myvnc.com/"
+baseurl = "https://lintthew.myvnc.com/"
 theme = "cleanwhite"
 Language.Locale = "zh-cn"
 defaultContentLanguage = "zh-cn"
