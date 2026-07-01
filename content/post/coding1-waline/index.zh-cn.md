@@ -160,6 +160,10 @@ postgresql://hidden:[YOUR-PASSWORD]@hidden:5432//postgres.xxx:[YOUR-PASSWORD]@aw
 
 如果忘记了密码，可以依次点击"Database"、"Settings"、"Reset password"。
 
+#### 1.5为表格创建安全组策略
+
+
+
 ## 2. Github设置
 
 ​		在github新建一个仓库，仓库名比如设置为waline-comment，选择private、添加readme。

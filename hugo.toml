@@ -33,7 +33,7 @@ home = ["HTML", "RSS", "algolia"]
 	
 	[languages.zh-cn.params]
 	  #header_image = "img/home-bg-elsa2.png"
-	  #slogan = "路在脚下，心向远方"
+	  #slogan = ""
 	  SEOTitle = "林修的博客"
 	  description = ""
 	  keyword = ""
@@ -42,7 +42,7 @@ home = ["HTML", "RSS", "algolia"]
 	  last_posts_title = "最新文章"
 	  # Sidebar settings
 	  #sidebar_avatar = "img/avatar-me.png"
-	  sidebar_about_description = "软件开发者，开源爱好者，生活冒险家"
+	  sidebar_about_description = ""
 	  
 	  # Enable wechat pay & alipay to allow readers send reward money if they like the articles 
 	  reward = true 
@@ -81,11 +81,11 @@ home = ["HTML", "RSS", "algolia"]
 	  description = ""
 	  keyword = ""
 	  image_404 = "img/404-bg.jpg"
-	  title_404 = "Ops! Page Not Found :("
+	  title_404 = "Oops! Page Not Found :("
 	  last_posts_title = "LAST POSTS"
 	  # Sidebar settings
 	  #sidebar_avatar = "img/avatar-me.png"
-	  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
+	  sidebar_about_description = ""
 	  
 	  # Enable wechat pay & alipay to allow readers send reward money if they like the articles 
 	  reward = true 
