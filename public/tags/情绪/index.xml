@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>情绪 on 林修的博客</title>
-		<link>http://localhost:1313/tags/%E6%83%85%E7%BB%AA/</link>
+		<link>https://lintthew.myvnc.com/tags/%E6%83%85%E7%BB%AA/</link>
 		<description>Recent content in 情绪 on 林修的博客</description>
 		<generator>Hugo</generator>
 		<language>zh-cn</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Tue, 30 Jun 2026 22:54:00 +0800</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/%E6%83%85%E7%BB%AA/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://lintthew.myvnc.com/tags/%E6%83%85%E7%BB%AA/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>如何面对失败？</title>
-				<link>http://localhost:1313/2026/6/23/diary-lin1/</link>
+				<link>https://lintthew.myvnc.com/2026/6/23/diary-lin1/</link>
 				<pubDate>Tue, 30 Jun 2026 23:54:00 +0800</pubDate>
-				<guid>http://localhost:1313/2026/6/23/diary-lin1/</guid>
+				<guid>https://lintthew.myvnc.com/2026/6/23/diary-lin1/</guid>
 				<description>&lt;h2 id=&#34;1引子&#34;&gt;1.引子&lt;/h2&gt;&#xA;&lt;p&gt;我的第一次高考是失败的，考完第一场语文时我便已经意识到了。但我的情绪直到查分当晚才得以宣泄。&lt;/p&gt;&#xA;&lt;p&gt;那晚，我徘徊在县城的街道上，路灯很暗，巷子里更是没有灯。我突然接到堂哥的电话。我本能是抗拒和他交流的，因为父辈们的关系很糟，我们堂兄弟之间也甚少往来。又在这个我很失意的节骨眼上，他的电话显得好不合时宜。但我还是没有拒接，我不想让别人知道我的情绪低落。&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://localhost:1313//">
-    <meta property="twitter:image" content="http://localhost:1313//" />
+    <meta property="og:image" content="https://lintthew.myvnc.com//">
+    <meta property="twitter:image" content="https://lintthew.myvnc.com//" />
     
 
     
@@ -42,7 +42,7 @@
     <meta property="twitter:description" content="使用 Waline V3 作为无服务器评论后端，绑定 Supabase (PostgreSQL) 存储数据，并嵌入 Hugo 博客。本文通过详细的配置过程，实现游客免登录丝滑评论。" />
     
 
-    <meta property="og:url" content="http://localhost:1313/2026/6/25/waline-comment/" />
+    <meta property="og:url" content="https://lintthew.myvnc.com/2026/6/25/waline-comment/" />
 
     
     <meta property="twitter:card" content="summary" />
@@ -1148,7 +1148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (keywords.length <= 0) return;
 
         
-        fetch('http:\/\/localhost:1313\/algolisearch.json')
+        fetch('https:\/\/lintthew.myvnc.com\/algolisearch.json')
             .then(function (response) {
                 return response.json();
             })
