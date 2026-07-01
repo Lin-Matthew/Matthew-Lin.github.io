@@ -88,6 +88,7 @@ home = ["HTML", "RSS", "algolia"]
 	  sidebar_about_description = ""
 	  
 	  # Enable wechat pay & alipay to allow readers send reward money if they like the articles 
+	  # 全局的开关-每个文章里也有单独的开关
 	  reward = true 
 	  reward_guide = "If this article is helpful to you, please feel free to make a donation." 
     [[languages.en.params.additional_menus]]

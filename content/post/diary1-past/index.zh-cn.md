@@ -15,6 +15,7 @@ tags:
 URL: "/2026/6/23/diary-lin1/"
 categories: [diary]
 comments: true
+reward: false
 ---
 
 ## 1.引子

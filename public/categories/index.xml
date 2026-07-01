@@ -27,12 +27,5 @@
 				<guid>http://localhost:1313/categories/coding/</guid>
 				<description></description>
 			</item>
-			<item>
-				<title>Trans</title>
-				<link>http://localhost:1313/categories/trans/</link>
-				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
-				<guid>http://localhost:1313/categories/trans/</guid>
-				<description></description>
-			</item>
 	</channel>
 </rss>

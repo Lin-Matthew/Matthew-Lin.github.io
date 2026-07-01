@@ -147,9 +147,9 @@
 				<span class="waline-pageview-count" data-path="{{ .RelPermalink }}" style="color: #ff6b6b !important; font-weight: bold;">0</span> 
 				<span style="color: #ff6b6b !important; font-weight: 500;">{{ if eq .Lang "zh-cn" }}次阅读{{ else }} views{{ end }}</span>
 							
-                {{ if .Site.Params.reward }}
-                {{ partial "reward.html" . }}
-                {{ end }}
+                {{ if or (eq .Params.reward true) (and (not (isset .Params "reward")) .Site.Params.reward) }}
+					{{ partial "reward.html" . }}
+				{{ end }}
 
                 {{ if or (.PrevInSection) (.NextInSection) }}
                 <hr>

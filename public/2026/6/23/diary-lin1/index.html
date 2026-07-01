@@ -158,13 +158,6 @@
 									</a>
 								</li>
 								
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/trans/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>交易</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
-									</a>
-								</li>
-								
 							</ul>
 						</li>
 					
@@ -536,89 +529,6 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 				<span style="color: #ff6b6b !important; font-weight: 500;">次阅读</span>
 							
                 
-                <div class="entry-shang text-center">
-    <p>「真诚赞赏，手留余香」</p>
-    <button class="zs show-zs btn btn-bred">请我喝雪碧</button>
-</div>
-
-<div class="zs-modal-bg"></div>
-<div class="zs-modal-box">
-    <div class="zs-modal-head">
-        <button type="button" class="close">×</button>
-    </div>
-    
-    <div class="zs-modal-body">
-        <div class="zs-modal-pay" style="display: block; padding-top: 10px;">
-            <p>
-                使用 
-                <span id="custom-pay-type" style="font-weight: bold; color: #d9534f;">微信</span> 
-                扫描二维码完成支付
-            </p>
-            <img src="/img/reward/wechat.png" id="custom-pay-image" style="max-width: 220px; width: 100%; height: auto; margin-top: 10px;"/>
-        </div>
-    </div>
-    
-    <div class="zs-modal-footer">
-        <label>
-            <input type="radio" name="custom-zs-type" value="wechat" class="custom-zs-radio" checked="checked">
-            <span><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></span>
-        </label>
-        <label>
-            <input type="radio" name="custom-zs-type" value="alipay" class="custom-zs-radio">
-            <span><span class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></span>
-        </label>
-    </div>
-</div>
-
-<script type="text/javascript">
-(function() {
-    
-    const wechatQr = '\/img\/reward\/wechat.png';
-    const alipayQr = '\/img\/reward\/alipay.png';
-
-    
-    const textWechat = '微信';
-    const textAlipay = '支付宝';
-
-    const modalBg = document.querySelector('.zs-modal-bg');
-    const modalBox = document.querySelector('.zs-modal-box');
-    const showBtn = document.querySelector('.show-zs');
-    const closeBtn = document.querySelector('.zs-modal-head .close');
-    const payTypeTxt = document.getElementById('custom-pay-type');
-    const payImg = document.getElementById('custom-pay-image');
-    const radios = document.querySelectorAll('.custom-zs-radio');
-
-    
-    if (showBtn) {
-        showBtn.addEventListener('click', function() {
-            modalBg.style.display = 'block';
-            modalBox.style.display = 'block';
-        });
-    }
-    
-    function closeModal() {
-        modalBg.style.display = 'none';
-        modalBox.style.display = 'none';
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (modalBg) modalBg.addEventListener('click', closeModal);
-
-    
-    radios.forEach(function(radio) {
-        radio.addEventListener('change', function(e) {
-            if (e.target.value === 'alipay') {
-                payTypeTxt.innerText = textAlipay; 
-                payImg.src = alipayQr;
-            } else {
-                payTypeTxt.innerText = textWechat; 
-                payImg.src = wechatQr;
-            }
-        });
-    });
-})();
-</script>
-                
 
                 
                 <hr>
@@ -732,12 +642,6 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 						推荐标签
 					</h5>
                     <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
