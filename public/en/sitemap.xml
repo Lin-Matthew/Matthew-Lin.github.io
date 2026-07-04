@@ -3,169 +3,169 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lintthew.myvnc.com/en/categories/</loc>
+    <loc>http://localhost:1313/en/categories/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/categories/"
+                href="http://localhost:1313/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/categories/"
+                href="http://localhost:1313/en/categories/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/categories/coding/</loc>
+    <loc>http://localhost:1313/en/categories/coding/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/categories/coding/"
+                href="http://localhost:1313/categories/coding/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/categories/coding/"
+                href="http://localhost:1313/en/categories/coding/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/tags/hugo/</loc>
+    <loc>http://localhost:1313/en/tags/hugo/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/tags/hugo/"
+                href="http://localhost:1313/tags/hugo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/tags/hugo/"
+                href="http://localhost:1313/en/tags/hugo/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/</loc>
+    <loc>http://localhost:1313/en/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/"
+                href="http://localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/"
+                href="http://localhost:1313/en/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/post/</loc>
+    <loc>http://localhost:1313/en/post/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/post/"
+                href="http://localhost:1313/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/post/"
+                href="http://localhost:1313/en/post/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/tags/supabase/</loc>
+    <loc>http://localhost:1313/en/tags/supabase/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/tags/supabase/"
+                href="http://localhost:1313/tags/supabase/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/tags/supabase/"
+                href="http://localhost:1313/en/tags/supabase/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/tags/</loc>
+    <loc>http://localhost:1313/en/tags/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/tags/"
+                href="http://localhost:1313/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/tags/"
+                href="http://localhost:1313/en/tags/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/tags/waline/</loc>
+    <loc>http://localhost:1313/en/tags/waline/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/tags/waline/"
+                href="http://localhost:1313/tags/waline/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/tags/waline/"
+                href="http://localhost:1313/en/tags/waline/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/2026/6/25/waline-comment/</loc>
+    <loc>http://localhost:1313/en/2026/6/25/waline-comment/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/2026/6/25/waline-comment/"
+                href="http://localhost:1313/2026/6/25/waline-comment/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/2026/6/25/waline-comment/"
+                href="http://localhost:1313/en/2026/6/25/waline-comment/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/about/</loc>
+    <loc>http://localhost:1313/en/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/about/"
+                href="http://localhost:1313/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/about/"
+                href="http://localhost:1313/en/about/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/message/</loc>
+    <loc>http://localhost:1313/en/message/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/message/"
+                href="http://localhost:1313/message/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/message/"
+                href="http://localhost:1313/en/message/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/notes/</loc>
+    <loc>http://localhost:1313/en/notes/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/notes/"
+                href="http://localhost:1313/notes/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/notes/"
+                href="http://localhost:1313/en/notes/"
                 />
   </url><url>
-    <loc>https://lintthew.myvnc.com/en/archive/</loc>
+    <loc>http://localhost:1313/en/archive/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://lintthew.myvnc.com/archive/"
+                href="http://localhost:1313/archive/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://lintthew.myvnc.com/en/archive/"
+                href="http://localhost:1313/en/archive/"
                 />
   </url>
 </urlset>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Hugo on Matthew Blog</title>
-		<link>https://lintthew.myvnc.com/en/tags/hugo/</link>
+		<link>http://localhost:1313/en/tags/hugo/</link>
 		<description>Recent content in Hugo on Matthew Blog</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,13 +12,13 @@
 		
 			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0800</lastBuildDate>
 		
-			<atom:link href="https://lintthew.myvnc.com/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Waline V3 &#43; Supabase Pitfall Guide: Implementing a Serverless Comment System for Hugo</title>
-				<link>https://lintthew.myvnc.com/en/2026/6/25/waline-comment/</link>
+				<link>http://localhost:1313/en/2026/6/25/waline-comment/</link>
 				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
-				<guid>https://lintthew.myvnc.com/en/2026/6/25/waline-comment/</guid>
-				<description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This comment system utilizes Waline v3.15.2 as a serverless backend and Supabase (PostgreSQL) for data storage. You can enjoy a completely free comment system without the need to set up or maintain a personal server.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-supabase-database-configuration&#34;&gt;1. Supabase Database Configuration&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://supabase.com/&#34;&gt;Supabase Official Website&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;11-create-an-organization&#34;&gt;1.1 Create an Organization&lt;/h4&gt;&#xA;&lt;p&gt;For newly registered users, a &amp;ldquo;New organization&amp;rdquo; button will appear. Click it, enter your organization name, choose &amp;ldquo;Personal&amp;rdquo; for the type, select the free plan, and click create. &#xA;&#xA;  &lt;img src=&#34;https://lintthew.myvnc.com/2026/6/25/waline-comment/supabase--create-organization.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;/p&gt;</description>
+				<guid>http://localhost:1313/en/2026/6/25/waline-comment/</guid>
+				<description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This comment system utilizes Waline v3.15.2 as a serverless backend and Supabase (PostgreSQL) for data storage. You can enjoy a completely free comment system without the need to set up or maintain a personal server.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-supabase-database-configuration&#34;&gt;1. Supabase Database Configuration&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://supabase.com/&#34;&gt;Supabase Official Website&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;11-create-an-organization&#34;&gt;1.1 Create an Organization&lt;/h4&gt;&#xA;&lt;p&gt;For newly registered users, a &amp;ldquo;New organization&amp;rdquo; button will appear. Click it, enter your organization name, choose &amp;ldquo;Personal&amp;rdquo; for the type, select the free plan, and click create. &#xA;&#xA;  &lt;img src=&#34;http://localhost:1313/2026/6/25/waline-comment/supabase--create-organization.png&#34; alt=&#34;&#34;&gt;&#xA;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

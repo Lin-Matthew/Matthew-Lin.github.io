@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://lintthew.myvnc.com//">
-    <meta property="twitter:image" content="https://lintthew.myvnc.com//" />
+    <meta property="og:image" content="http://localhost:1313//">
+    <meta property="twitter:image" content="http://localhost:1313//" />
     
 
     
@@ -42,7 +42,7 @@
     <meta property="twitter:description" content="使用 Waline V3 作为无服务器评论后端，绑定 Supabase (PostgreSQL) 存储数据，并嵌入 Hugo 博客。本文通过详细的配置过程，实现游客免登录丝滑评论。" />
     
 
-    <meta property="og:url" content="https://lintthew.myvnc.com/2026/6/25/waline-comment/" />
+    <meta property="og:url" content="http://localhost:1313/2026/6/25/waline-comment/" />
 
     
     <meta property="twitter:card" content="summary" />
@@ -95,7 +95,7 @@
 
     
     
-
+	
 </head>
 
 
@@ -116,6 +116,133 @@
       </script>
 
 
+
+<style>
+ 
+
+ 
+html body header.intro-header,
+html body .intro-header,
+header[class*="intro-header"] {
+    background-image: none !important;
+    background-color: #64b5e9 !important;  
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+ 
+#bambooCanvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;  
+    z-index: 1 !important;
+}
+
+ 
+html body header.intro-header .container,
+html body header.intro-header .post-heading,
+html body header.intro-header .site-heading {
+    position: relative !important;
+    z-index: 2 !important;
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const header = document.querySelector('header.intro-header') || document.querySelector('.intro-header');
+        if (!header) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'bambooCanvas';
+        header.insertBefore(canvas, header.firstChild);
+
+        const ctx = canvas.getContext('2d');
+
+        
+        function resize() {
+            canvas.width = header.clientWidth;
+            canvas.height = header.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        
+        class BambooLeaf {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height; 
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width - 50;
+                this.y = -20;
+                this.size = Math.random() * 12 + 8; 
+                this.speedX = Math.random() * 1.5 + 1.0; 
+                this.speedY = Math.random() * 1.0 + 0.8; 
+                this.angle = Math.random() * Math.PI * 2; 
+                this.spinSpeed = (Math.random() * 0.02 + 0.01) * (Math.random() > 0.5 ? 1 : -1); 
+                
+                this.color = Math.random() > 0.5 ? 'rgba(58, 125, 68, 0.6)' : 'rgba(34, 76, 41, 0.5)';
+            }
+
+            update() {
+                
+                this.x += this.speedX + Math.sin(this.y / 30) * 0.5; 
+                this.y += this.speedY;
+                this.angle += this.spinSpeed;
+
+                
+                if (this.y > canvas.height + 20 || this.x > canvas.width + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                
+                
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.moveTo(0, -this.size);
+                
+                ctx.quadraticCurveTo(-this.size * 0.3, 0, 0, this.size);
+                
+                ctx.quadraticCurveTo(this.size * 0.3, 0, 0, -this.size);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+
+        
+        const leafCount = Math.min(40, Math.floor(canvas.width / 30));
+        const leaves = [];
+        for (let i = 0; i < leafCount; i++) {
+            leaves.push(new BambooLeaf());
+        }
+
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            
+            leaves.forEach(leaf => {
+                leaf.update();
+                leaf.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    });
+</script>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -147,13 +274,6 @@
 								<li style="border-bottom: 1px solid #f5f5f5;">
 									<a href="/categories/coding/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
 										<span>编程</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
-									</a>
-								</li>
-								
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/diary/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>日记</span>
 										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
 									</a>
 								</li>
@@ -520,102 +640,102 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
 
   <img src="/2026/6/25/waline-comment/supabase--SQL-query.png" alt="">
 </p>
-<pre tabindex="0"><code>-- 评论表 (wl_comment) - 严格驼峰与双重防呆
-CREATE TABLE public.wl_comment (
-    id SERIAL PRIMARY KEY,
-    user_id INT DEFAULT NULL,
-    pid INT DEFAULT NULL,
-    rid INT DEFAULT NULL,
-    url VARCHAR(255) DEFAULT NULL,
-    ip VARCHAR(100) DEFAULT &#39;&#39;,
-    ua TEXT,
-
-    comment TEXT,
-    text TEXT, -- 旧版兼容
-
-    -- 用户基本属性（新旧版本所有可能调用的字段名）
-    nick VARCHAR(255) DEFAULT NULL,
-    username VARCHAR(255) DEFAULT NULL,
-    mail VARCHAR(255) DEFAULT NULL,
-    email VARCHAR(255) DEFAULT NULL,
-    link VARCHAR(255) DEFAULT NULL,
-    avatar VARCHAR(255) DEFAULT NULL,
-    type VARCHAR(50) DEFAULT &#39;user&#39;,
-
-    -- 状态与点赞
-    status VARCHAR(50) NOT NULL DEFAULT &#39;waiting&#39;,
-    sticky INT DEFAULT 0,
-    &#34;like&#34; INT DEFAULT 0,
-    likes INT DEFAULT 0,
-
-    -- 该版本不适用驼峰命名法比如insertedAt会报错
-    &#34;insertedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-);
-CREATE INDEX IF NOT EXISTS idx_wl_comment_url ON public.wl_comment(url);
-
--- 计数/访问量/表情回应表 (wl_counter)
-CREATE TABLE public.wl_counter (
-    id SERIAL PRIMARY KEY,
-    url VARCHAR(255) NOT NULL DEFAULT &#39;&#39;,
-    time INT DEFAULT 0,
-
-    -- 八种文章表情回应
-    reaction0 INT DEFAULT 0,
-    reaction1 INT DEFAULT 0,
-    reaction2 INT DEFAULT 0,
-    reaction3 INT DEFAULT 0,
-    reaction4 INT DEFAULT 0,
-    reaction5 INT DEFAULT 0,
-    reaction6 INT DEFAULT 0,
-    reaction7 INT DEFAULT 0,
-    reaction8 INT DEFAULT 0,
-
-    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-);
-
--- 用户表
-CREATE TABLE public.wl_users (
-    id SERIAL PRIMARY KEY,
-    password VARCHAR(255) NOT NULL,
-    type VARCHAR(50) NOT NULL DEFAULT &#39;user&#39;,
-    label VARCHAR(255) DEFAULT NULL,
-    avatar VARCHAR(255) DEFAULT NULL,
-
-    display_name VARCHAR(255) DEFAULT &#39;&#39;,
-    nick VARCHAR(255) DEFAULT NULL,          
-    username VARCHAR(255) DEFAULT NULL,      -- 旧版用户名
-
-    email VARCHAR(255) DEFAULT &#39;&#39;,           
-    mail VARCHAR(255) DEFAULT NULL,        
-
-    url VARCHAR(255) DEFAULT NULL,           
-    link VARCHAR(255) DEFAULT NULL,          
-
-    -- 第三方登录支持
-    github VARCHAR(255) DEFAULT NULL,
-    twitter VARCHAR(255) DEFAULT NULL,
-    facebook VARCHAR(255) DEFAULT NULL,
-    google VARCHAR(255) DEFAULT NULL,
-    weibo VARCHAR(255) DEFAULT NULL,
-    qq VARCHAR(255) DEFAULT NULL,
-    oidc VARCHAR(255) DEFAULT NULL,
-    &#34;2fa&#34; VARCHAR(32) DEFAULT NULL,
-
-    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-);
-</code></pre><h4 id="14-复制连接信息">1.4 复制连接信息</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- 评论表 (wl_comment) - 严格驼峰与双重防呆
+</span></span><span class="line"><span class="cl">CREATE TABLE public.wl_comment (
+</span></span><span class="line"><span class="cl">    id SERIAL PRIMARY KEY,
+</span></span><span class="line"><span class="cl">    user_id INT DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    pid INT DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    rid INT DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    url VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    ip VARCHAR(100) DEFAULT &#39;&#39;,
+</span></span><span class="line"><span class="cl">    ua TEXT,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    comment TEXT,
+</span></span><span class="line"><span class="cl">    text TEXT, -- 旧版兼容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -- 用户基本属性（新旧版本所有可能调用的字段名）
+</span></span><span class="line"><span class="cl">    nick VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    username VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    mail VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    email VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    link VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    avatar VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    type VARCHAR(50) DEFAULT &#39;user&#39;,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -- 状态与点赞
+</span></span><span class="line"><span class="cl">    status VARCHAR(50) NOT NULL DEFAULT &#39;waiting&#39;,
+</span></span><span class="line"><span class="cl">    sticky INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    &#34;like&#34; INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    likes INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -- 该版本不适用驼峰命名法比如insertedAt会报错
+</span></span><span class="line"><span class="cl">    &#34;insertedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+</span></span><span class="line"><span class="cl">    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+</span></span><span class="line"><span class="cl">    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+</span></span><span class="line"><span class="cl">);
+</span></span><span class="line"><span class="cl">CREATE INDEX IF NOT EXISTS idx_wl_comment_url ON public.wl_comment(url);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-- 计数/访问量/表情回应表 (wl_counter)
+</span></span><span class="line"><span class="cl">CREATE TABLE public.wl_counter (
+</span></span><span class="line"><span class="cl">    id SERIAL PRIMARY KEY,
+</span></span><span class="line"><span class="cl">    url VARCHAR(255) NOT NULL DEFAULT &#39;&#39;,
+</span></span><span class="line"><span class="cl">    time INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -- 八种文章表情回应
+</span></span><span class="line"><span class="cl">    reaction0 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction1 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction2 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction3 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction4 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction5 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction6 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction7 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">    reaction8 INT DEFAULT 0,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+</span></span><span class="line"><span class="cl">    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+</span></span><span class="line"><span class="cl">);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-- 用户表
+</span></span><span class="line"><span class="cl">CREATE TABLE public.wl_users (
+</span></span><span class="line"><span class="cl">    id SERIAL PRIMARY KEY,
+</span></span><span class="line"><span class="cl">    password VARCHAR(255) NOT NULL,
+</span></span><span class="line"><span class="cl">    type VARCHAR(50) NOT NULL DEFAULT &#39;user&#39;,
+</span></span><span class="line"><span class="cl">    label VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    avatar VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    display_name VARCHAR(255) DEFAULT &#39;&#39;,
+</span></span><span class="line"><span class="cl">    nick VARCHAR(255) DEFAULT NULL,          
+</span></span><span class="line"><span class="cl">    username VARCHAR(255) DEFAULT NULL,      -- 旧版用户名
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    email VARCHAR(255) DEFAULT &#39;&#39;,           
+</span></span><span class="line"><span class="cl">    mail VARCHAR(255) DEFAULT NULL,        
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    url VARCHAR(255) DEFAULT NULL,           
+</span></span><span class="line"><span class="cl">    link VARCHAR(255) DEFAULT NULL,          
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    -- 第三方登录支持
+</span></span><span class="line"><span class="cl">    github VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    twitter VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    facebook VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    google VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    weibo VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    qq VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    oidc VARCHAR(255) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">    &#34;2fa&#34; VARCHAR(32) DEFAULT NULL,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &#34;createdat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+</span></span><span class="line"><span class="cl">    &#34;updatedat&#34; TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+</span></span><span class="line"><span class="cl">);
+</span></span></code></pre></div><h4 id="14-复制连接信息">1.4 复制连接信息</h4>
 <p>​		点击Project Overview，找到Get connected，点击connection string。如图，选择Transation pooler连接方式。</p>
 <p>
 
   <img src="/2026/6/25/waline-comment/supabase--cnnection-string.png" alt="">
 </p>
 <p>往下翻，找到connection string，复制右边类似这种的字符串：</p>
-<pre tabindex="0"><code>postgresql://hidden:[YOUR-PASSWORD]@hidden:5432//postgres.xxx:[YOUR-PASSWORD]@aws-xxx.pooler.supabase.com:6543/postgres
-</code></pre><p>上面的信息拆分或，对应到下面的键对应的值。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">postgresql://hidden:[YOUR-PASSWORD]@hidden:5432//postgres.xxx:[YOUR-PASSWORD]@aws-xxx.pooler.supabase.com:6543/postgres
+</span></span></code></pre></div><p>上面的信息拆分或，对应到下面的键对应的值。</p>
 <ul>
 <li>
 <p><strong>PG_HOST</strong>: 	aws-xxx.pooler.supabase.com</p>
@@ -638,31 +758,31 @@ CREATE TABLE public.wl_users (
 <h2 id="2-github设置">2. Github设置</h2>
 <p>​		在github新建一个仓库，仓库名比如设置为waline-comment，选择private、添加readme。</p>
 <p>​		仓库根目录下新建文件package.json，内容如下。</p>
-<pre tabindex="0"><code>{
-  &#34;name&#34;: &#34;waline-server&#34;,
-  &#34;version&#34;: &#34;1.0.0&#34;,
-  &#34;main&#34;: &#34;index.js&#34;,
-  &#34;dependencies&#34;: {
-    &#34;@waline/vercel&#34;: &#34;latest&#34;
-  }
-}
-</code></pre><p>​		再在根目录下新建文件vercel.json,内容为：</p>
-<pre tabindex="0"><code>{
-  &#34;version&#34;: 2,
-  &#34;rewrites&#34;: [
-    { &#34;source&#34;: &#34;/(.*)&#34;, &#34;destination&#34;: &#34;/api/comment&#34; }
-  ]
-}
-</code></pre><p>​		再新建目录api/，在api目录下新建文件comment.js，内容为：</p>
-<pre tabindex="0"><code>const Waline = require(&#39;@waline/vercel&#39;);
-
-module.exports = Waline({
-  env: &#39;vercel&#39;,
-  storage: &#39;postgresql&#39;,
-  oauth: {}, 
-  plugins: [], 
-});
-</code></pre><h2 id="3-vercel配置">3. Vercel配置</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;name&#34;: &#34;waline-server&#34;,
+</span></span><span class="line"><span class="cl">  &#34;version&#34;: &#34;1.0.0&#34;,
+</span></span><span class="line"><span class="cl">  &#34;main&#34;: &#34;index.js&#34;,
+</span></span><span class="line"><span class="cl">  &#34;dependencies&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;@waline/vercel&#34;: &#34;latest&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>​		再在根目录下新建文件vercel.json,内容为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;version&#34;: 2,
+</span></span><span class="line"><span class="cl">  &#34;rewrites&#34;: [
+</span></span><span class="line"><span class="cl">    { &#34;source&#34;: &#34;/(.*)&#34;, &#34;destination&#34;: &#34;/api/comment&#34; }
+</span></span><span class="line"><span class="cl">  ]
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>​		再新建目录api/，在api目录下新建文件comment.js，内容为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">Waline</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;@waline/vercel&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="n">Waline</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="n">env</span><span class="p">:</span> <span class="s1">&#39;vercel&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">storage</span><span class="p">:</span> <span class="s1">&#39;postgresql&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">oauth</span><span class="p">:</span> <span class="p">{},</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">plugins</span><span class="p">:</span> <span class="p">[],</span> 
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h2 id="3-vercel配置">3. Vercel配置</h2>
 <h4 id="31-vercel设置环境变量">3.1 Vercel设置环境变量</h4>
 <p>​		<a href="https://vercel.com/">Vercel官网</a>，用github登录。去控制面板页面，点击添加新的项目，弹出下图界面。点击install，在新窗口里，可以选择所有的github仓库，或者只选择某个仓库。这里选择&quot;Only select repositories&quot;，选择步骤2里面的仓库waline-comment，点击Install，等待完成。</p>
 <p>
@@ -683,18 +803,18 @@ module.exports = Waline({
 </p>
 <h2 id="4-在hugo文章里添加评论">4. 在hugo文章里添加评论</h2>
 <p>​		修改hugo.toml，在[params]里添加上一步获取的domain，waline_server = &ldquo;https://waline-comment-xxx&rdquo;。在其他页面代码中即可使用该变量，实现评论系统。</p>
-<pre tabindex="0"><code>&lt;div id=&#34;waline&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;module&#34;&gt;
-  import { init } from &#39;https://unpkg.com/@waline/client@v3/dist/waline.js&#39;;
-  init({
-    el: &#39;#waline&#39;,
-    serverURL: &#39;{{ .Site.Params.waline_server }}&#39;,
-    lang: &#39;zh-CN&#39;,
-    dark: &#39;auto&#39;,
-    requiredMeta: [&#39;nick&#39;],
-  });
-&lt;/script&gt;
-</code></pre><p>​		由于默认生成的domain需要VPN才能访问，在vercel里找到Domains-&gt;Add Existing，添加自己的域名，将上面的waline_server替换成新域名，即可免VPN访问和加载评论。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div id=&#34;waline&#34;&gt;&lt;/div&gt;
+</span></span><span class="line"><span class="cl">&lt;script type=&#34;module&#34;&gt;
+</span></span><span class="line"><span class="cl">  import { init } from &#39;https://unpkg.com/@waline/client@v3/dist/waline.js&#39;;
+</span></span><span class="line"><span class="cl">  init({
+</span></span><span class="line"><span class="cl">    el: &#39;#waline&#39;,
+</span></span><span class="line"><span class="cl">    serverURL: &#39;{{ .Site.Params.waline_server }}&#39;,
+</span></span><span class="line"><span class="cl">    lang: &#39;zh-CN&#39;,
+</span></span><span class="line"><span class="cl">    dark: &#39;auto&#39;,
+</span></span><span class="line"><span class="cl">    requiredMeta: [&#39;nick&#39;],
+</span></span><span class="line"><span class="cl">  });
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></div><p>​		由于默认生成的domain需要VPN才能访问，在vercel里找到Domains-&gt;Add Existing，添加自己的域名，将上面的waline_server替换成新域名，即可免VPN访问和加载评论。</p>
 <p>​		init里面可以添加、修改其他配置，比如语言等显示。</p>
 
 				
@@ -788,18 +908,6 @@ module.exports = Waline({
 </script>
 				
 
-                
-                <hr>
-                <ul class="pager">
-                    
-                    
-                    <li class="next">
-                        <a href="/2026/6/23/diary-lin1/" data-toggle="tooltip" data-placement="top" title="如何面对失败？">
-                            下一篇 &rarr;
-						</a>
-                    </li>
-                    
-                </ul>
                 
 
                 
@@ -900,12 +1008,6 @@ module.exports = Waline({
 						推荐标签
 					</h5>
                     <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -1148,7 +1250,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (keywords.length <= 0) return;
 
         
-        fetch('https:\/\/lintthew.myvnc.com\/algolisearch.json')
+        fetch('http:\/\/localhost:1313\/algolisearch.json')
             .then(function (response) {
                 return response.json();
             })

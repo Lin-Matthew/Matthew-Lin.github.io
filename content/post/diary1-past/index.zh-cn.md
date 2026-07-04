@@ -1,5 +1,5 @@
 ---
-draft: 		false
+draft: 		true
 layout:     post 
 title:      "如何面对失败？"
 subtitle:   ""

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,8 +26,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://lintthew.myvnc.com//">
-    <meta property="twitter:image" content="https://lintthew.myvnc.com//" />
+    <meta property="og:image" content="http://localhost:1313//">
+    <meta property="twitter:image" content="http://localhost:1313//" />
     
 
     
@@ -42,7 +42,7 @@
     <meta property="twitter:description" content="" />
     
 
-    <meta property="og:url" content="https://lintthew.myvnc.com/en/message/" />
+    <meta property="og:url" content="http://localhost:1313/en/message/" />
 
     
     <meta property="twitter:card" content="summary" />
@@ -95,7 +95,7 @@
 
     
     
-
+	
 </head>
 
 
@@ -116,6 +116,133 @@
       </script>
 
 
+
+<style>
+ 
+
+ 
+html body header.intro-header,
+html body .intro-header,
+header[class*="intro-header"] {
+    background-image: none !important;
+    background-color: #64b5e9 !important;  
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+ 
+#bambooCanvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;  
+    z-index: 1 !important;
+}
+
+ 
+html body header.intro-header .container,
+html body header.intro-header .post-heading,
+html body header.intro-header .site-heading {
+    position: relative !important;
+    z-index: 2 !important;
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const header = document.querySelector('header.intro-header') || document.querySelector('.intro-header');
+        if (!header) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'bambooCanvas';
+        header.insertBefore(canvas, header.firstChild);
+
+        const ctx = canvas.getContext('2d');
+
+        
+        function resize() {
+            canvas.width = header.clientWidth;
+            canvas.height = header.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        
+        class BambooLeaf {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height; 
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width - 50;
+                this.y = -20;
+                this.size = Math.random() * 12 + 8; 
+                this.speedX = Math.random() * 1.5 + 1.0; 
+                this.speedY = Math.random() * 1.0 + 0.8; 
+                this.angle = Math.random() * Math.PI * 2; 
+                this.spinSpeed = (Math.random() * 0.02 + 0.01) * (Math.random() > 0.5 ? 1 : -1); 
+                
+                this.color = Math.random() > 0.5 ? 'rgba(58, 125, 68, 0.6)' : 'rgba(34, 76, 41, 0.5)';
+            }
+
+            update() {
+                
+                this.x += this.speedX + Math.sin(this.y / 30) * 0.5; 
+                this.y += this.speedY;
+                this.angle += this.spinSpeed;
+
+                
+                if (this.y > canvas.height + 20 || this.x > canvas.width + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                
+                
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.moveTo(0, -this.size);
+                
+                ctx.quadraticCurveTo(-this.size * 0.3, 0, 0, this.size);
+                
+                ctx.quadraticCurveTo(this.size * 0.3, 0, 0, -this.size);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+
+        
+        const leafCount = Math.min(40, Math.floor(canvas.width / 30));
+        const leaves = [];
+        for (let i = 0; i < leafCount; i++) {
+            leaves.push(new BambooLeaf());
+        }
+
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            
+            leaves.forEach(leaf => {
+                leaf.update();
+                leaf.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    });
+</script>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -943,7 +1070,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (keywords.length <= 0) return;
 
         
-        fetch('https:\/\/lintthew.myvnc.com\/algolisearch.json')
+        fetch('http:\/\/localhost:1313\/algolisearch.json')
             .then(function (response) {
                 return response.json();
             })
