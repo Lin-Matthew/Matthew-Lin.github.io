@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on 林修的博客</title>
+		<link>http://localhost:1313/post/</link>
+		<description>Recent content in Posts on 林修的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</title>
+				<link>http://localhost:1313/2026/6/25/waline-comment/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/6/25/waline-comment/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;评论系统采用waline v3.15.2作为无服务后端，supabase(postgres)存储评论数据，不用搭建个人服务器，即可享受免费的评论系统。&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
