@@ -147,12 +147,13 @@
 {{ end }}
 
 
+
 <style>
 /* 1. 提取电影中深冬极夜的星空色调，打造富有沉浸感的魔法渐变底色 */
 html body header.intro-header,
 html body .intro-header,
 header[class*="intro-header"] {
-    background-image: linear-gradient(156deg, #adb6bb 0%, #05275f 45%, #0a223c 80%, #010513 100%) !important;
+    background-image: linear-gradient(145deg, #0b1528 0%, #12284c 45%, #1b426d 80%, #2a355a 100%) !important;
     position: relative !important;
     overflow: hidden !important;
 }
@@ -196,34 +197,37 @@ html body header.intro-header .site-heading {
         window.addEventListener('resize', resize);
 
         // ==================== 鼠标事件监听 ====================
-        const mouse = { x: -1000, y: -1000 };
+        const mouse = { x: -1000, y: -1000 }; // 初始给一个屏幕外的坐标
 
+        // 监听鼠标在 header 区域内的移动
         header.addEventListener('mousemove', function(e) {
             const rect = canvas.getBoundingClientRect();
             mouse.x = e.clientX - rect.left;
             mouse.y = e.clientY - rect.top;
         });
 
+        // 鼠标移出区域后清空坐标，避免留在原地的雪花继续融化
         header.addEventListener('mouseleave', function() {
             mouse.x = -1000;
             mouse.y = -1000;
         });
 
         // ==================== 融化水汽粒子类 ====================
+        // 当雪花融化时，产生一点点向四周扩散消散的微光点
         class VaporParticle {
             constructor(x, y, color) {
                 this.x = x;
                 this.y = y;
                 this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 2; 
-                this.speedY = (Math.random() - 0.5) * 2 - 0.8; // 融化蒸发向上飘得稍微快一些
+                this.speedX = (Math.random() - 0.5) * 1.5; // 随机向左右扩散
+                this.speedY = (Math.random() - 0.5) * 1.5 - 0.5; // 随机向上漂浮
                 this.opacity = 0.8;
                 this.color = color;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                this.opacity -= 0.04; 
+                this.opacity -= 0.03; // 快速蒸发消失
             }
             draw() {
                 ctx.save();
@@ -235,9 +239,9 @@ html body header.intro-header .site-heading {
             }
         }
 
-        const vapors = []; 
+        const vapors = []; // 存放所有融化产生的水汽
 
-        // ==================== 精致六棱冰晶绘制 ====================
+        // ==================== 完美的六棱冰晶绘制 ====================
         function drawPerfectCrystal(ctx, size) {
             ctx.beginPath();
             for (let i = 0; i < 6; i++) {
@@ -258,88 +262,70 @@ html body header.intro-header .site-heading {
             ctx.stroke();
         }
 
-        // ==================== 高级雪花粒子类（加入多层景深） ====================
+        // ==================== 高级雪花粒子类 ====================
         class PremiumSnowflake {
             constructor() {
                 this.reset();
-                // 首次初始化让大雪随机铺满屏幕，防止一刷新网页全从顶部掉落
                 this.y = Math.random() * canvas.height;
             }
 
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = -20;
-                
-                // 【核心优化：三层景深机制】
-                // 区分远景小雪粉、中景结晶、近景大雪块，让大雪具有立体空间感
-                const layer = Math.random();
-                if (layer < 0.5) {
-                    // 1. 远景小雪粉 (50% 占比)：小、淡、慢、多，铺垫大雪的厚重底色
-                    this.baseSize = Math.random() * 2 + 1;
-                    this.speedY = Math.random() * 0.4 + 0.3;
-                    this.speedX = Math.random() * 0.3 + 0.1; // 顺风偏斜
-                    this.baseOpacity = Math.random() * 0.3 + 0.2;
-                    this.type = 'glow';
-                } else if (layer < 0.85) {
-                    // 2. 中景标准结晶 (35% 占比)：主体明显的精致六棱冰晶
-                    this.baseSize = Math.random() * 3 + 3;
-                    this.speedY = Math.random() * 0.8 + 0.6; // 速度加快
-                    this.speedX = Math.random() * 0.4 + 0.2;
-                    this.baseOpacity = Math.random() * 0.5 + 0.4;
-                    this.type = 'crystal';
-                } else {
-                    // 3. 近景大雪块 (15% 占比)：离镜头极近，非常大，砸落速度极快
-                    this.baseSize = Math.random() * 4 + 6;
-                    this.speedY = Math.random() * 1.5 + 1.2; // 极快砸落
-                    this.speedX = Math.random() * 0.6 + 0.4;
-                    this.baseOpacity = Math.random() * 0.4 + 0.4;
-                    this.type = Math.random() > 0.5 ? 'crystal' : 'glow';
-                }
-
-                this.size = this.baseSize;            
+                this.baseSize = Math.random() * 4 + 3; // 初始设定的基础大小
+                this.size = this.baseSize;             // 实时大小
+                this.speedY = Math.random() * 0.4 + 0.3; 
+                this.speedX = Math.random() * 0.2 - 0.1; 
                 this.angle = Math.random() * Math.PI * 2; 
-                this.spin = (Math.random() * 0.01 + 0.005) * (Math.random() > 0.5 ? 1 : -1); // 旋转稍微加快
+                this.spin = (Math.random() * 0.005 + 0.002) * (Math.random() > 0.5 ? 1 : -1); 
                 this.density = Math.random() * 20;
-                this.opacity = this.baseOpacity;             
+                this.baseOpacity = Math.random() * 0.5 + 0.4; // 初始基础不透明度
+                this.opacity = this.baseOpacity;             // 实时不透明度
+                this.type = Math.random() > 0.4 ? 'crystal' : 'glow'; 
                 
+                // 【核心新属性】融化状态标记
                 this.isMelting = false; 
-                this.hasSpawnedVapor = false; 
+                this.hasSpawnedVapor = false; // 确保单次融化只生成一次水汽
             }
 
             update() {
+                // 1. 距离检测：计算雪花当前位置和鼠标的几何距离
                 const dx = this.x - mouse.x;
                 const dy = this.y - mouse.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                // 鼠标融化范围调整为 40 像素，方便在暴风雪里精准捕捉
-                if (distance < 40) {
+                // 2. 触发融化条件：如果距离鼠标小于 35 像素，开启融化
+                if (distance < 35) {
                     this.isMelting = true;
                 }
 
+                // 3. 状态分支逻辑
                 if (this.isMelting) {
-                    this.speedY *= 0.4; 
-                    this.speedX *= 0.4;
-                    this.size -= 0.2;     // 大雪融化得更迅速干脆
-                    this.opacity -= 0.05; 
+                    // 【融化中】下落减速、体积缩小、透明度变淡
+                    this.speedY *= 0.5; 
+                    this.speedX *= 0.5;
+                    this.size -= 0.15;    // 尺寸快速缩水
+                    this.opacity -= 0.04; // 快速变透明
 
+                    // 融化瞬间喷射 3 颗水汽魔法粒子
                     if (!this.hasSpawnedVapor) {
                         const particleColor = this.type === 'crystal' ? 'rgba(225, 245, 255, 1)' : 'rgba(255, 255, 255, 1)';
-                        for(let k=0; k<4; k++) { // 融化时炸出更多的水汽粒子
+                        for(let k=0; k<3; k++) {
                             vapors.push(new VaporParticle(this.x, this.y, particleColor));
                         }
                         this.hasSpawnedVapor = true;
                     }
 
+                    // 彻底融化后重置回顶部
                     if (this.size <= 0.1 || this.opacity <= 0) {
                         this.reset();
                     }
                 } else {
-                    // 正常下落：速度明显提升，且整体受到一个向右倾斜的风力，显得更有大雪纷飞的势头
+                    // 【正常下落】
                     this.y += this.speedY;
-                    this.x += this.speedX + Math.sin(this.y / 30 + this.density) * 0.3;
+                    this.x += this.speedX + Math.sin(this.y / 40 + this.density) * 0.25;
                     this.angle += this.spin;
 
-                    // 如果飘出底部或右侧边界，重新回顶部或左侧生成
                     if (this.y > canvas.height + 20 || this.x > canvas.width + 20 || this.x < -20) {
                         this.reset();
                     }
@@ -354,29 +340,23 @@ html body header.intro-header .site-heading {
                     ctx.translate(this.x, this.y);
                     ctx.rotate(this.angle);
                     ctx.strokeStyle = `rgba(225, 245, 255, ${this.opacity})`;
-                    // 根据雪花大小动态决定线条粗细，近大粗，远小细
-                    ctx.lineWidth = this.baseSize > 5 ? 1.2 : 0.7; 
+                    ctx.lineWidth = 0.8;
                     ctx.lineCap = "round";
                     drawPerfectCrystal(ctx, this.size);
                 } else {
                     ctx.beginPath();
-                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.7})`;
-                    // 较小的雪粉不需要开高耗能的阴影，较大的大雪块带有朦胧发光晕染
-                    if (this.baseSize > 4) {
-                        ctx.shadowBlur = 8;
-                        ctx.shadowColor = 'rgba(135, 206, 250, 0.8)';
-                    }
-                    ctx.arc(this.x, this.y, this.size * 0.4, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.6})`;
+                    ctx.shadowBlur = 6;
+                    ctx.shadowColor = 'rgba(135, 206, 250, 0.8)';
+                    ctx.arc(this.x, this.y, this.size * 0.3, 0, Math.PI * 2);
                     ctx.fill();
                 }
                 ctx.restore();
             }
         }
 
-        // ==================== 初始化与循环（暴风雪级数量） ====================
-        // 【大幅增加密度】从之前的 width/35 提升到 width/10，数量直接翻了 3.5 倍！
-        // 并在 PC 端设置了 140 片的饱满大雪上限，手机端等比例裁剪防止卡顿。
-        const flakeCount = Math.min(140, Math.floor(canvas.width / 10));
+        // ==================== 初始化与循环 ====================
+        const flakeCount = Math.min(35, Math.floor(canvas.width / 35));
         const flakes = [];
         for (let i = 0; i < flakeCount; i++) {
             flakes.push(new PremiumSnowflake());
@@ -388,7 +368,7 @@ html body header.intro-header .site-heading {
             ctx.save();
             ctx.globalCompositeOperation = 'screen'; 
 
-            // 1. 更新并绘制大雪粒子
+            // 1. 更新并绘制常规雪花
             flakes.forEach(flake => {
                 flake.update();
                 flake.draw();
@@ -399,7 +379,7 @@ html body header.intro-header .site-heading {
                 vapors[i].update();
                 vapors[i].draw();
                 if (vapors[i].opacity <= 0) {
-                    vapors.splice(i, 1); 
+                    vapors.splice(i, 1); // 蒸发干了就从内存删除
                 }
             }
             

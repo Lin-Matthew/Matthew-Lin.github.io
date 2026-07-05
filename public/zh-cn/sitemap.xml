@@ -4,7 +4,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
+    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,60 +15,6 @@
                 hreflang="en"
                 href="http://localhost:1313/en/categories/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/categories/diary/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/post/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/%E5%9B%9E%E5%BF%86/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/%E6%83%85%E7%BB%AA/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/6/23/diary-lin1/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E5%A4%B1%E8%B4%A5%E7%BB%8F%E5%8E%86/</loc>
-    <lastmod>2026-06-30T22:54:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/coding/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
@@ -94,6 +40,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/tags/hugo/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/post/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/supabase/</loc>
@@ -133,6 +92,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/2026/6/25/waline-comment/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/"
                 />
   </url><url>
     <loc>http://localhost:1313/search/placeholder/</loc>

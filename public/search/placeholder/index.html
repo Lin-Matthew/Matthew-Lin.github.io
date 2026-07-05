@@ -78,7 +78,7 @@
     
     
     
-    
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"><link rel="stylesheet" href="http://localhost:1313/css/custom.css">
 
     
     <script src="/js/jquery.min.js"></script>
@@ -93,6 +93,12 @@
     <script src="/js/lazysizes.min.js"></script>
 
     
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script src="http://localhost:1313/js/lightbox.js"></script>
+    
+    <script src="http://localhost:1313/js/custom.js"></script>
     
 	
 </head>
@@ -118,34 +124,16 @@
 
 <style>
  
-
- 
 html body header.intro-header,
 html body .intro-header,
 header[class*="intro-header"] {
-    background-image: none !important;
-    background: linear-gradient(135deg, #eef5f0 0%, #e3ede6 100%) !important;  
+    background-image: linear-gradient(156deg, #adb6bb 0%, #05275f 45%, #0a223c 80%, #010513 100%) !important;
     position: relative !important;
     overflow: hidden !important;
 }
 
  
-html body header.intro-header .site-heading h1,
-html body header.intro-header .post-heading h1,
-html body header.intro-header .meta,
-html body header.intro-header .tags a,
-html body .navbar-default .navbar-brand,
-html body .navbar-default .nav li a {
-    color: #2c3e2e !important;  
-    text-shadow: 0 1px 2px rgba(255,255,255,0.5) !important;  
-}
-
-html body header.intro-header .subheading {
-    color: #556b58 !important;  
-}
-
- 
-#bambooCanvas {
+#elsaSnowCanvas {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -155,24 +143,23 @@ html body header.intro-header .subheading {
     z-index: 1 !important;
 }
 
-html body header.intro-header .container {
+ 
+html body header.intro-header .container,
+html body header.intro-header .post-heading,
+html body header.intro-header .site-heading {
     position: relative !important;
     z-index: 2 !important;
+    text-shadow: 0 0 12px rgba(135, 206, 250, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 </style>
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const header = document.querySelector('header.intro-header') || document.querySelector('.intro-header');
         if (!header) return;
 
-        const oldCanvas = document.getElementById('bambooCanvas');
-        if (oldCanvas) oldCanvas.remove();
-
         const canvas = document.createElement('canvas');
-        canvas.id = 'bambooCanvas';
+        canvas.id = 'elsaSnowCanvas';
         header.insertBefore(canvas, header.firstChild);
         const ctx = canvas.getContext('2d');
 
@@ -184,167 +171,219 @@ html body header.intro-header .container {
         window.addEventListener('resize', resize);
 
         
-        class InkBamboo {
-            constructor(x, baseWidth, totalHeight, segments, alpha, delay) {
-                this.x = x;
-                this.baseWidth = baseWidth;
-                this.totalHeight = totalHeight;
-                this.segments = segments;
-                this.alpha = alpha; 
-                this.delay = delay; 
-            }
+        const mouse = { x: -1000, y: -1000 };
 
-            draw(time) {
-                
-                let sway = Math.cos(time * 0.0012 + this.delay) * 0.025 + Math.sin(time * 0.0022 + this.delay) * 0.01;
-                sway += 0.015; 
+        header.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
 
-                let cx = this.x;
-                let cy = canvas.height + 20; 
-                let segHeight = this.totalHeight / this.segments;
-
-                ctx.save();
-                
-                let points = [{x: cx, y: cy, angle: 0}];
-                let accumulatedAngle = 0;
-
-                
-                for (let i = 0; i < this.segments; i++) {
-                    let factor = (i / this.segments);
-                    accumulatedAngle += sway * factor;
-
-                    let nextX = cx + Math.sin(accumulatedAngle) * segHeight;
-                    let nextY = cy - Math.cos(accumulatedAngle) * segHeight;
-
-                    ctx.beginPath();
-                    let w = this.baseWidth * (1 - factor * 0.4);
-                    ctx.lineWidth = w;
-                    
-                    
-                    ctx.strokeStyle = `rgba(40, 58, 45, ${this.alpha * (0.8 - factor * 0.3)})`;
-                    ctx.lineCap = 'round';
-                    
-                    ctx.moveTo(cx, cy);
-                    ctx.lineTo(nextX, nextY);
-                    ctx.stroke();
-
-                    
-                    ctx.beginPath();
-                    ctx.ellipse(nextX, nextY, w * 0.65, w * 0.2, accumulatedAngle, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(30, 45, 35, ${this.alpha * 0.7})`;
-                    ctx.fill();
-
-                    cx = nextX;
-                    cy = nextY;
-                    points.push({x: cx, y: cy, angle: accumulatedAngle});
-                }
-
-                
-                for (let i = Math.floor(this.segments * 0.3); i < points.length; i++) {
-                    let pt = points[i];
-                    let side = (i % 2 === 0) ? 1 : -1;
-                    
-                    this.drawInkLeaves(pt.x, pt.y, pt.angle + side * 0.5, i, this.alpha);
-                }
-
-                ctx.restore();
-            }
-
-            
-            drawInkLeaves(bx, by, angle, seed, alpha) {
-                ctx.save();
-                ctx.translate(bx, by);
-                ctx.rotate(angle + Math.sin(seed * 0.5) * 0.05); 
-
-                
-                let leafCount = 3;
-                for (let j = 0; j < leafCount; j++) {
-                    ctx.save();
-                    
-                    let deviation = (j - 1) * 0.35 + (Math.sin(seed + j) * 0.05);
-                    ctx.rotate(deviation);
-
-                    ctx.beginPath();
-                    
-                    ctx.fillStyle = `rgba(35, 50, 40, ${alpha * (0.75 - j * 0.15)})`;
-                    
-                    let lSize = 24 + (Math.sin(seed + j) * 4); 
-                    ctx.moveTo(0, 0);
-                    
-                    ctx.quadraticCurveTo(-lSize * 0.16, lSize * 0.35, 0, lSize);
-                    ctx.quadraticCurveTo(lSize * 0.14, lSize * 0.4, 0, 0);
-                    ctx.fill();
-                    ctx.restore();
-                }
-                ctx.restore();
-            }
-        }
+        header.addEventListener('mouseleave', function() {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
 
         
-        class DriftLeaf {
-            constructor() { this.reset(); this.y = Math.random() * canvas.height; }
-            reset() {
-                this.x = Math.random() * canvas.width * 0.5;
-                this.y = -20;
-                this.lSize = Math.random() * 6 + 14;
-                this.speedX = Math.random() * 1.5 + 1.2;
-                this.speedY = Math.random() * 0.8 + 0.5;
-                this.angle = Math.random() * Math.PI;
-                this.spin = Math.random() * 0.03 + 0.01;
+        class VaporParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 2; 
+                this.speedY = (Math.random() - 0.5) * 2 - 0.8; 
+                this.opacity = 0.8;
+                this.color = color;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                this.angle += this.spin;
-                if (this.y > canvas.height + 20 || this.x > canvas.width + 20) this.reset();
+                this.opacity -= 0.04; 
             }
             draw() {
                 ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.angle);
+                ctx.fillStyle = this.color.replace(/[\d.]+\)$/, `${this.opacity})`);
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(45, 60, 50, 0.25)`;
-                ctx.moveTo(0,0);
-                ctx.quadraticCurveTo(-this.lSize*0.15, this.lSize*0.35, 0, this.lSize);
-                ctx.quadraticCurveTo(this.lSize*0.15, this.lSize*0.35, 0, 0);
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.restore();
             }
         }
 
+        const vapors = []; 
+
         
-        let bamboos = [];
-        let driftLeaves = [];
-        function initScene() {
-            bamboos = [
+        function drawPerfectCrystal(ctx, size) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                let r = (i * Math.PI) / 3;
+                let endX = Math.cos(r) * size;
+                let endY = Math.sin(r) * size;
+                ctx.moveTo(0, 0);
+                ctx.lineTo(endX, endY);
+
+                let branchX = Math.cos(r) * (size * 0.55);
+                let branchY = Math.sin(r) * (size * 0.55);
                 
-                new InkBamboo(canvas.width * 0.05, 9, canvas.clientHeight * 0.95, 12, 0.4, 0),    
-                new InkBamboo(canvas.width * 0.13, 13, canvas.clientHeight * 0.85, 10, 0.75, 2.1), 
-                new InkBamboo(canvas.width * 0.85, 11, canvas.clientHeight * 0.88, 11, 0.7, 1.3),  
-                new InkBamboo(canvas.width * 0.93, 8, canvas.clientHeight * 0.92, 12, 0.35, 3.7)   
-            ];
-            
-            driftLeaves = [];
-            for (let i = 0; i < 8; i++) driftLeaves.push(new DriftLeaf());
+                ctx.moveTo(branchX, branchY);
+                ctx.lineTo(branchX + Math.cos(r + Math.PI / 4) * (size * 0.35), branchY + Math.sin(r + Math.PI / 4) * (size * 0.35));
+                ctx.moveTo(branchX, branchY);
+                ctx.lineTo(branchX + Math.cos(r - Math.PI / 4) * (size * 0.35), branchY + Math.sin(r - Math.PI / 4) * (size * 0.35));
+            }
+            ctx.stroke();
         }
 
-        initScene();
-        window.addEventListener('resize', initScene);
+        
+        class PremiumSnowflake {
+            constructor() {
+                this.reset();
+                
+                this.y = Math.random() * canvas.height;
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                
+                
+                
+                const layer = Math.random();
+                if (layer < 0.5) {
+                    
+                    this.baseSize = Math.random() * 2 + 1;
+                    this.speedY = Math.random() * 0.4 + 0.3;
+                    this.speedX = Math.random() * 0.3 + 0.1; 
+                    this.baseOpacity = Math.random() * 0.3 + 0.2;
+                    this.type = 'glow';
+                } else if (layer < 0.85) {
+                    
+                    this.baseSize = Math.random() * 3 + 3;
+                    this.speedY = Math.random() * 0.8 + 0.6; 
+                    this.speedX = Math.random() * 0.4 + 0.2;
+                    this.baseOpacity = Math.random() * 0.5 + 0.4;
+                    this.type = 'crystal';
+                } else {
+                    
+                    this.baseSize = Math.random() * 4 + 6;
+                    this.speedY = Math.random() * 1.5 + 1.2; 
+                    this.speedX = Math.random() * 0.6 + 0.4;
+                    this.baseOpacity = Math.random() * 0.4 + 0.4;
+                    this.type = Math.random() > 0.5 ? 'crystal' : 'glow';
+                }
+
+                this.size = this.baseSize;            
+                this.angle = Math.random() * Math.PI * 2; 
+                this.spin = (Math.random() * 0.01 + 0.005) * (Math.random() > 0.5 ? 1 : -1); 
+                this.density = Math.random() * 20;
+                this.opacity = this.baseOpacity;             
+                
+                this.isMelting = false; 
+                this.hasSpawnedVapor = false; 
+            }
+
+            update() {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                
+                if (distance < 40) {
+                    this.isMelting = true;
+                }
+
+                if (this.isMelting) {
+                    this.speedY *= 0.4; 
+                    this.speedX *= 0.4;
+                    this.size -= 0.2;     
+                    this.opacity -= 0.05; 
+
+                    if (!this.hasSpawnedVapor) {
+                        const particleColor = this.type === 'crystal' ? 'rgba(225, 245, 255, 1)' : 'rgba(255, 255, 255, 1)';
+                        for(let k=0; k<4; k++) { 
+                            vapors.push(new VaporParticle(this.x, this.y, particleColor));
+                        }
+                        this.hasSpawnedVapor = true;
+                    }
+
+                    if (this.size <= 0.1 || this.opacity <= 0) {
+                        this.reset();
+                    }
+                } else {
+                    
+                    this.y += this.speedY;
+                    this.x += this.speedX + Math.sin(this.y / 30 + this.density) * 0.3;
+                    this.angle += this.spin;
+
+                    
+                    if (this.y > canvas.height + 20 || this.x > canvas.width + 20 || this.x < -20) {
+                        this.reset();
+                    }
+                }
+            }
+
+            draw() {
+                if (this.opacity <= 0 || this.size <= 0) return;
+                
+                ctx.save();
+                if (this.type === 'crystal') {
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.angle);
+                    ctx.strokeStyle = `rgba(225, 245, 255, ${this.opacity})`;
+                    
+                    ctx.lineWidth = this.baseSize > 5 ? 1.2 : 0.7; 
+                    ctx.lineCap = "round";
+                    drawPerfectCrystal(ctx, this.size);
+                } else {
+                    ctx.beginPath();
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.7})`;
+                    
+                    if (this.baseSize > 4) {
+                        ctx.shadowBlur = 8;
+                        ctx.shadowColor = 'rgba(135, 206, 250, 0.8)';
+                    }
+                    ctx.arc(this.x, this.y, this.size * 0.4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
 
         
-        function animate(timestamp) {
+        
+        
+        const flakeCount = Math.min(140, Math.floor(canvas.width / 10));
+        const flakes = [];
+        for (let i = 0; i < flakeCount; i++) {
+            flakes.push(new PremiumSnowflake());
+        }
+
+        function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.save();
+            ctx.globalCompositeOperation = 'screen'; 
 
             
-            bamboos.forEach(b => b.draw(timestamp));
-            
-            driftLeaves.forEach(l => { l.update(); l.draw(); });
+            flakes.forEach(flake => {
+                flake.update();
+                flake.draw();
+            });
 
+            
+            for (let i = vapors.length - 1; i >= 0; i--) {
+                vapors[i].update();
+                vapors[i].draw();
+                if (vapors[i].opacity <= 0) {
+                    vapors.splice(i, 1); 
+                }
+            }
+            
+            ctx.restore();
             requestAnimationFrame(animate);
         }
-        requestAnimationFrame(animate);
+        animate();
     });
-    </script>
+</script>
 
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -376,13 +415,6 @@ html body header.intro-header .container {
 								<li style="border-bottom: 1px solid #f5f5f5;">
 									<a href="/categories/coding/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
 										<span>编程</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
-									</a>
-								</li>
-								
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/diary/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
-										<span>日记</span>
 										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
 									</a>
 								</li>
@@ -793,12 +825,6 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
             
                
             
-               
-            
-               
-            
-               
-            
         </div>
     </section>
     
@@ -820,8 +846,6 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
         <hr class="hidden-sm hidden-xs">
         <h5>最新文章</h5>
         <ul>
-        
-            <li><a href="/2026/6/23/diary-lin1/">如何面对失败？</a></li>
         
             <li><a href="/2026/6/25/waline-comment/">Waline V3 &#43; Supabase 避坑指南：实现 Hugo 博客无服务评论系统</a></li>
         

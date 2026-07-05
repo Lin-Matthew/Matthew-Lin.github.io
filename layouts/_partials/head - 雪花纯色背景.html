@@ -1,0 +1,291 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Anti-FOC (Flash of Content) Script for Dark Mode -->
+    <script>
+    (function() {
+        // Auto-theme (sunrise/sunset) is enabled by default
+        // Can be disabled by setting auto_theme: false in config
+        const autoTheme = {{ if not .Site.Params.auto_theme }}false{{ else }}true{{ end }};
+        if (autoTheme) {
+            document.documentElement.setAttribute('data-auto-theme', 'true');
+        }
+
+        const theme = localStorage.getItem('cleanwhite-theme') ||
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+    </script>
+
+    <!-- start ogp -->
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:type" content="article">
+
+    {{ if .Params.thumbnail }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}" />
+    {{ else if .Params.image}}
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.image }}" />
+    {{ else }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}">
+    <meta property="twitter:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.header_image }}" />
+    {{ end }}
+
+    {{ if .Params.title }}
+    <meta name="title" content="{{ .Params.title }}" />
+    <meta property="og:title" content="{{ .Params.title }}" />
+    <meta property="twitter:title" content="{{ .Params.title }}" />
+    {{ else }}
+    <meta name="title" content="{{ .Site.Params.title }}" />
+    <meta property="og:title" content="{{ .Site.Params.title }}" />
+    <meta property="twitter:title" content="{{ .Site.Params.title }}" />
+    {{ end }}
+
+    {{ if .Params.description }}
+    <meta name="description" content="{{ .Params.description }}">
+    <meta property="og:description" content="{{ .Params.description }}" />
+    <meta property="twitter:description" content="{{ .Params.description }}" />
+    {{ else }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    <meta property="twitter:description" content="{{ .Site.Params.description }}" />
+    {{ end }}
+
+    <meta property="og:url" content="{{ .Permalink }}" />
+
+    {{ if .Params.summary }}
+    <meta property="twitter:card" content="{{ .Params.summary }}" />
+    {{ else }}
+    <meta property="twitter:card" content="summary" />
+    {{ end }}
+    <!-- end ogp -->
+
+    <meta name="keyword"  content="{{ .Site.Params.keyword }}">
+    <link rel="shortcut icon" href="{{ "img/favicon.ico" | relURL }}">
+
+	<!-- 
+    <title>
+		{{ if .Title }}{{ .Title }} | {{ .Site.Params.SEOTitle }}{{ else }}{{ .Site.Params.SEOTitle }}{{ end }}
+	</title>
+	-->
+	
+	<title>
+	  {{- if .Title -}}
+		{{- if eq .Data.Plural "categories" -}}
+		  {{/* 🌟 如果是分类页面，自动拼接成 cat_coding / cat_trans 去找翻译 */}}
+		  {{ i18n (printf "cat_%s" .Data.Term) | default (.Title | title) }}
+		{{- else if eq .Data.Plural "tags" -}}
+		  {{/* 🌟 如果是标签页面，自动拼接成 tag_xx 去找翻译（比如你在 i18n 里写的 tag_fin） */}}
+		  {{ i18n (printf "tag_%s" .Data.Term) | default (.Title | title) }}
+		{{- else -}}
+		  {{/* 🌟 普通页面（如 About, Message）保持原样 */}}
+		  {{ .Title }}
+		{{- end -}}
+		| {{ .Site.Params.SEOTitle }}
+	  {{- else -}}
+		{{ .Site.Params.SEOTitle }}
+	  {{- end -}}
+	</title>
+
+    <link rel="canonical" href="{{ .RelPermalink }}">
+
+    {{ if .Site.Params.disqus_proxy }}
+    <link rel="stylesheet" href="{{ "css/iDisqus.min.css" | relURL }}"/>
+    {{ end }}
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | relURL }}">
+
+    <!-- Clean White theme CSS -->
+    <link rel="stylesheet" href="{{ "css/hugo-theme-cleanwhite.css" | relURL }}">
+
+    <!-- Theme Variables CSS -->
+    <link rel="stylesheet" href="{{ "css/theme-variables.css" | relURL }}">
+
+    <!-- zangshang CSS -->
+    <link rel="stylesheet" href="{{ "css/zanshang.min.css" | relURL }}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="{{ "css/font-awesome.all.min.css" | relURL }}">
+
+    <!-- KaTeX CSS  -->
+    {{ $noop := .WordCount }}
+    {{ if .Page.Store.Get "hasMath" -}}
+        {{ partial "math/katex-css.html" . -}}
+        {{ partial "math/katex-fonts.html" . -}}
+    {{ end -}}
+
+    <!--  Custom CSS  -->
+    {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{- end }}
+
+    <!-- jQuery -->
+    <script src="{{ "js/jquery.min.js" | relURL }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ "js/bootstrap.min.js" | relURL }}"></script>
+
+    <!-- Hux Theme JavaScript -->
+    <script src="{{ "js/hux-blog.min.js" | relURL }}"></script>
+
+    <!-- lazy load image JavaScript -->
+    <script src="{{ "js/lazysizes.min.js" | relURL }}"></script>
+
+    <!-- Custom JS -->
+    {{ range .Site.Params.custom_js }}
+    <script src="{{ . | absURL }}"></script>
+    {{ end }}
+	
+</head>
+
+{{ if .Site.Config.Services.GoogleAnalytics.ID }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
+
+
+<style>
+/* static/css/custom.css */
+
+/* 1. 让原本的 header 纯色或图片背景变透明，腾出空间给 Canvas */
+html body header.intro-header,
+html body .intro-header,
+header[class*="intro-header"] {
+    background-image: none !important;
+    background-color: #1a2a3a !important; /* 改为深冬/夜空蓝色作为底色，让白色雪花更明显 */
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* 2. 强制让 Canvas 铺满整个 Header 区域，并固定在文字下方 */
+#snowCanvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important; /* 不影响鼠标点击 header 上的文字或菜单 */
+    z-index: 1 !important;
+}
+
+/* 3. 确保文字内容在 Canvas 之上 */
+html body header.intro-header .container,
+html body header.intro-header .post-heading,
+html body header.intro-header .site-heading {
+    position: relative !important;
+    z-index: 2 !important;
+}
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.querySelector('header.intro-header') || document.querySelector('.intro-header');
+        if (!header) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'snowCanvas';
+        header.insertBefore(canvas, header.firstChild);
+
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = header.clientWidth;
+            canvas.height = header.clientHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // 核心：绘制一朵六角雪花的函数
+        function drawHexagramSnowflake(ctx, x, y, size) {
+            ctx.beginPath();
+            // 循环6次，每次转动60度，绘制6个主分支
+            for (let i = 0; i < 6; i++) {
+                let angle = (i * Math.PI) / 3;
+                
+                // 1. 绘制主轴骨架
+                let endX = x + Math.cos(angle) * size;
+                let endY = y + Math.sin(angle) * size;
+                ctx.moveTo(x, y);
+                ctx.lineTo(endX, endY);
+
+                // 2. 为每个主轴添加小分叉，让结晶更逼真
+                let branchX = x + Math.cos(angle) * (size * 0.5);
+                let branchY = y + Math.sin(angle) * (size * 0.5);
+                
+                // 左分叉
+                ctx.moveTo(branchX, branchY);
+                ctx.lineTo(
+                    branchX + Math.cos(angle + Math.PI / 4) * (size * 0.3),
+                    branchY + Math.sin(angle + Math.PI / 4) * (size * 0.3)
+                );
+                // 右分叉
+                ctx.moveTo(branchX, branchY);
+                ctx.lineTo(
+                    branchX + Math.cos(angle - Math.PI / 4) * (size * 0.3),
+                    branchY + Math.sin(angle - Math.PI / 4) * (size * 0.3)
+                );
+            }
+            ctx.stroke();
+        }
+
+        class Snowflake {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height;
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                // 为了能看清六角结构，雪花尺寸稍微放大一点点
+                this.size = Math.random() * 5 + 4; 
+                this.speedY = Math.random() * 0.8 + 0.4; // 结晶下落更轻盈、慢速
+                this.density = Math.random() * 20;
+                this.opacity = Math.random() * 0.5 + 0.4;
+                this.lineWidth = Math.random() * 0.8 + 0.5; // 线条粗细
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y / 30 + this.density) * 0.4;
+
+                if (this.y > canvas.height + 20 || this.x > canvas.width + 20 || this.x < -20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.lineWidth = this.lineWidth;
+                ctx.lineCap = "round"; // 让结晶末端圆润自然
+                
+                // 调用六角雪花绘制函数
+                drawHexagramSnowflake(ctx, this.x, this.y, this.size);
+                
+                ctx.restore();
+            }
+        }
+
+        // 因为绘制六角形比圆形消耗更多性能，所以适当减少数量（30-50个），保证绝对流畅
+        const flakeCount = Math.min(40, Math.floor(canvas.width / 30));
+        const flakes = [];
+        for (let i = 0; i < flakeCount; i++) {
+            flakes.push(new Snowflake());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            flakes.forEach(flake => {
+                flake.update();
+                flake.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    });
+</script>
