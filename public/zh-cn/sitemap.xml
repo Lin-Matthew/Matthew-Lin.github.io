@@ -4,7 +4,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,6 +15,57 @@
                 hreflang="en"
                 href="http://localhost:1313/en/categories/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/categories/diary/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/post/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/2026/7/09/sstory-lolthinking/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E7%9F%AD%E7%AF%87%E6%95%85%E4%BA%8B/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/coding/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
@@ -40,19 +91,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/tags/hugo/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/post/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/supabase/</loc>
@@ -92,32 +130,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/2026/6/25/waline-comment/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-25T13:04:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/"
                 />
   </url><url>
     <loc>http://localhost:1313/search/placeholder/</loc>
