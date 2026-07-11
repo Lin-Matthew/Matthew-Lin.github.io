@@ -46,9 +46,13 @@ other = "TRANS"
 [cat_diary]
 other = "DIARY"
 
-[tag_fin]
+[tag_finance]
 other = "Finance"
 [tag_price]
 other = "Price"
 [tag_transaction]
 other = "Transaction"
+[tag_sstory]
+other = "Short Story"
+[tag_game]
+other = "Game"

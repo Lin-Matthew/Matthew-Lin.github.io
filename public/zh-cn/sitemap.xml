@@ -19,6 +19,9 @@
     <loc>http://localhost:1313/categories/diary/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/game/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
     <xhtml:link
@@ -31,6 +34,9 @@
                 hreflang="en"
                 href="http://localhost:1313/en/post/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/tags/sstory/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
@@ -48,9 +54,6 @@
     <loc>http://localhost:1313/2026/7/09/sstory-lolthinking/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/%E7%9F%AD%E7%AF%87%E6%95%85%E4%BA%8B/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
     <xhtml:link
@@ -63,9 +66,6 @@
                 hreflang="en"
                 href="http://localhost:1313/en/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/coding/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>

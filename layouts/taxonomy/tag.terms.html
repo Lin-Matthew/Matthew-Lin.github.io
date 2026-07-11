@@ -16,7 +16,7 @@
                 <div class="tag-cloud-main" style="padding: 20px 0; line-height: 2.5;">
                     {{ range .Data.Terms.Alphabetical }}
                     <a href="{{ .Page.RelPermalink }}" class="tag-item" style="margin-right: 20px; text-decoration: none; display: inline-block;">
-                        <span style="font-size: 1.3em; font-weight: bold; color: #333;"># {{ i18n (printf "tag_%s" (lower .Page.Title)) | default .Page.Title }}</span>
+                        <span style="font-size: 1.3em; font-weight: bold; color: #73cbe7;"># {{ i18n (printf "tag_%s" (lower .Page.Title)) | default .Page.Title }}</span>
                         <span style="color: #999; font-size: 0.9em;">({{ .Count }})</span>
                     </a>
                     {{ end }}

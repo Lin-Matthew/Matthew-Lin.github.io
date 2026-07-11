@@ -46,9 +46,13 @@ other = "交易"
 [cat_diary]
 other = "日记"
 
-[tag_fin]
+[tag_finance]
 other = "金融"
 [tag_price]
 other = "价格"
 [tag_transaction]
 other = "交易"
+[tag_sstory]
+other = "短篇故事"
+[tag_game]
+other = "游戏"

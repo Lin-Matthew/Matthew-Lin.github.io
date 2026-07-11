@@ -9,8 +9,8 @@ author: "Matthew Lin"
 image: ""
 publishDate: 2026-07-10 00:00:00
 tags:
-    - 短篇故事
-    - 游戏
+    - sstory
+    - game
 URL: "/2026/7/09/sstory-lolthinking/"
 categories: [diary]
 comments: true
