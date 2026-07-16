@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Subcategories on 林修的博客</title>
+		<link>http://localhost:1313/subcategories/</link>
+		<description>Recent content in Subcategories on 林修的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 09 Jul 2026 16:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/subcategories/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Sstory</title>
+				<link>http://localhost:1313/subcategories/sstory/</link>
+				<pubDate>Fri, 10 Jul 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/subcategories/sstory/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Waline</title>
+				<link>http://localhost:1313/subcategories/waline/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/subcategories/waline/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Bgknowledge</title>
+				<link>http://localhost:1313/subcategories/bgknowledge/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/subcategories/bgknowledge/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Sales</title>
+				<link>http://localhost:1313/subcategories/sales/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/subcategories/sales/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

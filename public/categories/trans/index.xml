@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Trans on 林修的博客</title>
+		<link>http://localhost:1313/categories/trans/</link>
+		<description>Recent content in Trans on 林修的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 23 Jun 2026 21:04:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/trans/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>价格的形成</title>
+				<link>http://localhost:1313/2026/6/23/fin-price/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

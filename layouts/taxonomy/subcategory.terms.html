@@ -1,0 +1,42 @@
+{{ define "header" }}
+<header class="intro-header" style="background-color: #395B71 !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" style="text-align: center; padding: 55px 0 10px 0 !important;">
+                    <h1 style="font-size: 32px !important; margin: 10px 0 !important;">
+                        {{ i18n "nav_subcategories" | default "SUBCATEGORIES" }}
+                    </h1>
+                    <span class="subheading" style="font-size: 16px !important; opacity: 0.8;">
+                        {{ i18n "subcategories_subheading" | default "All Subcategories" }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="category-list" style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 15px;">
+                {{ range $key, $value := .Data.Terms }}
+                <a href="{{ "subcategories/" | relLangURL }}{{ $key | urlize }}/" 
+                   style="padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 4px; color: #333333; text-decoration: none; display: flex; align-items: center; gap: 10px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;"
+                   onmouseover="this.style.backgroundColor='#395B71'; this.style.color='#ffffff';"
+                   onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#333333';">
+                    <span style="font-weight: 500;">
+                        {{ i18n (printf "subcat_%s" (lower $key)) | default ($key | upper) }}
+                    </span>
+                    <span style="font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #f1f1f1; color: #999;">
+                        {{ $value.Count }}
+                    </span>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

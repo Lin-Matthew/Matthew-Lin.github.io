@@ -1,11 +1,9 @@
-<!-- Navigation -->
 {{ if or (eq .Params.navstyle "invert") (eq .Params.headerstyle "text")  }}
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
 {{ else }}
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 {{ end }}
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,87 +11,95 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+            <a class="navbar-brand" href="{{ "/" | relLangURL }}">{{ site.Title }}</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
         <div id="huxblog_navbar">
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <!-- <a href="{{ "/" | relLangURL }}">All Posts</a> -->
 						<a href="{{ "/" | relLangURL }}">{{ i18n "nav_all_posts" }}</a>
                     </li>
-                    {{ if not .Site.Params.omit_categories }}
-                        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-                        <li>
-                            <!-- <a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/">{{ $name }}</a> -->
-							{{ if not .Site.Params.omit_categories }}
-								{{ if eq .Page.Lang "zh-cn" }}
-									<li><a href="/categories/技术/">技术</a></li>
-								{{ else }}
-									<li><a href="/en/categories/tech/">TECH</a></li>
-								{{ end }}
-							{{ end }}
-                        </li>
-                        {{ end }}
-                    {{ end }}
+                    
+                    {{ if not site.Params.omit_categories }}
+						<li class="dropdown" id="categories-dropdown-li">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								{{ i18n "nav_categories" | default "CATLOG" }} <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" style="min-width: 120px !important; width: auto !important; white-space: nowrap !important; background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); padding: 5px 0 !important; overflow: visible !important;">
+								{{ range $name, $taxonomy := site.Taxonomies.categories }}
+								<li class="main-cat-item" style="position: relative; border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+									
+									<a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+										<span>{{ i18n (printf "cat_%s" (lower $name)) | default ($name | upper) }}</span>
+										<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">{{ $taxonomy.Count }}</span>
+									</a>
+									
+									{{ $subCatsInThisCat := slice }}
+									{{ range $taxonomy.Pages }}
+										{{ if .Params.subcategories }}
+											{{ range .Params.subcategories }}
+												{{ $subCatsInThisCat = $subCatsInThisCat | append (lower .) }}
+											{{ end }}
+										{{ end }}
+									{{ end }}
+									{{ $subCatsInThisCat = $subCatsInThisCat | uniq }}
 
-		    {{ range .Site.Params.additional_menus }}
+									<ul class="sub-dropdown-menu" style="background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; display: none; position: absolute; left: 95px !important; top: 0 !important; margin-top: -6px !important; padding: 5px 0 !important; list-style: none; min-width: 120px !important; width: auto !important; white-space: nowrap !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 4px; z-index: 99999 !important;">
+										{{ range $subCatsInThisCat }}
+											{{ $subTaxonomy := index site.Taxonomies.subcategories . }}
+											{{ if $subTaxonomy }}
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="{{ "subcategories/" | relLangURL }}{{ . | urlize }}/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>{{ i18n (printf "subcat_%s" (lower .)) | default (. | upper) }}</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">{{ $subTaxonomy.Count }}</span>
+												</a>
+											</li>
+											{{ end }}
+										{{ end }}
+									</ul>
+									
+								</li>
+								{{ end }}
+							</ul>
+						</li>
+					{{ end }}
+					
+		            {{ range site.Params.additional_menus }}
                         <li><a href="{{.href | relLangURL}}/">{{.title}}</a></li>
                     {{ end }}
 		            <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
 							<i class="fa fa-search"></i>
 						</a>
-		           </li>
-                    {{ if not (eq .Site.Params.dark_mode_toggle false) }}
+		            </li>
+                    
+                    {{ if not (eq site.Params.dark_mode_toggle false) }}
 		            <li>
                         <a href="#" id="theme-toggle" title="Toggle dark mode" style="opacity: 0;">
                             <i class="fa fa-moon"></i>
                             <i class="fa fa-sun" style="display: none;"></i>
                         </a>
 					</li>
-				   
-					<!-- <li>
-						<a href="#" id="lang-toggle-nav" title="切换语言 / Switch Language" style="opacity: 0; margin-left: 5px;">
-							<i class="fa fa-globe"></i>
-						</a>
-					</li> -->
 					
 					<li>
 						{{ $target_url := "" }}
-						{{ $current_link := .RelPermalink | lower }}
-						
-						{{ if or (in $current_link "categories/技术") (in $current_link "%e6%8a%90%e6%9c%af") }}
-							{{ $target_url = "/en/categories/tech/" }}
-						{{ else if in $current_link "categories/tech" }}
-							{{ $target_url = "/categories/技术/" }}
-							
+						{{ if eq $.Page.Lang "zh-cn" }}
+							{{ if .IsHome }}{{ $target_url = "/en/" }}{{ else }}{{ $target_url = printf "/en%s" .RelPermalink }}{{ end }}
 						{{ else }}
-							{{ if eq .Page.Lang "zh-cn" }}
-								{{ if .IsHome }}{{ $target_url = "/en/" }}{{ else }}{{ $target_url = printf "/en%s" .RelPermalink }}{{ end }}
-							{{ else }}
-								{{ if .IsHome }}{{ $target_url = "/" }}{{ else }}{{ $target_url = strings.TrimPrefix "/en" .RelPermalink }}{{ end }}
-							{{ end }}
+							{{ if .IsHome }}{{ $target_url = "/" }}{{ else }}{{ $target_url = strings.TrimPrefix "/en" .RelPermalink }}{{ end }}
 						{{ end }} 
 
-						<a href="{{ $target_url }}" id="lang-toggle-nav" data-lang-url="{{ $target_url }}" title="切换语言 / Switch Language" style="opacity: 0; margin-left: 5px;" onclick="localStorage.setItem('user-selected-lang', '{{ if eq .Page.Lang "zh-cn" }}en{{ else }}zh{{ end }}')">
+						<a href="{{ $target_url }}" id="lang-toggle-nav" data-lang-url="{{ $target_url }}" title="切换语言 / Switch Language" style="opacity: 0; margin-left: 5px;" onclick="localStorage.setItem('user-selected-lang', '{{ if eq $.Page.Lang "zh-cn" }}en{{ else }}zh{{ end }}')">
 							<i class="fa fa-globe"></i>
 						</a>
 					</li>
                     <script>
                     (function() {
-                        // Set correct icon immediately to prevent flash
                         var theme = localStorage.getItem('cleanwhite-theme');
 						if (!theme) {
-							theme = 'dark';
-							localStorage.setItem('cleanwhite-theme', 'dark'); // 顺手把默认值存入缓存
+							theme = 'light';
+							localStorage.setItem('cleanwhite-theme', 'light');
 						}
 						
                         var toggleBtn = document.getElementById('theme-toggle');
@@ -111,24 +117,16 @@
                                 toggleBtn.setAttribute('title', 'Switch to dark mode');
                             }
 
-                            // Show button with correct icon
                             requestAnimationFrame(function() {
                                 toggleBtn.style.transition = 'opacity 0.2s ease';
                                 toggleBtn.style.opacity = '1';
                             });
                         }
 						
-						// ==========================================
-						// B. 🌟 完美的 Hugo 原生多语言一键切换
-						// ==========================================
 						var langBtn = document.getElementById('lang-toggle-nav');
 						if (langBtn) {
-							// 1. 让图标优雅显示出来（因为你原本的 inline style 写了 opacity: 0）
 							langBtn.style.opacity = "1";
-
-							// 2. 监听点击事件（可选：如果你原本的 JS 里有复杂的阻止默认事件行为）
 							langBtn.addEventListener('click', function(e) {
-								// 从刚才 Hugo 埋好的属性里精准提取安全的跳转链接
 								var targetUrl = this.getAttribute('data-lang-url');
 								if (targetUrl) {
 									window.location.href = targetUrl;
@@ -141,14 +139,147 @@
                 </ul>
             </div>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
 </nav>
+
+<style>
+/* 桌面端悬浮自动展开一级菜单 */
+@media (min-width: 768px) {
+    .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+        display: block !important;
+        margin-top: 0px;
+    }
+    .navbar-nav li.dropdown > a.dropdown-toggle {
+        pointer-events: none;
+        cursor: default;
+    }
+    .navbar-nav .dropdown-menu {
+        overflow: visible !important; 
+    }
+    
+    /* 🌟 终极修复 1：利用伪元素建立“绝对安全的隐形过渡桥梁” */
+    /* 当二级分类显示时，在一级分类 li 的右侧生成一个完全透明的、向右延伸 40px 的覆盖区域 */
+    /* 这能完美将存在间隔的一级和二级菜单合并起来，鼠标横移时永远有元素承接，绝不中断 */
+    .main-cat-item::after {
+        content: "";
+        position: absolute;
+        right: -40px; /* 宽度向右延伸覆盖间隔 */
+        top: 0;
+        width: 40px;
+        height: 100%;
+        display: none;
+        z-index: 9999;
+    }
+    .main-cat-item:hover::after {
+        display: block; /* 仅在鼠标悬浮时激活动态桥梁 */
+    }
+}
+
+.navbar-nav .dropdown-menu > li:last-child,
+.navbar-nav .sub-dropdown-menu > li:last-child {
+    border-bottom: none !important;
+}
+
+/* ==========================================
+   🔥 颜色锁定（无论深色浅色，未悬浮一律 #333333）
+   ========================================== */
+.navbar-nav .dropdown-menu a.cat-link-item,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item,
+.navbar-nav .dropdown-menu a.cat-link-item:not(:hover),
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:not(:hover) {
+    color: #333333 !important;
+}
+
+/* 鼠标悬浮变成蓝底白字 */
+.navbar-nav .dropdown-menu a.cat-link-item:hover,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover {
+    background-color: #395B71 !important;
+    color: #ffffff !important; 
+}
+
+/* 悬浮时小数字变成白底蓝字 */
+.navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count {
+    color: #395B71 !important;
+    background: #ffffff !important;
+}
+</style>
+
+
 <script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
+document.addEventListener('DOMContentLoaded', function() {
+    var mainItems = document.querySelectorAll('.main-cat-item');
+    
+    // 核心锁：在最外层声明一个用于阻断所有二级菜单隐藏命令的全局定时器变量
+    var globalHideTimeout = null;
+
+    mainItems.forEach(function(item) {
+        var subMenu = item.querySelector('.sub-dropdown-menu');
+        if (!subMenu) return;
+
+        // 如果二级菜单内没有子项目，则不进行渲染和绑定
+        if (subMenu.querySelectorAll('li').length === 0) {
+            subMenu.remove();
+            return;
+        }
+
+        // 🌟 1. 移入一级分类项（.main-cat-item）：锁定显示，拦截所有隐藏定时器
+        item.addEventListener('mouseenter', function() {
+            // 一旦移入或折返回来，瞬间清除任何准备隐藏的定时器
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            
+            // 顺便让其他一级分类的二级菜单立刻消失，保持界面干净
+            mainItems.forEach(function(otherItem) {
+                var otherSub = otherItem.querySelector('.sub-dropdown-menu');
+                if (otherSub && otherSub !== subMenu) {
+                    otherSub.style.display = 'none';
+                }
+            });
+            
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 2. 鼠标在一级分类项内摩擦或重新经过时，持续拦截隐藏任务
+        item.addEventListener('mouseover', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 3. 鼠标离开一级分类项：设置 450ms 强大的缓冲防抖
+        item.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+        
+        // 🌟 4. 鼠标进入二级菜单内部：立刻拦截隐藏任务，钉住当前面板显示
+        subMenu.addEventListener('mouseenter', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 5. 鼠标离开二级菜单内部：移向所属一级分类，触发延迟隐藏
+        subMenu.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+    });
+});
+</script>
+
+<script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
     var $navbar = document.querySelector('#huxblog_navbar');
@@ -157,29 +288,23 @@
     $toggle.addEventListener('click', handleMagic)
     function handleMagic(e){
         if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
             $navbar.className = " ";
-            // wait until animation end.
             setTimeout(function(){
-                // prevent frequently toggle
                 if($navbar.className.indexOf('in') < 0) {
                     $collapse.style.height = "0px"
                 }
             },400)
         }else{
-        // OPEN
             $collapse.style.height = "auto"
             $navbar.className += " in";
         }
     }
 
-    // Close navbar when clicking on menu items (including theme toggle)
     document.addEventListener('DOMContentLoaded', function() {
         var navLinks = document.querySelectorAll('.navbar-collapse a');
         navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 if ($navbar.className.indexOf('in') > 0) {
-                    // Close the menu
                     $navbar.className = " ";
                     setTimeout(function(){
                         if($navbar.className.indexOf('in') < 0) {

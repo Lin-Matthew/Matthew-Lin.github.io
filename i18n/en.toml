@@ -45,6 +45,15 @@ other = "CODING"
 other = "TRANS"
 [cat_diary]
 other = "DIARY"
+[subcat_sstory]
+other = "Short Stories"
+[subcat_lmemories]
+other = "Lin's Memories"
+[subcat_bgknowledge]
+other = "Background"
+[subcat_sales]
+other = "SALES STORY"
+
 
 [tag_finance]
 other = "Finance"

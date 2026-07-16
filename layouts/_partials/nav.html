@@ -22,17 +22,43 @@
                     </li>
                     
                     {{ if not site.Params.omit_categories }}
-						<li class="dropdown">
+						<li class="dropdown" id="categories-dropdown-li">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								{{ i18n "nav_categories" | default "CATLOG" }} <span class="caret"></span>
 							</a>
-							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
+							<ul class="dropdown-menu" style="min-width: 120px !important; width: auto !important; white-space: nowrap !important; background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); padding: 5px 0 !important; overflow: visible !important;">
 								{{ range $name, $taxonomy := site.Taxonomies.categories }}
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+								<li class="main-cat-item" style="position: relative; border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+									
+									<a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
 										<span>{{ i18n (printf "cat_%s" (lower $name)) | default ($name | upper) }}</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">{{ $taxonomy.Count }}</span>
+										<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">{{ $taxonomy.Count }}</span>
 									</a>
+									
+									{{ $subCatsInThisCat := slice }}
+									{{ range $taxonomy.Pages }}
+										{{ if .Params.subcategories }}
+											{{ range .Params.subcategories }}
+												{{ $subCatsInThisCat = $subCatsInThisCat | append (lower .) }}
+											{{ end }}
+										{{ end }}
+									{{ end }}
+									{{ $subCatsInThisCat = $subCatsInThisCat | uniq }}
+
+									<ul class="sub-dropdown-menu" style="background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; display: none; position: absolute; left: 95px !important; top: 0 !important; margin-top: -6px !important; padding: 5px 0 !important; list-style: none; min-width: 120px !important; width: auto !important; white-space: nowrap !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 4px; z-index: 99999 !important;">
+										{{ range $subCatsInThisCat }}
+											{{ $subTaxonomy := index site.Taxonomies.subcategories . }}
+											{{ if $subTaxonomy }}
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="{{ "subcategories/" | relLangURL }}{{ . | urlize }}/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>{{ i18n (printf "subcat_%s" (lower .)) | default (. | upper) }}</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">{{ $subTaxonomy.Count }}</span>
+												</a>
+											</li>
+											{{ end }}
+										{{ end }}
+									</ul>
+									
 								</li>
 								{{ end }}
 							</ul>
@@ -70,7 +96,6 @@
 					</li>
                     <script>
                     (function() {
-                        // Set correct icon immediately to prevent flash
                         var theme = localStorage.getItem('cleanwhite-theme');
 						if (!theme) {
 							theme = 'light';
@@ -98,7 +123,6 @@
                             });
                         }
 						
-						// B. 完美的 Hugo 原生多语言一键切换 JS
 						var langBtn = document.getElementById('lang-toggle-nav');
 						if (langBtn) {
 							langBtn.style.opacity = "1";
@@ -115,10 +139,11 @@
                 </ul>
             </div>
         </div>
-        </div>
-    </nav>
+    </div>
+</nav>
+
 <style>
-/* 1. 桌面端鼠标悬浮自动展开 */
+/* 桌面端悬浮自动展开一级菜单 */
 @media (min-width: 768px) {
     .navbar-nav li.dropdown:hover > ul.dropdown-menu {
         display: block !important;
@@ -128,87 +153,132 @@
         pointer-events: none;
         cursor: default;
     }
+    .navbar-nav .dropdown-menu {
+        overflow: visible !important; 
+    }
+    
+    /* 🌟 终极修复 1：利用伪元素建立“绝对安全的隐形过渡桥梁” */
+    /* 当二级分类显示时，在一级分类 li 的右侧生成一个完全透明的、向右延伸 40px 的覆盖区域 */
+    /* 这能完美将存在间隔的一级和二级菜单合并起来，鼠标横移时永远有元素承接，绝不中断 */
+    .main-cat-item::after {
+        content: "";
+        position: absolute;
+        right: -40px; /* 宽度向右延伸覆盖间隔 */
+        top: 0;
+        width: 40px;
+        height: 100%;
+        display: none;
+        z-index: 9999;
+    }
+    .main-cat-item:hover::after {
+        display: block; /* 仅在鼠标悬浮时激活动态桥梁 */
+    }
 }
 
-/* 2. 下拉菜单基础布局结构 */
-.navbar-nav .dropdown-menu {
-    min-width: 120px !important;
-    width: auto !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-    padding: 5px 0 !important;
-}
-.navbar-nav .dropdown-menu > li {
-    border-bottom: 1px solid #f5f5f5 !important;
-}
-.navbar-nav .dropdown-menu > li:last-child {
+.navbar-nav .dropdown-menu > li:last-child,
+.navbar-nav .sub-dropdown-menu > li:last-child {
     border-bottom: none !important;
 }
 
-/* 🌟 核心破局点：强制重写下拉框内 a 标签的文字排版与颜色 */
-.navbar-nav .dropdown-menu > li > a {
-    padding: 10px 20px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    font-weight: normal !important;
-    text-transform: none !important;
-    transition: all 0.2s ease !important;
-}
-.navbar-nav .cat-count {
-    font-size: 11px;
-    padding: 1px 6px;
-    border-radius: 10px;
-}
-
-/* ☀️ 3. 浅色（常规白昼）模式下的文字与背景强制配色 */
-body:not(.dark) .navbar-nav .dropdown-menu {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-}
-/* 🔥 强力阻断：这里强制所有非悬浮状态下的文字必须是深灰色 #333333 */
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:not(:hover) {
+/* ==========================================
+   🔥 颜色锁定（无论深色浅色，未悬浮一律 #333333）
+   ========================================== */
+.navbar-nav .dropdown-menu a.cat-link-item,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item,
+.navbar-nav .dropdown-menu a.cat-link-item:not(:hover),
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:not(:hover) {
     color: #333333 !important;
 }
-body:not(.dark) .navbar-nav .cat-count {
-    color: #999999 !important;
-    background: #f1f1f1 !important;
-}
-/* 浅色模式下悬浮 */
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover {
+
+/* 鼠标悬浮变成蓝底白字 */
+.navbar-nav .dropdown-menu a.cat-link-item:hover,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover {
     background-color: #395B71 !important;
-    color: #ffffff !important;
-}
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover .cat-count {
-    color: #395B71 !important;
-    background: #ffffff !important;
+    color: #ffffff !important; 
 }
 
-/* 🌙 4. 深色（夜间暗黑）模式下的文字与背景强制配色 */
-body.dark .navbar-nav .dropdown-menu {
-    background-color: #252b36 !important;
-    border: 1px solid #374151 !important;
-}
-body.dark .navbar-nav .dropdown-menu > li {
-    border-bottom: 1px solid #2d3543 !important;
-}
-/* 🔥 强力阻断：深色模式下，未悬浮时的字改成亮灰色 #e5e7eb */
-body.dark .navbar-nav .dropdown-menu > li > a:not(:hover) {
-    color: #e5e7eb !important;
-}
-body.dark .navbar-nav .cat-count {
-    color: #9ca3af !important;
-    background: #374151 !important;
-}
-/* 深色模式下悬浮 */
-body.dark .navbar-nav .dropdown-menu > li > a:hover {
-    background-color: #395B71 !important;
-    color: #ffffff !important;
-}
-body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+/* 悬浮时小数字变成白底蓝字 */
+.navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count {
     color: #395B71 !important;
     background: #ffffff !important;
 }
 </style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var mainItems = document.querySelectorAll('.main-cat-item');
+    
+    // 核心锁：在最外层声明一个用于阻断所有二级菜单隐藏命令的全局定时器变量
+    var globalHideTimeout = null;
+
+    mainItems.forEach(function(item) {
+        var subMenu = item.querySelector('.sub-dropdown-menu');
+        if (!subMenu) return;
+
+        // 如果二级菜单内没有子项目，则不进行渲染和绑定
+        if (subMenu.querySelectorAll('li').length === 0) {
+            subMenu.remove();
+            return;
+        }
+
+        // 🌟 1. 移入一级分类项（.main-cat-item）：锁定显示，拦截所有隐藏定时器
+        item.addEventListener('mouseenter', function() {
+            // 一旦移入或折返回来，瞬间清除任何准备隐藏的定时器
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            
+            // 顺便让其他一级分类的二级菜单立刻消失，保持界面干净
+            mainItems.forEach(function(otherItem) {
+                var otherSub = otherItem.querySelector('.sub-dropdown-menu');
+                if (otherSub && otherSub !== subMenu) {
+                    otherSub.style.display = 'none';
+                }
+            });
+            
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 2. 鼠标在一级分类项内摩擦或重新经过时，持续拦截隐藏任务
+        item.addEventListener('mouseover', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 3. 鼠标离开一级分类项：设置 450ms 强大的缓冲防抖
+        item.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+        
+        // 🌟 4. 鼠标进入二级菜单内部：立刻拦截隐藏任务，钉住当前面板显示
+        subMenu.addEventListener('mouseenter', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        // 🌟 5. 鼠标离开二级菜单内部：移向所属一级分类，触发延迟隐藏
+        subMenu.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+    });
+});
+</script>
+
 <script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');

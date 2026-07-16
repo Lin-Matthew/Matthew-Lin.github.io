@@ -45,6 +45,14 @@ other = "编程"
 other = "交易"
 [cat_diary]
 other = "日记"
+[subcat_sstory]
+other = "短篇故事"
+[subcat_lmemories]
+other = "林修的回忆"
+[subcat_bgknowledge]
+other = "背景知识"
+[subcat_sales]
+other = "销售故事"
 
 [tag_finance]
 other = "金融"

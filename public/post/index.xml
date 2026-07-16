@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Thu, 09 Jul 2026 16:00:00 +0800</lastBuildDate>
+			<lastBuildDate>Wed, 15 Jul 2026 16:00:00 +0800</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>http://localhost:1313/2026/7/15/sales-diary/</link>
+				<pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/7/15/sales-diary/</guid>
+				<description>&lt;h2 id=&#34;1&#34;&gt;1.&lt;/h2&gt;</description>
+			</item>
 			<item>
 				<title>短故事1-从《英雄联盟》某个对局引发的情绪思考</title>
 				<link>http://localhost:1313/2026/7/09/sstory-lolthinking/</link>
@@ -26,6 +33,13 @@
 				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
 				<guid>http://localhost:1313/2026/6/25/waline-comment/</guid>
 				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;评论系统采用waline v3.15.2作为无服务后端，supabase(postgres)存储评论数据，不用搭建个人服务器，即可享受免费的评论系统。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>价格的形成</title>
+				<link>http://localhost:1313/2026/6/23/fin-price/</link>
+				<pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/6/23/fin-price/</guid>
+				<description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;价格不是商品的价值，也不是市场计算得出的结果，而是由信息、预期、供需关系博弈之后暂时达到的一个平衡点。并且，该价格只对当下有效。未来会受影响于库存。&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

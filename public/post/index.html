@@ -408,24 +408,125 @@ html body header.intro-header .site-heading {
                     </li>
                     
                     
-						<li class="dropdown">
+						<li class="dropdown" id="categories-dropdown-li">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								分类 <span class="caret"></span>
 							</a>
-							<ul class="dropdown-menu" style="min-width: 160px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); border: 1px solid #eee;">
+							<ul class="dropdown-menu" style="min-width: 120px !important; width: auto !important; white-space: nowrap !important; background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); padding: 5px 0 !important; overflow: visible !important;">
 								
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/coding/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+								<li class="main-cat-item" style="position: relative; border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+									
+									<a href="/categories/coding/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
 										<span>编程</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+										<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
 									</a>
+									
+									
+									
+										
+											
+												
+											
+										
+									
+									
+
+									<ul class="sub-dropdown-menu" style="background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; display: none; position: absolute; left: 95px !important; top: 0 !important; margin-top: -6px !important; padding: 5px 0 !important; list-style: none; min-width: 120px !important; width: auto !important; white-space: nowrap !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 4px; z-index: 99999 !important;">
+										
+											
+											
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="/subcategories/waline/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>WALINE</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
+												</a>
+											</li>
+											
+										
+									</ul>
+									
 								</li>
 								
-								<li style="border-bottom: 1px solid #f5f5f5;">
-									<a href="/categories/diary/" style="padding: 10px 20px; color: #333; display: flex; justify-content: space-between; align-items: center; font-weight: normal; text-transform: none;">
+								<li class="main-cat-item" style="position: relative; border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+									
+									<a href="/categories/diary/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
 										<span>日记</span>
-										<span style="font-size: 11px; color: #999; background: #f1f1f1; padding: 1px 5px; border-radius: 10px;">1</span>
+										<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">2</span>
 									</a>
+									
+									
+									
+										
+											
+												
+											
+										
+									
+										
+											
+												
+											
+										
+									
+									
+
+									<ul class="sub-dropdown-menu" style="background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; display: none; position: absolute; left: 95px !important; top: 0 !important; margin-top: -6px !important; padding: 5px 0 !important; list-style: none; min-width: 120px !important; width: auto !important; white-space: nowrap !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 4px; z-index: 99999 !important;">
+										
+											
+											
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="/subcategories/sales/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>销售故事</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
+												</a>
+											</li>
+											
+										
+											
+											
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="/subcategories/sstory/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>短篇故事</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
+												</a>
+											</li>
+											
+										
+									</ul>
+									
+								</li>
+								
+								<li class="main-cat-item" style="position: relative; border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+									
+									<a href="/categories/trans/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+										<span>交易</span>
+										<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
+									</a>
+									
+									
+									
+										
+											
+												
+											
+										
+									
+									
+
+									<ul class="sub-dropdown-menu" style="background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; display: none; position: absolute; left: 95px !important; top: 0 !important; margin-top: -6px !important; padding: 5px 0 !important; list-style: none; min-width: 120px !important; width: auto !important; white-space: nowrap !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; border-radius: 4px; z-index: 99999 !important;">
+										
+											
+											
+											<li style="border-bottom: 1px solid #f5f5f5 !important; list-style: none;">
+												<a href="/subcategories/bgknowledge/" class="cat-link-item" style="padding: 8px 15px !important; color: #333333 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-weight: normal !important; text-transform: none !important; text-decoration: none !important; width: 100%; gap: 15px !important;">
+													<span>背景知识</span>
+													<span class="cat-count" style="font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #999999 !important; background: #f1f1f1 !important; margin-left: auto !important;">1</span>
+												</a>
+											</li>
+											
+										
+									</ul>
+									
 								</li>
 								
 							</ul>
@@ -467,7 +568,6 @@ html body header.intro-header .site-heading {
 					</li>
                     <script>
                     (function() {
-                        
                         var theme = localStorage.getItem('cleanwhite-theme');
 						if (!theme) {
 							theme = 'light';
@@ -495,7 +595,6 @@ html body header.intro-header .site-heading {
                             });
                         }
 						
-						
 						var langBtn = document.getElementById('lang-toggle-nav');
 						if (langBtn) {
 							langBtn.style.opacity = "1";
@@ -512,8 +611,9 @@ html body header.intro-header .site-heading {
                 </ul>
             </div>
         </div>
-        </div>
-    </nav>
+    </div>
+</nav>
+
 <style>
  
 @media (min-width: 768px) {
@@ -525,87 +625,130 @@ html body header.intro-header .site-heading {
         pointer-events: none;
         cursor: default;
     }
+    .navbar-nav .dropdown-menu {
+        overflow: visible !important; 
+    }
+    
+     
+     
+     
+    .main-cat-item::after {
+        content: "";
+        position: absolute;
+        right: -40px;  
+        top: 0;
+        width: 40px;
+        height: 100%;
+        display: none;
+        z-index: 9999;
+    }
+    .main-cat-item:hover::after {
+        display: block;  
+    }
 }
 
- 
-.navbar-nav .dropdown-menu {
-    min-width: 120px !important;
-    width: auto !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-    padding: 5px 0 !important;
-}
-.navbar-nav .dropdown-menu > li {
-    border-bottom: 1px solid #f5f5f5 !important;
-}
-.navbar-nav .dropdown-menu > li:last-child {
+.navbar-nav .dropdown-menu > li:last-child,
+.navbar-nav .sub-dropdown-menu > li:last-child {
     border-bottom: none !important;
 }
 
  
-.navbar-nav .dropdown-menu > li > a {
-    padding: 10px 20px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    font-weight: normal !important;
-    text-transform: none !important;
-    transition: all 0.2s ease !important;
-}
-.navbar-nav .cat-count {
-    font-size: 11px;
-    padding: 1px 6px;
-    border-radius: 10px;
-}
-
- 
-body:not(.dark) .navbar-nav .dropdown-menu {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-}
- 
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:not(:hover) {
+.navbar-nav .dropdown-menu a.cat-link-item,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item,
+.navbar-nav .dropdown-menu a.cat-link-item:not(:hover),
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:not(:hover) {
     color: #333333 !important;
 }
-body:not(.dark) .navbar-nav .cat-count {
-    color: #999999 !important;
-    background: #f1f1f1 !important;
-}
+
  
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover {
+.navbar-nav .dropdown-menu a.cat-link-item:hover,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover {
     background-color: #395B71 !important;
-    color: #ffffff !important;
-}
-body:not(.dark) .navbar-nav .dropdown-menu > li > a:hover .cat-count {
-    color: #395B71 !important;
-    background: #ffffff !important;
+    color: #ffffff !important; 
 }
 
  
-body.dark .navbar-nav .dropdown-menu {
-    background-color: #252b36 !important;
-    border: 1px solid #374151 !important;
-}
-body.dark .navbar-nav .dropdown-menu > li {
-    border-bottom: 1px solid #2d3543 !important;
-}
- 
-body.dark .navbar-nav .dropdown-menu > li > a:not(:hover) {
-    color: #e5e7eb !important;
-}
-body.dark .navbar-nav .cat-count {
-    color: #9ca3af !important;
-    background: #374151 !important;
-}
- 
-body.dark .navbar-nav .dropdown-menu > li > a:hover {
-    background-color: #395B71 !important;
-    color: #ffffff !important;
-}
-body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
+.navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count,
+body.dark .navbar-nav .dropdown-menu a.cat-link-item:hover .cat-count {
     color: #395B71 !important;
     background: #ffffff !important;
 }
 </style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var mainItems = document.querySelectorAll('.main-cat-item');
+    
+    
+    var globalHideTimeout = null;
+
+    mainItems.forEach(function(item) {
+        var subMenu = item.querySelector('.sub-dropdown-menu');
+        if (!subMenu) return;
+
+        
+        if (subMenu.querySelectorAll('li').length === 0) {
+            subMenu.remove();
+            return;
+        }
+
+        
+        item.addEventListener('mouseenter', function() {
+            
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            
+            
+            mainItems.forEach(function(otherItem) {
+                var otherSub = otherItem.querySelector('.sub-dropdown-menu');
+                if (otherSub && otherSub !== subMenu) {
+                    otherSub.style.display = 'none';
+                }
+            });
+            
+            subMenu.style.display = 'block';
+        });
+
+        
+        item.addEventListener('mouseover', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        
+        item.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+        
+        
+        subMenu.addEventListener('mouseenter', function() {
+            if (globalHideTimeout) {
+                clearTimeout(globalHideTimeout);
+                globalHideTimeout = null;
+            }
+            subMenu.style.display = 'block';
+        });
+
+        
+        subMenu.addEventListener('mouseleave', function() {
+            if (globalHideTimeout) clearTimeout(globalHideTimeout);
+            globalHideTimeout = setTimeout(function() {
+                subMenu.style.display = 'none';
+            }, 450);
+        });
+    });
+});
+</script>
+
 <script>
     var $body   = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
@@ -762,6 +905,14 @@ body.dark .navbar-nav .dropdown-menu > li > a:hover .cat-count {
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         
