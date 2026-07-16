@@ -90,7 +90,7 @@
 							{{ if .IsHome }}{{ $target_url = "/" }}{{ else }}{{ $target_url = strings.TrimPrefix "/en" .RelPermalink }}{{ end }}
 						{{ end }} 
 
-						<a href="{{ $target_url }}" id="lang-toggle-nav" data-lang-url="{{ $target_url }}" title="切换语言 / Switch Language" style="opacity: 0; margin-left: 5px;" onclick="localStorage.setItem('user-selected-lang', '{{ if eq $.Page.Lang "zh-cn" }}en{{ else }}zh{{ end }}')">
+						<a href="{{ $target_url }}" id="lang-toggle-nav" data-lang-url="{{ $target_url }}" title="Switch Language" style="opacity: 0; margin-left: 5px;" onclick="localStorage.setItem('user-selected-lang', '{{ if eq $.Page.Lang "zh-cn" }}en{{ else }}zh{{ end }}')">
 							<i class="fa fa-globe"></i>
 						</a>
 					</li>
