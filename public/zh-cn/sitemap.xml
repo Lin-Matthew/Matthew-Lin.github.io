@@ -3,11 +3,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/2026/7/15/sales-diary/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,15 +12,18 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/categories/"
                 />
   </url><url>
     <loc>http://localhost:1313/categories/diary/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/game/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -31,57 +31,9 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/post/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/subcategories/sales/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/sales/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/subcategories/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/subcategories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/en/subcategories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/en/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-15T16:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/en/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tags/game/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/subcategories/sstory/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
@@ -89,8 +41,47 @@
     <loc>http://localhost:1313/tags/sstory/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/subcategories/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/subcategories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/subcategories/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/tags/"
+                />
+  </url><url>
     <loc>http://localhost:1313/2026/7/09/sstory-lolthinking/</loc>
     <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/"
+                />
   </url><url>
     <loc>http://localhost:1313/categories/coding/</loc>
     <lastmod>2026-06-25T13:04:00+08:00</lastmod>
@@ -101,7 +92,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/categories/coding/"
                 />
   </url><url>
@@ -114,7 +105,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/hugo/"
                 />
   </url><url>
@@ -127,7 +118,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/supabase/"
                 />
   </url><url>
@@ -140,7 +131,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/subcategories/waline/"
                 />
   </url><url>
@@ -153,7 +144,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/waline/"
                 />
   </url><url>
@@ -166,7 +157,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/2026/6/25/waline-comment/"
                 />
   </url><url>
@@ -200,7 +191,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/notes/"
                 />
   </url><url>
@@ -212,7 +203,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/about/"
                 />
   </url><url>
@@ -224,7 +215,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/archive/"
                 />
   </url><url>
@@ -236,7 +227,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/message/"
                 />
   </url>

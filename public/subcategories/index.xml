@@ -34,12 +34,5 @@
 				<guid>http://localhost:1313/subcategories/bgknowledge/</guid>
 				<description></description>
 			</item>
-			<item>
-				<title>Sales</title>
-				<link>http://localhost:1313/subcategories/sales/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/subcategories/sales/</guid>
-				<description></description>
-			</item>
 	</channel>
 </rss>

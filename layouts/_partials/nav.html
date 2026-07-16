@@ -24,7 +24,7 @@
                     {{ if not site.Params.omit_categories }}
 						<li class="dropdown" id="categories-dropdown-li">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								{{ i18n "nav_categories" | default "CATLOG" }} <span class="caret"></span>
+								{{ i18n "nav_categories" | default "CLASS" }} <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" style="min-width: 120px !important; width: auto !important; white-space: nowrap !important; background-color: #ffffff !important; border: 1px solid #e2e8f0 !important; border-radius: 4px; box-shadow: 0 6px 12px rgba(0,0,0,.15); padding: 5px 0 !important; overflow: visible !important;">
 								{{ range $name, $taxonomy := site.Taxonomies.categories }}
@@ -69,7 +69,7 @@
                         <li><a href="{{.href | relLangURL}}/">{{.title}}</a></li>
                     {{ end }}
 		            <li>
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal" title="Search">
 							<i class="fa fa-search"></i>
 						</a>
 		            </li>

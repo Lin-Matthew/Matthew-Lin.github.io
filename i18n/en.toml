@@ -9,7 +9,7 @@ other = "Tags"
 other = "ALL POSTS"
 
 [nav_categories]
-other = "CATLOG"
+other = "CLASS"
 
 [search_title]
 other = "Search Articles"
@@ -53,7 +53,6 @@ other = "Lin's Memories"
 other = "Background"
 [subcat_sales]
 other = "SALES STORY"
-
 
 [tag_finance]
 other = "Finance"

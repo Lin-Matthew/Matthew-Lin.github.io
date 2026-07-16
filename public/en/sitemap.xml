@@ -12,7 +12,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/categories/"
                 />
   </url><url>
@@ -25,7 +25,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/categories/coding/"
                 />
   </url><url>
@@ -38,7 +38,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/hugo/"
                 />
   </url><url>
@@ -51,7 +51,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/"
                 />
   </url><url>
@@ -64,7 +64,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/post/"
                 />
   </url><url>
@@ -77,7 +77,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/subcategories/"
                 />
   </url><url>
@@ -90,7 +90,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/supabase/"
                 />
   </url><url>
@@ -103,7 +103,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/"
                 />
   </url><url>
@@ -116,7 +116,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/subcategories/waline/"
                 />
   </url><url>
@@ -129,7 +129,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/tags/waline/"
                 />
   </url><url>
@@ -142,7 +142,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/2026/6/25/waline-comment/"
                 />
   </url><url>
@@ -154,7 +154,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/about/"
                 />
   </url><url>
@@ -166,7 +166,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/message/"
                 />
   </url><url>
@@ -178,7 +178,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/notes/"
                 />
   </url><url>
@@ -190,7 +190,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
+                hreflang="en"
                 href="http://localhost:1313/en/archive/"
                 />
   </url>

@@ -1,7 +1,7 @@
 baseurl = "https://lintthew.myvnc.com/"
 theme = "cleanwhite"
-Language.Locale = "zh-cn"
 defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
 preserveTaxonomyNames = false
 hasCJKLanguage = true
 timeZone = "Asia/Shanghai"
@@ -70,7 +70,7 @@ home = ["HTML", "RSS", "algolia"]
 	
   [languages.en]
     #languageCode = "en"
-	locale = "zh-cn"	# 新版本
+	locale = "en"	# 新版本
     #languageName = "English"
 	label = "English"	# 新版本语言名称
     weight = 2
