@@ -53,6 +53,8 @@ other = "Lin's Memories"
 other = "Background"
 [subcat_sales]
 other = "SALES STORY"
+[subcat_rnotes]
+other = "READING NOTES"
 
 [tag_finance]
 other = "Finance"

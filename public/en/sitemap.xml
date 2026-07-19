@@ -193,5 +193,17 @@
                 hreflang="en"
                 href="http://localhost:1313/en/archive/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/en/post/diary/sstory/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/post/diary/sstory/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/post/diary/sstory/"
+                />
   </url>
 </urlset>

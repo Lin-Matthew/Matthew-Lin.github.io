@@ -16,7 +16,7 @@ enableRobotsTXT = true
     #id = "G-H7PS1PRVFE"
 
 [pagination]
-  pagerSize = 5 # frontpage pagination
+  pagerSize = 8 # frontpage pagination
 
 [outputs]
 home = ["HTML", "RSS", "algolia"]
@@ -183,7 +183,7 @@ home = ["HTML", "RSS", "algolia"]
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",  "css/main.css", "css/custom.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js", "js/custom.js"]
-  custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/custom.css"]
+  custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/custom.css", "css/custom1.css"]
   custom_js = ["https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/lightbox.js", "js/custom.js"]
 
   [params.social]
@@ -195,7 +195,7 @@ home = ["HTML", "RSS", "algolia"]
   #linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
   #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
   #instagram     = "full profile url in instagram"
-  github         = "https://github.com/Lin-Matthew"
+  #github         = "https://github.com/Lin-Matthew"
   wechat         = "your wechat qr code image"
   #wechat         = "/img/wechat_qrcode.png"
   #medium        = "full profile url in medium"

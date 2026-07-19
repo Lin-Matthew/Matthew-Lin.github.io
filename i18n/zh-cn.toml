@@ -53,6 +53,8 @@ other = "林修的回忆"
 other = "背景知识"
 [subcat_sales]
 other = "销售故事"
+[subcat_rnotes]
+other = "读书笔记"
 
 [tag_finance]
 other = "金融"

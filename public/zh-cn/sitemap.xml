@@ -4,7 +4,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -17,13 +17,10 @@
                 />
   </url><url>
     <loc>http://localhost:1313/categories/diary/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/game/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -35,14 +32,14 @@
                 href="http://localhost:1313/en/post/"
                 />
   </url><url>
-    <loc>http://localhost:1313/subcategories/sstory/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/reading-notes/</loc>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sstory/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/subcategories/rnotes/</loc>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/subcategories/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -55,7 +52,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -67,11 +64,11 @@
                 href="http://localhost:1313/en/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/2026/7/09/sstory-lolthinking/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/2026/7/17/rnotes-GameTheory/</loc>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <lastmod>2026-07-17T22:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -81,6 +78,31 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/en/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/game/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/subcategories/sstory/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sstory/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/2026/7/09/sstory-lolthinking/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/diary/sstory/</loc>
+    <lastmod>2026-07-09T16:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/post/diary/sstory/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/post/diary/sstory/"
                 />
   </url><url>
     <loc>http://localhost:1313/categories/coding/</loc>

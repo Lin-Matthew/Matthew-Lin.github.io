@@ -7,6 +7,7 @@ description: ""
 date:        2026-06-30 22:54:00
 author: "Matthew Lin"
 image: ""
+pre_image: "/img/postlist/diary-preimage.png"
 publishDate: 2026-06-30 23:54:00
 tags:
     - 回忆
