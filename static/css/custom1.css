@@ -36,7 +36,7 @@
                 box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 background-color 0.3s ease;
     
-    padding: 4px;
+    padding: 4px 24px;
     border-radius: 8px;
     margin-bottom: 5px;
 }

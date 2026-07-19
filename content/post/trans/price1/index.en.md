@@ -9,7 +9,6 @@ author: "Matthew Lin"
 image: "img/post-bg-2015.jpg"
 publishDate: 2026-06-23 00:00:00
 tags:
-    - finance
     - price
     - transaction
 URL: "/en/2026/6/23/fin-price/"
