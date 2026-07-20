@@ -170,14 +170,28 @@
 /* 底部元数据项排版（作者、日期、地点） */
 .post-preview .post-meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px; /* 让作者、时间、地点之间有舒适的物理横向间距 */
-    margin-top: 10px;
+    flex-wrap: wrap;       /* 核心：大屏一行显示，手机屏幕若实在挤不下时允许自动折行，防止溢出卡片 */
+    align-items: center;   /* 垂直方向居中对齐 */
+    gap: 16px;             /* 元素与元素之间的横向/纵向物理间距，告别拥挤 */
+    margin-top: 12px;
+    padding: 0;
+    list-style: none;
 }
 
 .post-preview .meta-item {
     display: inline-flex;
     align-items: center;
+    white-space: nowrap;   /* 核心：确保“图标+文字”作为一个整体永远不换行（例如不会发生图标在第一行，文字被挤到第二行的情况） */
+}
+
+/* 🌟 在项与项之间添加轻量级小圆点分割线（可选，极具现代媒体感） */
+.post-preview .meta-item + .meta-item::before {
+    content: "•";
+    margin-right: 16px;    /* 刚好与 gap 遥相呼应 */
+    opacity: 0.4;
+    font-size: 10px;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .post-preview .meta-icon {
