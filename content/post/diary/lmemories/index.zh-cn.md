@@ -18,6 +18,7 @@ categories: [diary]
 subcategories: [lmemories]
 comments: true
 reward: false
+location: "Loc_ShenZhen"
 ---
 
 ## 1.引子

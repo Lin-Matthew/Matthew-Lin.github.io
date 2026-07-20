@@ -17,5 +17,7 @@ URL: "/en/2026/6/29/fin-bubble/"
 categories: [trans]
 subcategories: [bgknowledge]
 comments: true
+reward: true
+location: "Loc_ShenZhen"
 ---
 ## None

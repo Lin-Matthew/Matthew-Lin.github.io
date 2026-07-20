@@ -15,6 +15,8 @@ URL: "/2026/6/23/fin-price/"
 categories: [trans]
 subcategories: [bgknowledge]
 comments: true
+reward: true
+location: "Loc_ShenZhen"
 ---
 ## 概述
 

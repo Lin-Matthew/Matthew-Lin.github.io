@@ -16,6 +16,8 @@ URL: "/2026/7/7/fin-market1/"
 categories: [trans]
 subcategories: [bgknowledge]
 comments: true
+reward: true
+location: "Loc_ShenZhen"
 ---
 
 ###### 市场不是零和游戏，但是短周期交易一定是零和/负和游戏。

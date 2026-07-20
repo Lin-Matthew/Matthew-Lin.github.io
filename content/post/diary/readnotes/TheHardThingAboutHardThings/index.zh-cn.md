@@ -16,6 +16,7 @@ categories: [diary]
 subcategories: [rnotes]
 comments: true
 reward: true
+location: "Loc_ShenZhen"
 ---
 
 ## 原英文名《The Hard Thing About Hard Things》

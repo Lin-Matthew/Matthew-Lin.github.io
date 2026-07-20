@@ -66,3 +66,6 @@ other = "交易"
 other = "短篇故事"
 [tag_game]
 other = "游戏"
+
+[Loc_ShenZhen]
+other = "深圳"

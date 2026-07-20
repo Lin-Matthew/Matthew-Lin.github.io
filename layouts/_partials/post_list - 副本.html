@@ -1,0 +1,81 @@
+<!-- post list -->
+<div data-pagefind-ignore="all">
+{{ range $index, $element := $.Paginator.Pages }}
+<!-- 仅动态加上 has-bg-img 类和图片变量，不增加任何包裹标签 -->
+<div class="post-preview"
+	{{ if .Params.pre_image }}data-bg-src="{{ .Params.pre_image | relURL }}"{{ end }}>
+    
+    <!-- 这两个层是绝对定位，不会打乱、也不会撑开原有的 HTML 元素层级 -->
+    <div class="card-blur-background"></div>
+    <div class="card-image-overlay"></div>
+
+    <!-- 🌟 完全恢复你原版的纯净内部结构，确保主题自带的字号、斜体样式 100% 正常生效 -->
+    <a href="{{ .Permalink }}">
+        <h2 class="post-title">
+            {{ .Title }}
+        </h2>
+	{{with .Params.subtitle }}
+        <h3 class="post-subtitle">
+            {{ . }}
+        </h3>
+	{{ end }}
+        <div class="post-content-preview">
+	{{ with .Description }}
+            {{ . }}
+        {{ else }}
+            {{ .Summary | plainify}}
+       {{ end }}
+        </div>
+    </a>
+    <p class="post-meta">
+    {{ if .Params.metadata }}
+        {{ range $index, $element := .Params.metadata }}
+            {{ if .link }}
+                <a href="{{ .link }}">{{ .text }}</a>
+            {{ else }}
+                {{ .text }}
+            {{ end }}
+        {{ end }}
+    {{ else }}
+        Posted by {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }} on {{ .Date.Format "Monday, January 2, 2006" }}
+        <!-- Don't show "Last Modified on" if update happened on the same day. -->
+        {{ if (and (not .Lastmod.IsZero) (not (eq (dateFormat "2006-01-02" .Lastmod) (dateFormat "2006-01-02" .Date)))) }}
+            <br>Last Modified on {{ dateFormat "Monday, January 2, 2006" .Params.LastMod }} 
+        {{ end }}
+    {{ end }}
+    </p>
+
+</div>
+<hr>
+{{ end }}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 找到所有配有 pre-image 的卡片
+    const cards = document.querySelectorAll('.post-preview[data-bg-src]');
+    
+    cards.forEach(card => {
+        const imgSrc = card.getAttribute('data-bg-src');
+        if (!imgSrc) return;
+
+        // 创建一个隐藏的内存图片对象进行静默加载测试
+        const img = new Image();
+        img.src = imgSrc;
+
+        // 情况 A：图片路径正确，成功加载完毕
+        img.onload = function() {
+            // 只有成功加载后，才传入 CSS 变量并激活所有的美化特效
+            card.style.setProperty('--card-post-img', `url('${imgSrc}')`);
+            card.classList.add('has-bg-img');
+        };
+
+        // 情况 B：路径错误、图片不存在、网络 404
+        img.onerror = function() {
+            // 加载失败时什么都不做。卡片不加 has-bg-img 类，文字不变白，遮罩不显示
+            // 样式和逻辑将百分之百退回到没有输入图片的样子！
+            console.warn("Card background image failed to load: " + imgSrc);
+        };
+    });
+});
+</script>

@@ -17,6 +17,7 @@ categories: [diary]
 subcategories: [sstory]
 comments: true
 reward: true
+location: "Loc_ShenZhen"
 ---
 
 ## 1《英雄联盟》游戏普通对局规则介绍

@@ -66,3 +66,6 @@ other = "Transaction"
 other = "Short Story"
 [tag_game]
 other = "Game"
+
+[Loc_ShenZhen]
+other = "ShenZhen"

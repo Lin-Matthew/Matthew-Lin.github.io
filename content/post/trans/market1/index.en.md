@@ -14,5 +14,7 @@ URL: "/en/2026/6/29/fin-market1/"
 categories: [trans]
 subcategories: [bgknowledge]
 comments: true
+reward: true
+location: "Loc_ShenZhen"
 ---
 ## None

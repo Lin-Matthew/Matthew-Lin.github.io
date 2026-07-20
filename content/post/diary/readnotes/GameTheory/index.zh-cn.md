@@ -7,7 +7,7 @@ description: ""
 date:        2026-07-17 22:00:00
 author: "Matthew Lin"
 image: ""
-pre_image: "/img/postlist/diary-rnotes-preimg.png"
+pre_image: "/img/postlist/diary-rnotes-preimg1.png"
 publishDate: 2026-07-17 22:00:00
 tags:
     - reading notes
@@ -16,6 +16,7 @@ categories: [diary]
 subcategories: [rnotes]
 comments: true
 reward: true
+location: "Loc_ShenZhen"
 ---
 
 ## 1 中英词汇

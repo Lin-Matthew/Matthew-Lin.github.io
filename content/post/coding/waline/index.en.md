@@ -16,6 +16,8 @@ URL: "/en/2026/6/25/waline-comment/"
 categories: [coding]
 subcategories: [waline]
 comments: true
+reward: true
+location: "Loc_ShenZhen"
 ---
 ## Overview
 

@@ -1,17 +1,16 @@
 <!-- post list -->
 <div data-pagefind-ignore="all">
 {{ range $index, $element := $.Paginator.Pages }}
-<!-- 仅动态加上 has-bg-img 类和图片变量，不增加任何包裹标签 -->
 <div class="post-preview"
 	{{ if .Params.pre_image }}data-bg-src="{{ .Params.pre_image | relURL }}"{{ end }}>
     
-    <!-- 这两个层是绝对定位，不会打乱、也不会撑开原有的 HTML 元素层级 -->
     <div class="card-blur-background"></div>
     <div class="card-image-overlay"></div>
 
-    <!-- 🌟 完全恢复你原版的纯净内部结构，确保主题自带的字号、斜体样式 100% 正常生效 -->
     <a href="{{ .Permalink }}">
+        <!-- 🌟 标题栏：加入书本/钢笔图标 -->
         <h2 class="post-title">
+            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             {{ .Title }}
         </h2>
 	{{with .Params.subtitle }}
@@ -19,7 +18,9 @@
             {{ . }}
         </h3>
 	{{ end }}
+        <!-- 🌟 简介栏：加入对齐的对齐文本短图标 -->
         <div class="post-content-preview">
+            <svg class="card-icon mini-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1='21' y1='10' x2='3' y2='10'></line><line x1='21' y1='6' x2='3' y2='6'></line><line x1='21' y1='14' x2='3' y2='14'></line><line x1='21' y1='18' x2='3' y2='18'></line></svg>
 	{{ with .Description }}
             {{ . }}
         {{ else }}
@@ -27,6 +28,8 @@
        {{ end }}
         </div>
     </a>
+    
+    <!-- 🌟 元数据栏：模块化拆分，各配小图标 -->
     <p class="post-meta">
     {{ if .Params.metadata }}
         {{ range $index, $element := .Params.metadata }}
@@ -37,43 +40,55 @@
             {{ end }}
         {{ end }}
     {{ else }}
-        Posted by {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }} on {{ .Date.Format "Monday, January 2, 2006" }}
-        <!-- Don't show "Last Modified on" if update happened on the same day. -->
+        <!-- 作者 -->
+        <span class="meta-item">
+            <svg class="card-icon meta-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Posted by {{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
+        </span>
+        
+        <!-- 发布时间 -->
+        <span class="meta-item">
+            <svg class="card-icon meta-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            on {{ .Date.Format "Monday, January 2, 2006" }}
+        </span>
+
+        <!-- 🌟 新增：地点信息（仅在 Front Matter 中配置了 location 时显示） -->
+        {{ if .Params.location }}
+        <span class="meta-item location-item">
+            <svg class="card-icon meta-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            at {{ i18n .Params.location | default .Params.location }}
+        </span>
+        {{ end }}
+
+        <!-- 修改时间 -->
         {{ if (and (not .Lastmod.IsZero) (not (eq (dateFormat "2006-01-02" .Lastmod) (dateFormat "2006-01-02" .Date)))) }}
-            <br>Last Modified on {{ dateFormat "Monday, January 2, 2006" .Params.LastMod }} 
+            <br>
+            <span class="meta-item">
+                <svg class="card-icon meta-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                Last Modified on {{ dateFormat "Monday, January 2, 2006" .Params.LastMod }} 
+            </span>
         {{ end }}
     {{ end }}
     </p>
 
 </div>
-<hr>
+<!-- 🌟 完美干掉了原本生硬的 <hr> 分割线 -->
 {{ end }}
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // 找到所有配有 pre-image 的卡片
     const cards = document.querySelectorAll('.post-preview[data-bg-src]');
-    
     cards.forEach(card => {
         const imgSrc = card.getAttribute('data-bg-src');
         if (!imgSrc) return;
-
-        // 创建一个隐藏的内存图片对象进行静默加载测试
         const img = new Image();
         img.src = imgSrc;
-
-        // 情况 A：图片路径正确，成功加载完毕
         img.onload = function() {
-            // 只有成功加载后，才传入 CSS 变量并激活所有的美化特效
             card.style.setProperty('--card-post-img', `url('${imgSrc}')`);
             card.classList.add('has-bg-img');
         };
-
-        // 情况 B：路径错误、图片不存在、网络 404
         img.onerror = function() {
-            // 加载失败时什么都不做。卡片不加 has-bg-img 类，文字不变白，遮罩不显示
-            // 样式和逻辑将百分之百退回到没有输入图片的样子！
             console.warn("Card background image failed to load: " + imgSrc);
         };
     });
