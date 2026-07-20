@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Rnotes on 林修的博客</title>
+		<link>http://localhost:1313/subcategories/rnotes/</link>
+		<description>Recent content in Rnotes on 林修的博客</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 17 Jul 2026 22:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/subcategories/rnotes/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>读《博弈论-朱·弗登博格 &amp; 让·梯若尔》</title>
+				<link>http://localhost:1313/2026/7/17/rnotes-GameTheory/</link>
+				<pubDate>Fri, 17 Jul 2026 22:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/2026/7/17/rnotes-GameTheory/</guid>
+				<description>&lt;h2 id=&#34;1-中英词汇&#34;&gt;1 中英词汇&lt;/h2&gt;&#xA;&lt;h4 id=&#34;11-博弈的核心要素&#34;&gt;1.1 博弈的核心要素&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;决策人/局中人：Player/Agents&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&amp;ndash;参与博弈并进行决策的个人、公司、国家&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;策略：Strategy&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&amp;ndash;决策者在各种可能情况下可以选择的一整套行动方案&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

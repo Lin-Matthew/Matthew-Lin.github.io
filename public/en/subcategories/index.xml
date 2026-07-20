@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Subcategories on Matthew Blog</title>
+		<link>http://localhost:1313/en/subcategories/</link>
+		<description>Recent content in Subcategories on Matthew Blog</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 25 Jun 2026 13:04:00 +0800</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/en/subcategories/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Waline</title>
+				<link>http://localhost:1313/en/subcategories/waline/</link>
+				<pubDate>Thu, 25 Jun 2026 00:00:00 +0800</pubDate>
+				<guid>http://localhost:1313/en/subcategories/waline/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>
