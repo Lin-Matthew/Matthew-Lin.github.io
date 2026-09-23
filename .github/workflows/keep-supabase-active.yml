@@ -2,17 +2,16 @@ name: Keep Supabase Active
 
 on:
   schedule:
-    # 每天 UTC 时间 0 点（北京时间早 8 点）自动运行一次
+    # 每天 UTC 0 点运行
     - cron: '0 0 * * *'
-  # 支持在 GitHub 界面手动触发测试
   workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase API
+      - name: Ping Supabase Database
         run: |
-          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/wl_users?select=*&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
